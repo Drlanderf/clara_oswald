@@ -1,5 +1,6 @@
 const MyToken = process.env.TOKEN;
 //Variables simple
+//j'ai changé wola
 const { Client, GatewayIntentBits} = require("discord.js");
 const Discord = require("discord.js");
 const Canvas = require("canvas");
