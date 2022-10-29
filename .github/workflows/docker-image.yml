@@ -1,14 +1,16 @@
 name: Docker Image CI
 
 on: [push]
-
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Login to Docker Hub
+      uses: docker/login-action@v2.1.0
+      with:
+        username: landerf
+        password: ^Tfwi8MX,7~TQRf
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag discord_bot:$(date +%s)
