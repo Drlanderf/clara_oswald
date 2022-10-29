@@ -12,5 +12,3 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag discord_bot:$(date +%s)
-    - name: Push the Docker Image
-      run: docker push 85.201.243.231:5000/discord_bot:$(date +%s)
