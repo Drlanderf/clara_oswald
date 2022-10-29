@@ -1,14 +1,22 @@
 name: Docker Image CI
 
 on: [push]
-
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Login to Docker Hub
+      uses: docker/login-action@v2.1.0
+      with:
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+    - name: Build and Push to Docker Hub
+      uses: docker/build-push-action@v3.2.0
+      with:
+        context: .
+        push: true
+        tags: landerf/clara_oswlad:latest, landerf/clara_oswlad:${{ github.run_number }}
+      
+
