@@ -13,7 +13,8 @@ const client = new Client(
             GatewayIntentBits.GuildMembers
         ]
     });
-let MyTestingReplyVar = "quoi";
+let MyTestingReplyVar01 = "quoi";
+let MyTestingReplyVar02 = "docteur";
 let MyLeavingMessage01 = " est parti sans un aurevoir.";
 let MyLeavingMessage02 = " a voyagé dans le passé où il n'était pas encore sur le serveur !";
 let MyLeavingMessage03 = " a rejoint la planete prison des Dalek, on ne l'a plus jamais revu.";
@@ -49,9 +50,17 @@ client.on("ready",() => {
 client.on("messageCreate", message => {
     let test = message.content;
     let result = test.toLowerCase();
-    if(result.includes(MyTestingReplyVar))
+    if(result.includes(MyTestingReplyVar01))
         message.reply("feur :stuck_out_tongue_closed_eyes: !",).then(() =>{
             console.log("Reply Action 'feur' SUCCEED !");
+        }) ;
+});
+client.on("messageCreate", message => {
+    let test = message.content;
+    let result = test.toLowerCase();
+    if(result.includes(MyTestingReplyVar02))
+        message.reply("le docteur qui?",).then(() =>{
+            console.log("Reply Action 'doctor who?' SUCCEED !");
         }) ;
 });
 //Event quand quelqu'un arrive sur le serveur discord
