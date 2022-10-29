@@ -17,6 +17,6 @@ jobs:
       with:
         context: .
         push: true
-        tags: landerf/clara_oswlad:latest, landerf/clara_oswlad:${{ github.run_number }}
+        tags: landerf/clara_oswlad:latest, landerf/clara_oswlad:v${{ github.run_number }}
       
 
