@@ -12,5 +12,11 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag discord_bot:$(date +%s)
+    - name: Build and Push to Docker Hub
+      uses: docker/build-push-action@v3.2.0
+      with:
+        context: .
+        push: true
+        tags: landerf/clara_oswlad:latest, landerf/clara_oswlad:${{ github.run_number }}
+      
+
