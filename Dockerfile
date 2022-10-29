@@ -1,6 +1,6 @@
-FROM node:alpine
+FROM node:16
 
-WORKDIR /usr/src/app
+WORKDIR /app/
 
 COPY package*.json ./
 
@@ -8,4 +8,4 @@ RUN npm i
 
 COPY . .
 
-CMD ["node", "./src/index.js"]
+CMD ["node", "index.js"]

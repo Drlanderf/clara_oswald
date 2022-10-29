@@ -1,9 +1,8 @@
-const MyToken = "MTAzNDE4NjMxODcwNTU5MDM5Mg.Gtpw6a.aHgIsjueohx51pl-eKnpcFITX-Kszh_IK4r59g";
+const MyToken = process.env.TOKEN;
 //Variables simple
-const { Client, GatewayIntentBits, Collection} = require("discord.js");
+const { Client, GatewayIntentBits} = require("discord.js");
 const Discord = require("discord.js");
 const Canvas = require("canvas");
-const DefRole = new Collection();
 const client = new Client(
     {
         intents: [
