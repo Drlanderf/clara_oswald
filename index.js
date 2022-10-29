@@ -59,7 +59,7 @@ client.on("messageCreate", message => {
     let test = message.content;
     let result = test.toLowerCase();
     if(result.includes(MyTestingReplyVar02))
-        message.reply("le docteur qui?",).then(() =>{
+        message.reply("The Doctor Who ?",).then(() =>{
             console.log("Reply Action 'doctor who?' SUCCEED !");
         }) ;
 });
