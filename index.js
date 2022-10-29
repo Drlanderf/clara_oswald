@@ -1,7 +1,6 @@
 require('dotenv').config();
 const MyToken = process.env.BOT_TOKEN;
 //Variables simple
-//j'ai changé wola
 const { Client, GatewayIntentBits} = require("discord.js");
 const Discord = require("discord.js");
 const Canvas = require("canvas");
