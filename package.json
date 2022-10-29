@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "canvas": "^2.10.1",
-    "discord.js": "^14.6.0"
+    "discord.js": "^14.6.0",
+    "dotenv": "^16.0.3"
   },
   "name": "clara_oswald",
   "version": "1.0.0",
