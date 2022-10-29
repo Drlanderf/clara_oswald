@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "canvas": "^2.10.1",
+    "discord.js": "^14.6.0"
+  },
+  "name": "clara_oswald",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
