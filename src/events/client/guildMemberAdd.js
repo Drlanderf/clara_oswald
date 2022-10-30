@@ -24,7 +24,7 @@ module.exports =
             console.log("guildMemberAdd Action SUCCEED !");
 
 
-        const WelcomeChannel = client.channels.cache.get("1035551789833007237");
+        const WelcomeChannel = client.channels.cache.get("762448607260835850");
         let canvas = welcomeCanvas;
         canvas.context.font = "42px sans-serif";
         canvas.context.textAlign = "center";
