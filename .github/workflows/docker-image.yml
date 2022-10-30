@@ -25,6 +25,6 @@ jobs:
       with:
         context: .
         push: true
-        tags: landerf/clara_oswlad:latest
+        tags: landerf/clara_oswlad:latest,landerf/clara_oswlad:${{ steps.version_by_tag.outputs.tag }}
       
 
