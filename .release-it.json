@@ -8,6 +8,8 @@
     "after:bump": "npx auto-changelog -p"
   },
   "github": {
+    "requireBranch": "main",
+    "commitMessage": "chore: release v${version}",
     "release": true
   }
 }
