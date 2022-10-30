@@ -3,7 +3,7 @@ const { Routes } = require('discord-api-types/v9');
 const fs = require('fs');
 module.exports = (client) =>
 {
-    client.handleCommands = async() =>
+    client.handleCommands = async applicationId =>
     {
         const commandFolders = fs.readdirSync('./src/commands');
         for (const folder of commandFolders)

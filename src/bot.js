@@ -1,5 +1,5 @@
 require('dotenv').config();
-const token = process.env.TOKEN;
+const myToken = process.env.TOKEN;
 const { Client, Collection } = require('discord.js');
 const fs = require('fs');
 const client = new Client({ intents: 131071});
@@ -19,4 +19,4 @@ for (const folder of functionFolders) {
 
 client.handleEvents();
 client.handleCommands();
-client.login(token).then(() => console.log("Successfully login !"));
+client.login(myToken).then(() => console.log("Successfully login !"));
