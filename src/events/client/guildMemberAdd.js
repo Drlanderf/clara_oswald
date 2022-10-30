@@ -13,6 +13,7 @@ Canvas.loadImage(`${process.cwd()}/assets/img/bg.png`).then(async (img) => {
     welcomeCanvas.context.stroke();
     welcomeCanvas.context.fill();
 });
+//Actif quand une personne rejoin le serveur discord.
 module.exports =
     {
         name: 'guildMemberAdd',

@@ -3,7 +3,7 @@ const MyLeavingMessage01 = " est parti sans un aurevoir.";
 const MyLeavingMessage02 = " a voyagé dans le passé où il n'était pas encore sur le serveur !";
 const MyLeavingMessage03 = " a rejoint la planete prison des Dalek, on ne l'a plus jamais revu.";
 const MyLeavingMessage04 = " est parti en quête d'aventure, on ne l'a plus jamais revu.";
-
+//Actif quand une personne quitte le serveur discord.
 module.exports =
     {
         name: 'guildMemberRemove',
