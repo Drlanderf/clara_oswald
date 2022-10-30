@@ -1,5 +1,2 @@
 # Project exclude paths
 /node_modules/
-.env
-compose-dev.yaml
-.dockerignore
