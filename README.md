@@ -7,7 +7,7 @@
 [![youtube](https://img.shields.io/youtube/channel/subscribers/UCnK7oWn1A7RvKiB19ZIECZg?style=social)](https://www.youtube.com/channel/UCnK7oWn1A7RvKiB19ZIECZg)
 [![youtube](https://img.shields.io/twitch/status/doc_landerf?style=social)](https://www.twitch.tv/doc_landerf)
 
-## 🧰 Technologies & Tools used for
+## 🧰 Technologies & Tools used for this project
 
 ![PhpStorm](https://img.shields.io/badge/phpstorm-143?style=for-the-badge&logo=phpstorm&logoColor=black&color=black&labelColor=darkorchid)
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
