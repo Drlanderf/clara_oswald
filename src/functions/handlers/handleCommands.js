@@ -15,7 +15,7 @@ module.exports = (client) =>
             for (const file of commandFiles)
             {
                 const command = require(`../../commands/${folder}/${file}`);
-                commands.set(command.data.name, command);
+                await commands.set(command.data.name, command);
                 commandArray.push(command.data.toJSON());
                 console.log(`Command : ${command.data.name} has been passed through the handler`);
             }
