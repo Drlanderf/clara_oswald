@@ -3,7 +3,7 @@ module.exports =
     {
         data: new SlashCommandBuilder()
             .setName('ping')
-            .setDescription('Return my ping!'),
+            .setDescription('Retourne mon ping'),
         async execute(interaction,client)
         {
             const message = await interaction.deferReply({
