@@ -20,8 +20,8 @@ module.exports = (client) =>
                 console.log(`Command : ${command.data.name} has been passed through the handler`);
             }
         }
-        const clientId = '1034185991533109248';
-        const guildId = '1034185293118574664';
+        const clientId = '1034186318705590392';
+        const guildId = '762441206642245672';
         const rest = new REST({ version: "9" }).setToken(process.env.token);
         try  {
             console.log("Started refreshing application (/) commands.");
