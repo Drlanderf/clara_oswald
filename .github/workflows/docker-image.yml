@@ -10,10 +10,6 @@ jobs:
     - name: Get version and version code
       uses: xom9ikk/version-by-tag@v1
       id: version_by_tag
-      with:
-          path: ./Drlanderf/clara_oswald
-          isUseGithubRunNumber: false
-          offset: 77
     - name: Some other action
       run: |
           echo "Tag: ${{ steps.version_by_tag.outputs.tag }}"
