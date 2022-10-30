@@ -41,7 +41,7 @@ module.exports =
         let Attachment = new Discord.AttachmentBuilder(canvas.create.toBuffer());
         Attachment.setName(`welcome-${member.id}.png`);
         try{
-            WelcomeChannel.send({content:`:wave::skin-tone-2: Salutation ${member}, bienvenue sur ${member.guild.name}`,files: [Attachment]});
+            WelcomeChannel.send({content:`:wave::skin-tone-2: Salutation ${member}, bienvenue sur ${member.guild.name}\nL'équipe de ce discord t'invite a approuver les règles afin d'accèder à ce dernier <#762441206642245674>\nN'oublies pas de sélectionner tes rôles via notre fabuleux auto-rôle dans <#763763437041614848>`,files: [Attachment]});
         } catch (error){
             console.log(error);
         }
