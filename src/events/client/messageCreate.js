@@ -8,7 +8,7 @@ module.exports =
          * @param {import("../../bot.js")} client
          * @param {Message} message
          */
-        async execute(client,message) {
+        async execute(message,client) {
             console.log("Event messageCreate successfully apply");
             console.log("message.content is :");
             console.log(message.content);

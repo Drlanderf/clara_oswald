@@ -16,7 +16,6 @@ module.exports = (client) =>
                         if (event.once) client.once(event.name, execute);
                         else client.on(event.name, execute);
                     }
-
         }
     }
 }
