@@ -4,11 +4,21 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-
-        
+    steps:         
     - name: Checkout code
       uses: actions/checkout@v3
+    - name: Get version and version code
+      uses: xom9ikk/version-by-tag@v1
+      id: version_by_tag
+      with:
+          path: custom_path_to_repo
+          isUseGithubRunNumber: false
+          offset: 77
+    - name: Some other action
+      run: |
+          echo "Tag: ${{ steps.version_by_tag.outputs.tag }}"
+          echo "Semver: ${{ steps.version_by_tag.outputs.semver }}"
+          echo "Version code: ${{ steps.version_by_tag.outputs.versionCode }}"
     - name: Login to Docker Hub
       uses: docker/login-action@v2.1.0
       with:
@@ -19,6 +29,6 @@ jobs:
       with:
         context: .
         push: true
-        tags: landerf/clara_oswlad:latest, landerf/clara_oswlad:${{ env.tag }}
+        tags: landerf/clara_oswlad:latest
       
 
