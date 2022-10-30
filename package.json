@@ -1,17 +1,20 @@
 {
   "dependencies": {
+    "@discordjs/rest": "^1.3.0",
     "canvas": "^2.10.1",
+    "discord-api-types": "^0.37.15",
     "discord.js": "^14.6.0",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "rss-parser": "^3.12.0"
   },
   "name": "clara_oswald",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/bot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ."
   },
   "keywords": [],
-  "author": "",
+  "author": "landerf",
   "license": "ISC",
   "description": ""
 }
