@@ -12,10 +12,14 @@
   "version": "1.0.0",
   "main": "src/bot.js",
   "scripts": {
-    "test": "node ."
+    "test": "node .",
+    "release": "release-it"
   },
   "keywords": [],
   "author": "landerf",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "release-it": "^15.5.0"
+  }
 }

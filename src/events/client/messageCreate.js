@@ -6,7 +6,7 @@ module.exports =
         name: 'messageCreate',
         /**
          * @param {import("../../bot.js")} client
-         * @param {Discord.GuildMessages} message
+         * @param {Message} message
          */
         async execute(client,message) {
             console.log("Event messageCreate successfully apply");
