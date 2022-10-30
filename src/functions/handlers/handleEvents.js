@@ -12,7 +12,7 @@ module.exports = (client) =>
                 .filter((file)=> file.endsWith('.js'));
                     for (const file of eventFiles) {
                         const event = require(`../../events/${folder}/${file}`);
-                        const execute = (...args) => event.execute(...args, client);
+                        const execute = (...args) => event.execute(...args, client); // WARNING CLIENT EVERYTIME THE LAST
                         if (event.once) client.once(event.name, execute);
                         else client.on(event.name, execute);
                     }
