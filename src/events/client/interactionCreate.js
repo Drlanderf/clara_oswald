@@ -1,17 +1,14 @@
 module.exports =
     {
         name: 'interactionCreate',
-        async execute(interaction,client)
-        {
-            if (interaction.isChatInputCommand())
-            {
+        async execute(interaction,client){
+            console.log("Event interactionCreate successfully apply");
+            if (interaction.isChatInputCommand()) {
                 const { commands } = client;
                 const { commandName } = interaction;
                 const command = commands.get(commandName);
                 if (!command) return;
-
-                try
-                {
+                try {
                     await command.execute(interaction,client);
                 } catch (error) {
                     console.error(error)
@@ -21,6 +18,5 @@ module.exports =
                     })
                 }
             }
-            //console.log(`Ready !!! ${client.user.tag} is logged in and online!`);
         }
     }

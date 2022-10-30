@@ -3,6 +3,7 @@ const MyLeavingMessage01 = " est parti sans un aurevoir.";
 const MyLeavingMessage02 = " a voyagé dans le passé où il n'était pas encore sur le serveur !";
 const MyLeavingMessage03 = " a rejoint la planete prison des Dalek, on ne l'a plus jamais revu.";
 const MyLeavingMessage04 = " est parti en quête d'aventure, on ne l'a plus jamais revu.";
+
 module.exports =
     {
         name: 'guildMemberRemove',
@@ -11,7 +12,7 @@ module.exports =
          * @param {import("../../bot.js")} client
          */
         async execute(member, client) {
-            console.log("guildMemberRemove Action SUCCEED !");
+            console.log("Event guildMemberRemove successfully apply");
 
 
             const WelcomeChannel = client.channels.cache.get("762448607260835850");

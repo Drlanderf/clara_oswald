@@ -4,6 +4,7 @@ const fs = require('fs');
 module.exports = (client) =>
 {
     client.handleEvents = async() => {
+        console.log("Handler of Events successfully apply");
         const eventFolders = fs.readdirSync('./src/events');
         for (const folder of eventFolders) {
             const eventFiles = fs

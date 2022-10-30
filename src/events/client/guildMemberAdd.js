@@ -21,7 +21,7 @@ module.exports =
          * @param {import("../../bot.js")} client
          */
         async execute(member, client) {
-            console.log("guildMemberAdd Action SUCCEED !");
+            console.log("Event guildMemberAdd successfully apply");
 
 
         const WelcomeChannel = client.channels.cache.get("762448607260835850");

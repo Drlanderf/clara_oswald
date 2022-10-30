@@ -6,6 +6,7 @@ module.exports =
             .setDescription('Retourne mon ping'),
         async execute(interaction,client)
         {
+            console.log("Command ping successfully apply");
             const message = await interaction.deferReply({
                     fetchReply: true
                 });
