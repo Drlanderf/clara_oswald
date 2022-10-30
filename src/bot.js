@@ -3,14 +3,7 @@ const myToken = process.env.BOT_TOKEN;
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
 
 const fs = require('fs');
-const client = new Client({
-    intents: [
-        131071,
-        GatewayIntentBits.Guilds,
-        GatewayIntentBits.MessageContent,
-        GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.GuildMembers
-    ]});
+const client = new Client({intents: 3276799});
 client.commands = new Collection();
 client.commandArray = [];
 
