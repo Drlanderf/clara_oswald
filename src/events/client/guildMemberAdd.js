@@ -5,7 +5,7 @@ welcomeCanvas.create = Canvas.createCanvas(1024,500);
 welcomeCanvas.context = welcomeCanvas.create.getContext("2d");
 welcomeCanvas.context.font = "68px sans-serif";
 welcomeCanvas.context.fillStyle = "#ffffff";
-Canvas.loadImage("./img/bg.png").then(async (img) => {
+Canvas.loadImage("../../../assets/img/bg.png").then(async (img) => {
     welcomeCanvas.context.drawImage(img,0,0,1024,500);
     welcomeCanvas.context.fillText("Bienvenue", 350,75);
     welcomeCanvas.context.beginPath();
