@@ -10,8 +10,8 @@ module.exports =
          */
         async execute(message,client) { // WARNING CLIENT EVERYTIME THE LAST
             console.log("Event messageCreate successfully apply");
-            console.log("message.content is :");
-            console.log(message.content);
+            /*console.log("message.content is :");
+            console.log(message.content);*/
             try{
                 const test = message.content;
                 const result = test.toLowerCase();
