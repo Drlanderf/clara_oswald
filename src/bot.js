@@ -1,8 +1,8 @@
 require('dotenv').config();
 const { token } = process.env;
-const { Discord,Client, GatewayIntentBits, Collection } = require('discord.js');
+const { Client, GatewayIntentBits, Collection } = require('discord.js');
 const fs = require('fs');
-const Canvas = require("canvas");
+//const Canvas = require("canvas");
 const client = new Client({ intents: GatewayIntentBits.Guilds });
 client.commands = new Collection();
 client.commandArray = [];
