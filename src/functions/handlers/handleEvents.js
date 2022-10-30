@@ -3,28 +3,19 @@ const fs = require('fs');
 
 module.exports = (client) =>
 {
-    client.handleEvents = async() =>
-    {
+    client.handleEvents = async() => {
         const eventFolders = fs.readdirSync('./src/events');
-        for (const folder of eventFolders)
-        {
+        for (const folder of eventFolders) {
             const eventFiles = fs
                 .readdirSync(`./src/events/${folder}`)
                 .filter((file)=> file.endsWith('.js'));
-            switch (folder)
-            {
-                case "client":
-                    for (const file of eventFiles)
-                    {
+                    for (const file of eventFiles) {
                         const event = require(`../../events/${folder}/${file}`);
-                        if (event.once) client.once(event.name, (...args) => event.execute(...args, client));
-                        else client.on(event.name,(...args) => event.execute(...args,client));
+                        const execute = (...args) => event.execute(...args, client);
+                        if (event.once) client.once(event.name, execute);
+                        else client.on(event.name, execute);
                     }
-                    break;
 
-                default:
-                    break;
-            }
         }
     }
 }
