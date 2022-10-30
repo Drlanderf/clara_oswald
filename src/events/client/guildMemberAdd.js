@@ -1,6 +1,18 @@
 const Canvas = require("canvas");
 const Discord = require("discord.js");
-
+const welcomeCanvas = {};
+welcomeCanvas.create = Canvas.createCanvas(1024,500);
+welcomeCanvas.context = welcomeCanvas.create.getContext("2d");
+welcomeCanvas.context.font = "68px sans-serif";
+welcomeCanvas.context.fillStyle = "#ffffff";
+Canvas.loadImage("./img/bg.png").then(async (img) => {
+    welcomeCanvas.context.drawImage(img,0,0,1024,500);
+    welcomeCanvas.context.fillText("Bienvenue", 350,75);
+    welcomeCanvas.context.beginPath();
+    welcomeCanvas.context.arc(512,245,128,0, Math.PI * 2, true);
+    welcomeCanvas.context.stroke();
+    welcomeCanvas.context.fill();
+});
 module.exports =
     {
         name: 'guildMemberAdd',
@@ -10,19 +22,7 @@ module.exports =
          */
         async execute(member, client) {
             console.log("guildMemberAdd Action SUCCEED !");
-            const welcomeCanvas = {};
-            welcomeCanvas.create = Canvas.createCanvas(1024,500);
-            welcomeCanvas.context = welcomeCanvas.create.getContext("2d");
-            welcomeCanvas.context.font = "68px sans-serif";
-            welcomeCanvas.context.fillStyle = "#ffffff";
-            Canvas.loadImage("./img/bg.png").then(async (img) => {
-                welcomeCanvas.context.drawImage(img,0,0,1024,500);
-                welcomeCanvas.context.fillText("Bienvenue", 350,75);
-                welcomeCanvas.context.beginPath();
-                welcomeCanvas.context.arc(512,245,128,0, Math.PI * 2, true);
-                welcomeCanvas.context.stroke();
-                welcomeCanvas.context.fill();
-            });
+
 
         const WelcomeChannel = client.channels.cache.get("1035551789833007237");
         let canvas = welcomeCanvas;
