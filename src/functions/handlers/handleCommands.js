@@ -4,8 +4,8 @@ require('dotenv').config();
 const clientId = process.env.CLIENT_ID;
 const guildId = process.env.GUILD_ID;
 const rest = new REST({
-    version: '10',})
-    .setToken(process.env.token);
+    version: '9',})
+    .setToken(process.env.BOT_TOKEN);
 module.exports = (client) =>
 {
     client.handleCommands = async () => {
