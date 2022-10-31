@@ -2,7 +2,6 @@ const { Message } = require('discord.js');
 require('dotenv').config();
 const MyTestingReplyVar00 = process.env.MY_TESTING_REPLY_VAR00;
 const MyReplyVar00 = process.env.MY_REPLY_VAR00;
-//
 module.exports =
     {
         name: 'messageCreate',
