@@ -13,6 +13,12 @@ Canvas.loadImage(`${process.cwd()}/assets/img/bg.png`).then(async (img) => {
     welcomeCanvas.context.stroke();
     welcomeCanvas.context.fill();
 });
+require('dotenv').config();
+const MyWelcomeChannelID = process.env.JOIN_CHANNEL;
+const MyRoleID00 = process.env.ROLE_ID00;
+const MyRoleID01= process.env.ROLE_ID01;
+const MyRoleID02 = process.env.ROLE_ID02;
+const MyCustomWelcomeMessage = process.env.CUSTOM_WELCOME_MESSAGE;
 //Actif quand une personne rejoin le serveur discord.
 module.exports =
     {
@@ -25,7 +31,7 @@ module.exports =
             console.log("Event guildMemberAdd successfully apply");
 
 
-        const WelcomeChannel = client.channels.cache.get("762448607260835850");
+        const WelcomeChannel = client.channels.cache.get(`${MyWelcomeChannelID}`);
         let canvas = welcomeCanvas;
         canvas.context.font = "42px sans-serif";
         canvas.context.textAlign = "center";
@@ -42,10 +48,10 @@ module.exports =
         let Attachment = new Discord.AttachmentBuilder(canvas.create.toBuffer());
         Attachment.setName(`welcome-${member.id}.png`);
         try{
-            WelcomeChannel.send({content:`:wave::skin-tone-2: Salutation ${member}, bienvenue sur ${member.guild.name}\nL'équipe de ce discord t'invite a approuver les règles afin d'accèder à ce dernier <#762441206642245674>\nN'oublies pas de sélectionner tes rôles via notre fabuleux auto-rôle dans <#763763437041614848>`,files: [Attachment]});
-            await member.roles.add("767145270671966220");
-            await member.roles.add("767146108278276096");
-            await member.roles.add("763809099518705695");
+            WelcomeChannel.send({content:`:wave::skin-tone-2: Salutation ${member}, bienvenue sur ${member.guild.name}\n${MyCustomWelcomeMessage}`,files: [Attachment]});
+            await member.roles.add(`${MyRoleID00}`);
+            await member.roles.add(`${MyRoleID01}`);
+            await member.roles.add(`${MyRoleID02}`);
         } catch (error){
             console.log(error);
         }
