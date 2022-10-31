@@ -8,7 +8,7 @@ module.exports = {
                 console.log(`|           Thanks to use my bot             |`);
                 console.log(`|                                            |`);
                 console.log(`|          Logged into Discord as            |`);
-                console.log(`|            ${client.user.tag}              |`);
+                console.log(`|            ${client.user.tag}               |`);
                 console.log(`|                                            |`);
                 console.log(`o--------------------------------------------o`);
         },
