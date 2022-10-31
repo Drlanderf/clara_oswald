@@ -13,6 +13,7 @@ jobs:
           echo "Tag: ${{ steps.version_by_tag.outputs.tag }}"
           echo "Semver: ${{ steps.version_by_tag.outputs.semver }}"
           echo "Version code: ${{ steps.version_by_tag.outputs.versionCode }}"
+          
   build-DockerHubLogin:
     runs-on: ubuntu-latest
     steps: 
@@ -21,7 +22,8 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-  build-Checkout:
+  build-Checkout: 
+    needs: [build-DockerHubLogin,build-GetVersion]
     runs-on: ubuntu-latest
     steps:         
     - name: Checkout code
