@@ -4,8 +4,8 @@ module.exports = (client)=>{
         const options = [
             {
                 type: ActivityType.Watching,
-                text: "Sauve le docteur",
-                status: "dnd"
+                text: "le tardis avec admiration",
+                status: "online"
             },
             {
                 type: ActivityType.Listening,
@@ -14,8 +14,8 @@ module.exports = (client)=>{
             },
             {
                 type: ActivityType.Playing,
-                text: "with discord.js",
-                status: "online"
+                text: "à sauver le docteur",
+                status: "dnd"
             },
         ];
         const option = Math.floor(Math.random()*options.length);
