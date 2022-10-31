@@ -10,5 +10,6 @@ module.exports = {
                 console.log(`|            ${client.user.tag}               |`);
                 console.log(`|                                            |`);
                 console.log(`o--------------------------------------------o`);
+                setTimeout(client.checkVideo, 20*1000);
         },
     };
