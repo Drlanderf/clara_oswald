@@ -42,7 +42,7 @@ module.exports = (client) =>{
                     text: client.user.tag,
                     iconURL: client.user.displayAvatarURL(),
                 },
-                color: "#800000"
+                color: 8388629
             });
             await channel.send({embeds: [embed],content: `:loudspeaker: Hey <@&${MyYoutubeRoleID}> 
             Regarde une nouvelle vidéo sur la chaine **Gaming** !`}).catch(console.error);
