@@ -2,13 +2,6 @@ name: Docker Image CI
 
 on: [push]
 jobs:
-  build-GetVersion:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Get version and version code
-      uses: xom9ikk/version-by-tag@v1
-      id: version_by_tag
   DockerHubLogin:
     runs-on: ubuntu-latest
     steps: 
@@ -22,12 +15,15 @@ jobs:
     permissions:
       packages: write
       contents: read
-    needs: [DockerHubLogin,build-GetVersion]
+    needs: [DockerHubLogin]
     runs-on: ubuntu-latest
     steps: 
     - uses: actions/checkout@v3
     - name: Build and Push to Docker Hub
-      uses: docker/build-push-action@v3.2.0
+    - name: Get version and version code
+      uses: xom9ikk/version-by-tag@v1
+      id: version_by_tag
+    - uses: docker/build-push-action@v3.2.0
       with:
         push: true
         tags: landerf/clara_oswlad:latest,landerf/clara_oswlad:${{steps.version_by_tag.outputs.tag}}
