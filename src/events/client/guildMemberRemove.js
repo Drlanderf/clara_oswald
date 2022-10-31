@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 require('dotenv').config();
-const MyWelcomeChannelID = process.env.JOIN_CHANNEL;
+const MyLeavingChannelID = process.env.LEAVING_CHANNEL;
 const MyLeavingMessage01 = process.env.MY_LEAVING_MESSAGE00;
 const MyLeavingMessage02 = process.env.MY_LEAVING_MESSAGE01;
 const MyLeavingMessage03 = process.env.MY_LEAVING_MESSAGE02;
@@ -17,7 +17,7 @@ module.exports =
             console.log("Event guildMemberRemove successfully apply");
 
 
-            const WelcomeChannel = client.channels.cache.get(`${MyWelcomeChannelID}`);
+            const WelcomeChannel = client.channels.cache.get(`${MyLeavingChannelID}`);
             try{
                 let Randomizer = Math.floor(Math.random() * 101);
                 if(Randomizer>=75 && Randomizer<=100) WelcomeChannel.send("<@"+ member.id + ">" + `${MyLeavingMessage01}`);
