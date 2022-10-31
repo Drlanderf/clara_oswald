@@ -1,6 +1,9 @@
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const fs = require('fs');
+require('dotenv').config();
+const clientId = process.env.CLIENT_ID;
+const guildId = process.env.GUILD_ID;
 module.exports = (client) =>
 {
     client.handleCommands = async () =>
@@ -21,8 +24,6 @@ module.exports = (client) =>
                 console.log(`Command : ${command.data.name} has been passed through the handler`);
             }
         }
-        const clientId = '1034186318705590392';
-        const guildId = '762441206642245672';
         const rest = new REST({ version: "9" }).setToken(process.env.token);
         try  {
             console.log("Started refreshing application (/) commands.");
