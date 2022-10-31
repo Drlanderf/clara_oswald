@@ -5,29 +5,27 @@ jobs:
   build-GetVersion:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v3
     - name: Get version and version code
       uses: xom9ikk/version-by-tag@v1
       id: version_by_tag
-    - name: Some other action
-      run: |
-          echo "Tag: ${{ steps.version_by_tag.outputs.tag }}"
-          echo "Semver: ${{ steps.version_by_tag.outputs.semver }}"
-          echo "Version code: ${{ steps.version_by_tag.outputs.versionCode }}"
-          
   DockerHubLogin:
     runs-on: ubuntu-latest
     steps: 
+      - uses: actions/checkout@v3
       - name: Login to Docker Hub
         uses: docker/login-action@v2.1.0
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
   build-Docker-Image: 
+    permissions:
+      packages: write
+      contents: read
     needs: [DockerHubLogin,build-GetVersion]
     runs-on: ubuntu-latest
     steps: 
+    - uses: actions/checkout@v3
     - name: Build and Push to Docker Hub
       uses: docker/build-push-action@v3.2.0
       with:
