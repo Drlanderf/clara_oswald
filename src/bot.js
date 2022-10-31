@@ -20,4 +20,4 @@ for (const folder of functionFolders) {
 
 client.handleEvents();
 client.handleCommands();
-client.login(myToken).then(() => console.log("Successfully login !"));
+client.login(myToken).then(() => console.log(""));
