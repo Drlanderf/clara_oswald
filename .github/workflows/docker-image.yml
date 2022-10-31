@@ -12,9 +12,6 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
   build-Docker-Image: 
-    permissions:
-      packages: write
-      contents: read
     needs: [DockerHubLogin]
     runs-on: ubuntu-latest
     steps: 
