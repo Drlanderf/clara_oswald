@@ -24,16 +24,13 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-  build-Checkout: 
+  build-Docker-Image: 
     needs: [DockerHubLogin,build-GetVersion]
     runs-on: ubuntu-latest
     steps: 
-    - name: Checkout code
-      uses: actions/checkout@v3
     - name: Build and Push to Docker Hub
       uses: docker/build-push-action@v3.2.0
       with:
-        context: .
         push: true
         tags: landerf/clara_oswlad:latest,landerf/clara_oswlad:${{steps.version_by_tag.outputs.tag}}
       
