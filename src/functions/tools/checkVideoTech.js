@@ -31,7 +31,7 @@ module.exports = (client) =>{
                 url: link,
                 timestamp: Date.now(),
                 image:{
-                    url: `https://img.youtube/com/vi/${id.slice(9)}/maxresdefault.jpg`
+                    url: `https://img.youtube.com/vi/${id.slice(9)}/maxresdefault.jpg`
                 },
                 author:{
                     name: author,
