@@ -1,9 +1,9 @@
-require('dotenv').config();
+require("dotenv").config();
 const myToken = process.env.BOT_TOKEN;
-const { Client, Collection, GatewayIntentBits } = require('discord.js');
+const { Client, Collection, GatewayIntentBits } = require("discord.js");
 
-const fs = require('fs');
-const client = new Client({intents: 3276799});
+const fs = require("fs");
+const client = new Client({ intents: 3276799 });
 client.commands = new Collection();
 client.commandArray = [];
 
@@ -17,11 +17,11 @@ console.log(`o--------------------------------------------o`);
 
 const functionFolders = fs.readdirSync(`./src/functions`);
 for (const folder of functionFolders) {
-    const functionFiles = fs
-        .readdirSync(`./src/functions/${folder}`)
-        .filter((file)=> file.endsWith('.js'));
-    for (const file of functionFiles)
-        require(`./functions/${folder}/${file}`)(client);
+  const functionFiles = fs
+    .readdirSync(`./src/functions/${folder}`)
+    .filter((file) => file.endsWith(".js"));
+  for (const file of functionFiles)
+    require(`./functions/${folder}/${file}`)(client);
 }
 
 client.handleEvents();
