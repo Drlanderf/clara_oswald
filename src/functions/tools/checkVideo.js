@@ -24,7 +24,9 @@ module.exports = (client) =>{
             const guild = await client.guilds
                 .fetch(`${guildId}`)
                 .catch(console.error);
-            const channel = client.channels.cache.get(`${MyYoutubeGuildChannelID}`).catch(console.error);
+            const channel = await guild.channels
+                .fetch(`${MyYoutubeGuildChannelID}`)
+                .catch(console.error);
             const { title, link, id, author } = data.items[0];
             const embed = new EmbedBuilder({
                 title: title,
@@ -43,7 +45,7 @@ module.exports = (client) =>{
                     iconURL: client.user.displayAvatarURL(),
                 }
             });
-            await channel.send({embeds: [embed],content: `:loudspeaker: Hey <@&${MyYoutubeRoleID}>`}).catch(console.error);
+            await channel.send({embeds: [embed],content: `:loudspeaker: Hey <@&${MyYoutubeRoleID}> regarde une nouvelle vidéo !`}).catch(console.error);
 
 
 
