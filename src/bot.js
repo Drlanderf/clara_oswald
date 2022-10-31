@@ -9,6 +9,12 @@ client.commandArray = [];
 
 client.colour = "";
 
+console.log(`o--------------------------------------------o`);
+console.log(`|                                            |`);
+console.log(`|           Thanks to use my bot             |`);
+console.log(`|                                            |`);
+console.log(`o--------------------------------------------o`);
+
 const functionFolders = fs.readdirSync(`./src/functions`);
 for (const folder of functionFolders) {
     const functionFiles = fs

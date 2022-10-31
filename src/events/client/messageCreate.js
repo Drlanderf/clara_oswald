@@ -14,7 +14,7 @@ module.exports =
         async execute(message,client) { // WARNING CLIENT EVERYTIME THE LAST
             console.log("Event messageCreate successfully apply");
             if(message.author.bot) {
-                console.warn(`Event messageCreate from another bot`);
+                console.warn(`Event messageCreate from another bot , do anything.`);
                 return;
             }
             try{
