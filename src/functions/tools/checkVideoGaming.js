@@ -35,7 +35,7 @@ module.exports = (client) =>{
                 },
                 author:{
                     name: author,
-                    iconURL: `https://bit.ly/3U4TcAQ`,
+                    iconURL: `https://bit.ly/3TRMTkf`,
                     url: `https://youtube.com/channel/${MyYoutubeChannelID01}/?sub_confirmation=1`
                 },
                 footer:{
@@ -43,7 +43,8 @@ module.exports = (client) =>{
                     iconURL: client.user.displayAvatarURL(),
                 }
             });
-            await channel.send({embeds: [embed],content: `:loudspeaker: Hey <@&${MyYoutubeRoleID}> regarde une nouvelle vidéo !`}).catch(console.error);
+            await channel.send({embeds: [embed],content: `:loudspeaker: Hey <@&${MyYoutubeRoleID}> 
+            Regarde une nouvelle vidéo sur la chaine **Gaming** !`}).catch(console.error);
         }
     }
 }

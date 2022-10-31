@@ -43,7 +43,8 @@ module.exports = (client) =>{
                     iconURL: client.user.displayAvatarURL(),
                 }
             });
-            await channel.send({embeds: [embed],content: `:loudspeaker: Hey <@&${MyYoutubeRoleID}> regarde une nouvelle vidéo !`}).catch(console.error);
+            await channel.send({embeds: [embed],content: `:loudspeaker: Hey <@&${MyYoutubeRoleID}> 
+            Regarde une nouvelle vidéo sur la chaine **Tech** !`}).catch(console.error);
         }
     }
 }
