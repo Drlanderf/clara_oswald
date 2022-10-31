@@ -1,2 +1,6 @@
 node_modules
 npm-debug.log
+.gitignore
+.release-it.json
+CHANGELOG.md
+README.md
