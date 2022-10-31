@@ -41,7 +41,8 @@ module.exports = (client) =>{
                 footer:{
                     text: client.user.tag,
                     iconURL: client.user.displayAvatarURL(),
-                }
+                },
+                color: "#800000"
             });
             await channel.send({embeds: [embed],content: `:loudspeaker: Hey <@&${MyYoutubeRoleID}> 
             Regarde une nouvelle vidéo sur la chaine **Tech** !`}).catch(console.error);
