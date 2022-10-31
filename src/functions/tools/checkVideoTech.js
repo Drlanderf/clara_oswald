@@ -45,7 +45,7 @@ module.exports = (client) =>{
                 color: 8388629
             });
             await channel.send({embeds: [embed],content: `:loudspeaker: Hey <@&${MyYoutubeRoleID}> 
-            Regarde une nouvelle vidéo sur la chaine **Tech** !`}).catch(console.error);
+Regarde une nouvelle vidéo sur la chaine **Tech** !`}).catch(console.error);
         }
     }
 }
