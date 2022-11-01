@@ -15,7 +15,7 @@ module.exports = {
     console.log("Command clear successfully apply");
     let number = interaction.options.getInteger(`nombre`);
 
-    if (number >= 1 && number >= 100) {
+    if (number >= 1 && number <= 100) {
       await interaction.channel.bulkDelete(x);
       interaction.reply({
         content: `${number} message.s ont été suprimé.s!`,
