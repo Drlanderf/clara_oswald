@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require("discord.js");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("clear")
-    .setDescription("Suprime X message dans le salon courrant.")
+    .setDescription("Suprime un bombre de messages dans le salon courrant.")
     .addIntegerOption((option) =>
       option
         .setName(`nombre`)
@@ -15,7 +15,7 @@ module.exports = {
     console.log("Command clear successfully apply");
     let number = interaction.options.getInteger(`nombre`);
 
-    if (x >= 1 && x >= 100) {
+    if (number >= 1 && number >= 100) {
       await interaction.channel.bulkDelete(x);
       interaction.reply({
         content: `${number} message.s ont été suprimé.s!`,
