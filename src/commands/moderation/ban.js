@@ -2,11 +2,11 @@ const { SlashCommandBuilder } = require("discord.js");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("ban")
-    .setDescription("ban le membre souhaité.")
+    .setDescription("ban le membre souhaité en supprimant X message.s.")
     .addUserOption((option) =>
       option
         .setName(`target`)
-        .setDescription(`Le membre que vous souhaitez kick.`)
+        .setDescription(`Le membre que vous souhaitez ban.`)
         .setRequired(true)
     )
     .addStringOption((option) =>
@@ -17,16 +17,16 @@ module.exports = {
         option // Optionnel à implémenter !
       ) =>
         option
-          .setName(`day`)
+          .setName(`X`)
           .setDescription(
-            `Le nombre de messages du membre que vous désirez suprimer. (valeur entre 0 et 7) par défaut, ne suprime aucun messages`
+            `Message.s du membre que vous désirez suprimer. (valeur entre 0 et 7) par défaut, ne suprime aucun messages`
           )
     ),
   async execute(interaction, client) {
     console.log("Command ban successfully apply");
     const user = interaction.options.getUser(`target`);
     let reason = interaction.options.getString(`reason`);
-    let day = interaction.options.getInteger(`day`);
+    let day = interaction.options.getInteger(`X`);
     const member = await interaction.guild.members
       .fetch(user.id)
       .catch(console.error);
