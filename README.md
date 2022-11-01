@@ -27,10 +27,15 @@
 First, you are requested to pull requests only on the BETA BRANCHES !
 Note that your pull requests will first be analyzed and tested on the beta branch before being published on the master branch.
 
+NB : The alpha branches is only used by owner just ignore it.
+
 Second, to improve visibility of ur pull request, you are requested to commit with the correct syntax and using gitmoji !
+
 <a href="https://gitmoji.dev">
 		<img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square"
 			 alt="Gitmoji">
+			 
+			 
   
 ## 🗺️ RoadMap :
   - [X] Essential moderation command (kick,timeout,ban,clear)
