@@ -1,31 +1,41 @@
-const {ActivityType} = require("discord.js");
-module.exports = (client)=>{
+const { ActivityType } = require("discord.js");
+
+/**
+ * @type {{type: ActivityType; text: string; status: string}[]}
+ */
+const CLIENT_PRESENCES = [
+    {
+        type: ActivityType.Watching,
+        text: "le tardis avec admiration",
+        status: "online",
+    },
+    {
+        type: ActivityType.Listening,
+        text: "for commands",
+        status: "idle",
+    },
+    {
+        type: ActivityType.Playing,
+        text: "à sauver le docteur",
+        status: "dnd",
+    },
+];
+
+module.exports = (client) => {
     client.pickPresence = async () => {
-        const options = [
-            {
-                type: ActivityType.Watching,
-                text: "le tardis avec admiration",
-                status: "online"
-            },
-            {
-                type: ActivityType.Listening,
-                text: "for commands",
-                status: "idle"
-            },
-            {
-                type: ActivityType.Playing,
-                text: "à sauver le docteur",
-                status: "dnd"
-            },
-        ];
-        const option = Math.floor(Math.random()*options.length);
+        const choice =
+            CLIENT_PRESENCES[
+                Math.floor(Math.random() * (CLIENT_PRESENCES.length - 1))
+            ];
 
         client.user.setPresence({
-            activities: [{
-                name: options[option].text,
-                type: options[option].type
-            }],
-            status: options[option].status
+            activities: [
+                {
+                    name: choice.text,
+                    type: choice.type,
+                },
+            ],
+            status: choice.status,
         });
-    }
-}
+    };
+};
