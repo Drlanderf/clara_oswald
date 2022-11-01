@@ -16,7 +16,7 @@ module.exports = {
     let number = interaction.options.getInteger(`nombre`);
 
     if (number >= 1 && number <= 100) {
-      await interaction.channel.bulkDelete(x);
+      await interaction.channel.bulkDelete(number);
       interaction.reply({
         content: `${number} message.s ont été suprimé.s!`,
         ephemeral: true,
