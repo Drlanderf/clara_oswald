@@ -20,7 +20,7 @@ module.exports = {
         interaction.send()
         interaction.reply({
             content: `le message "${message}" a bien été envoyé`,
-            ephemeral: true,
+            ephemeral: true,//
         });
     },
 };
