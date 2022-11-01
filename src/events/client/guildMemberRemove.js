@@ -1,10 +1,15 @@
-const Discord = require("discord.js");
 require("dotenv").config();
+const Discord = require("discord.js");
+
 const MyLeavingChannelID = process.env.LEAVING_CHANNEL;
-const MyLeavingMessage01 = process.env.MY_LEAVING_MESSAGE00;
-const MyLeavingMessage02 = process.env.MY_LEAVING_MESSAGE01;
-const MyLeavingMessage03 = process.env.MY_LEAVING_MESSAGE02;
-const MyLeavingMessage04 = process.env.MY_LEAVING_MESSAGE03;
+
+const LeavingMessages = [
+  process.env.MY_LEAVING_MESSAGE00,
+  process.env.MY_LEAVING_MESSAGE01,
+  process.env.MY_LEAVING_MESSAGE02,
+  process.env.MY_LEAVING_MESSAGE03,
+]
+
 //Actif quand une personne quitte le serveur discord.
 module.exports = {
   name: "guildMemberRemove",
@@ -15,17 +20,18 @@ module.exports = {
   async execute(member, client) {
     console.log("Event guildMemberRemove successfully apply");
 
-    const WelcomeChannel = client.channels.cache.get(`${MyLeavingChannelID}`);
+    if (!MyLeavingChannelID) {
+      console.error('No Leaving Channel configured.');
+      return;
+    }
+
+    const WelcomeChannel = client.channels.cache.get(MyLeavingChannelID);
+
     try {
-      let Randomizer = Math.floor(Math.random() * 101);
-      if (Randomizer >= 75 && Randomizer <= 100)
-        WelcomeChannel.send("<@" + member.id + ">" + `${MyLeavingMessage01}`);
-      if (Randomizer >= 50 && Randomizer < 75)
-        WelcomeChannel.send("<@" + member.id + ">" + `${MyLeavingMessage02}`);
-      if (Randomizer >= 25 && Randomizer < 50)
-        WelcomeChannel.send("<@" + member.id + ">" + `${MyLeavingMessage03}`);
-      if (Randomizer >= 0 && Randomizer < 25)
-        WelcomeChannel.send("<@" + member.id + ">" + `${MyLeavingMessage04}`);
+      const n = Math.floor(Math.random() * (LeavingMessages.length - 1));
+      const Message = LeavingMessages[n];
+
+      WelcomeChannel.send(`<@${member.id}> ${Message}`);
     } catch (error) {
       console.log(error);
     }
