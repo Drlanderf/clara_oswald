@@ -8,6 +8,7 @@
   },
   "github": {
     "requireBranch": "main",
+    "requireBranch": "beta",
     "release": true
   },
   "npm": {
