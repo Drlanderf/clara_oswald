@@ -17,7 +17,7 @@ module.exports = {
 
     if (!message) return;
 
-    interaction.send(`${message}`);
+    interaction.channel.send(`${message}`);
     interaction.reply({
       content: `le message "${message}" a bien été envoyé`,
       ephemeral: true, //
