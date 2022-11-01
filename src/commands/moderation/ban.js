@@ -20,7 +20,7 @@ module.exports = {
           .setName(`day`)
           .setDescription(
             `Message.s du membre que vous désirez suprimer. (valeur entre 0 et 7) par défaut, ne suprime aucun messages`
-          )
+          )//
     )*/ async execute(interaction, client) {
     console.log("Command ban successfully apply");
     const user = interaction.options.getUser(`target`);
