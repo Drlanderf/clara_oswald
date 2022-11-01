@@ -22,6 +22,35 @@
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
+## 🧰 Usage to help the dev of the bot :
+
+First, you are requested to pull requests only on the BETA BRANCHES !
+Note that your pull requests will first be analyzed and tested on the beta branch before being published on the master branch.
+
+Second, to improve visibility of ur pull request, you are requested to commit with the correct syntax and using gitmoji !
+<a href="https://gitmoji.dev">
+		<img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square"
+			 alt="Gitmoji">
+  
+## 🗺️ RoadMap :
+  - [X] Essential moderation command (kick,timeout,ban,clear)
+  - [X] Talking as bot
+  - [X] Welcome Message with canvas
+  - [X] Leaving random message
+  - [X] Ping command
+  - [X] Embed example command
+  - [X] Event on message create with some auto reply (exept from bot)
+  - [X] Custom pickPresence
+  - [X] Youtube Video notification in custom embed
+  - [ ] Twitch Live notification
+  - [ ] Twitter notification
+  - [ ] Bot auto log message (exept from bot)
+  - [ ] Tracking invite creator number member coming by 
+  - [ ] Tracking number of member on discord (put in a channel name)
+  - [ ] Ticket management
+  - [ ] Auto-mod (i think discord server auto-mod is enough)
+  
+
 ---  
   
 </h5>
