@@ -1,4 +1,4 @@
-name: Beta Discord Bot
+name: Discord Bot Beta CI/CD
 
 on: 
   push:
