@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require("discord.js");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("timeout")
-    .setDescription("timeout le membre souhaité.")
+    .setDescription("timeout le membre souhaité durant X.")
     .addUserOption((option) =>
       option
         .setName(`target`)
@@ -11,10 +11,8 @@ module.exports = {
     )
     .addIntegerOption((option) =>
       option
-        .setName(`time`)
-        .setDescription(
-          `Le nombre de minutes que vous désirez timeout le membre.`
-        )
+        .setName(`X`)
+        .setDescription(`Minute.s que vous désirez timeout le membre.`)
     )
     .addStringOption((option) =>
       option.setName(`reason`).setDescription(`Indiquez la raison du timeout.`)
