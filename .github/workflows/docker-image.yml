@@ -1,3 +1,4 @@
+
 name: Docker Image CI
 
 on: 
@@ -22,5 +23,3 @@ jobs:
       with:
         push: true
         tags: landerf/clara_oswlad:latest,landerf/clara_oswlad:${{steps.version_by_tag.outputs.tag}}
-      
-
