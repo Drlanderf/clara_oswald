@@ -24,10 +24,10 @@
 
 ## 🧰 Usage to help the dev of the bot :
 
-First, you are requested to pull requests only on the BETA BRANCHES !
+First, you are requested to pull requests only on the BETA BRANCHES any pull request on master branches would be ignore.
 Note that your pull requests will first be analyzed and tested on the beta branch before being published on the master branch.
 
-NB : The alpha branches is only used by owner just ignore it.
+NB : The alpha branches is only used by owner just ignore it, any pull request on it would be ignore.
 
 Second, to improve visibility of ur pull request, you are requested to commit with the correct syntax and using gitmoji !
 
