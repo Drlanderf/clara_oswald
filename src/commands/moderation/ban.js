@@ -17,7 +17,7 @@ module.exports = {
         option // Optionnel à implémenter !
       ) =>
         option
-          .setName(`X`)
+          .setName(`day`)
           .setDescription(
             `Message.s du membre que vous désirez suprimer. (valeur entre 0 et 7) par défaut, ne suprime aucun messages`
           )
@@ -26,7 +26,7 @@ module.exports = {
     console.log("Command ban successfully apply");
     const user = interaction.options.getUser(`target`);
     let reason = interaction.options.getString(`reason`);
-    let day = interaction.options.getInteger(`X`);
+    let day = interaction.options.getInteger(`day`);
     const member = await interaction.guild.members
       .fetch(user.id)
       .catch(console.error);

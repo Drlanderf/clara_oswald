@@ -11,7 +11,7 @@ module.exports = {
     )
     .addIntegerOption((option) =>
       option
-        .setName(`X`)
+        .setName(`time`)
         .setDescription(`Minute.s que vous désirez timeout le membre.`)
     )
     .addStringOption((option) =>
