@@ -1,5 +1,5 @@
 
-name: Docker Image CI
+name: Discord Bot clara_oswlad RELEASE CI/CD
 
 on: 
  push:
