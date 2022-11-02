@@ -41,6 +41,7 @@ Second, to improve visibility of ur pull request, you are requested to commit wi
   - [X] Essential moderation command (kick,timeout,ban,clear)
   - [X] Talking as bot
   - [X] Welcome Message with canvas
+  - [X] Auto-role when joining
   - [X] Leaving random message
   - [X] Ping command
   - [X] Embed example command
