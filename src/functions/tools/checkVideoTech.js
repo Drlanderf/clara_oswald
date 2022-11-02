@@ -36,7 +36,7 @@ module.exports = (client) =>{
                 author:{
                     name: author,
                     iconURL: `https://bit.ly/3U4TcAQ`,
-                    url: `https://youtube.com/channel/${MyYoutubeChannelID00}/?sub_confirmation=1`
+                    url: `https://youtube.com/channel/${MyYoutubeChannelID00}/?sub_confirmation=1`//UCnK7oWn1A7RvKiB19ZIECZg
                 },
                 footer:{
                     text: client.user.tag,
