@@ -27,3 +27,10 @@ for (const folder of functionFolders) {
 client.handleEvents();
 client.handleCommands();
 client.login(myToken).then(() => console.log(""));
+console.log(`o--------------------------------------------o`);
+console.log(`|                                            |`);
+console.log(`|          Logged into Discord as            |`);
+console.log(`|                                            |`);
+console.log(`|            ${client.user.tag}               |`);
+console.log(`|                                            |`);
+console.log(`o--------------------------------------------o`);
