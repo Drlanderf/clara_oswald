@@ -1,9 +1,21 @@
 require("dotenv").config();
-const myToken = process.env.BOT_TOKEN;
-const { Client, Collection, GatewayIntentBits } = require("discord.js");
 
+const { Client, Collection, GatewayIntentBits } = require("discord.js");
 const fs = require("fs");
-const client = new Client({ intents: 3276799 });
+
+const myToken = process.env.BOT_TOKEN;
+const client = new Client({
+  intents:
+    GatewayIntentBits.Guilds |
+    GatewayIntentBits.GuildPresences |
+    GatewayIntentBits.GuildMembers |
+    GatewayIntentBits.GuildBans |
+    GatewayIntentBits.GuildMessageReactions |
+    GatewayIntentBits.GuildScheduledEvents |
+    GatewayIntentBits.DirectMessages |
+    GatewayIntentBits.MessageContent,
+});
+
 client.commands = new Collection();
 client.commandArray = [];
 
