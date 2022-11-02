@@ -55,7 +55,7 @@ Second, to improve visibility of ur pull request, you are requested to commit wi
   - [ ] Tracking number of member on discord (put in a channel name)
   - [ ] Ticket management
   - [ ] Auto-mod (i think discord server auto-mod is enough)
-  - [ ] Instead of .env use Database to store any variable -> Wich database you want to use ?
+  - [ ] Instead of .env use Database (MongoDB) to store any variable 
   - [ ] Allow to use different discord server by using main bot token
 
 ---
