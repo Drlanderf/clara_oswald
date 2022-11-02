@@ -36,4 +36,4 @@ for (const folder of functionFolders) {
 
 client.handleEvents();
 client.handleCommands();
-client.login(myToken).then(() => console.log(""));
+client.login(myToken).then();
