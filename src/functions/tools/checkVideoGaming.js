@@ -18,7 +18,7 @@ module.exports = (client) => {
 
     const rawData = fs.readFileSync(`${__dirname}/../../json/videoGaming.json`);
     const jsonData = JSON.parse(rawData);
-    console.log("videoCheck_Gaming : Test if new video Gaming or not...");
+    //console.log("videoCheck_Gaming : Test if new video Gaming or not...");
     if (jsonData.id !== data.items[0].id) {
       console.log("videoCheck_Gaming : NEW VIDEO spot");
       console.log("videoCheck_Gaming : Starting the notification creator...");
@@ -34,7 +34,7 @@ module.exports = (client) => {
         .fetch(`${MyYoutubeGuildChannelID}`)
         .catch(console.error);
       const { title, link, id, author } = data.items[0];
-      console.log("videoCheck_Gaming : Creating the embed...");
+      //console.log("videoCheck_Gaming : Creating the embed...");
       const embed = new EmbedBuilder({
         title: title,
         url: link,
@@ -53,9 +53,9 @@ module.exports = (client) => {
         },
         color: 8388629,
       });
-      console.log("videoCheck_Gaming : Embed successfully Created !");
+      //console.log("videoCheck_Gaming : Embed successfully Created !");
       try {
-        console.log("videoCheck_Gaming : Sending the message...");
+        //console.log("videoCheck_Gaming : Sending the message...");
         await channel.send({
           embeds: [embed],
           content: `:loudspeaker: Hey <@&${MyYoutubeRoleID}> Regarde une nouvelle vidéo sur la chaine **Gaming** !`,

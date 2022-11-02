@@ -18,7 +18,7 @@ module.exports = (client) => {
 
     const rawData = fs.readFileSync(`${__dirname}/../../json/videoTech.json`);
     const jsonData = JSON.parse(rawData);
-    console.log("videoCheck_Tech : Test if new video  tech or not");
+    //console.log("videoCheck_Tech : Test if new video  tech or not");
     if (jsonData.id !== data.items[0].id) {
       console.log("videoCheck_Tech : NEW VIDEO spot");
       console.log("videoCheck_Tech : Starting the notification creator...");
@@ -34,7 +34,7 @@ module.exports = (client) => {
         .fetch(`${MyYoutubeGuildChannelID}`)
         .catch(console.error);
       const { title, link, id, author } = data.items[0];
-      console.log("videoCheck_Tech : Creating the embed...");
+      //console.log("videoCheck_Tech : Creating the embed...");
       const embed = new EmbedBuilder({
         title: title,
         url: link,
@@ -53,9 +53,9 @@ module.exports = (client) => {
         },
         color: 8388629,
       });
-      console.log("videoCheck_Tech : Embed successfully Created !");
+      //console.log("videoCheck_Tech : Embed successfully Created !");
       try {
-        console.log("videoCheck_Tech : Sending the message...");
+        //console.log("videoCheck_Tech : Sending the message...");
         await channel.send({
           embeds: [embed],
           content: `:loudspeaker: Hey <@&${MyYoutubeRoleID}> Regarde une nouvelle vidéo sur la chaine **Tech** !`,
