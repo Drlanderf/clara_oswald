@@ -65,5 +65,7 @@ module.exports = (client) => {
         console.error(error);
       }
     }
+    else console.log("videoCheck_Tech : Most recently video have been send");
+    console.log("videoCheck_Tech : checking finish, restart in 30sec");
   };
 };
