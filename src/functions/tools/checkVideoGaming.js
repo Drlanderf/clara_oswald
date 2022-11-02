@@ -9,19 +9,24 @@ const guildId = process.env.GUILD_ID;
 const parser = new Parser();
 module.exports = (client) => {
   client.checkVideoGaming = async () => {
+    console.log("videoCheck_Gaming : checking every 30 sec");
     const data = await parser
       .parseURL(
         `https://youtube.com/feeds/videos.xml?channel_id=${MyYoutubeChannelID01}`
       )
       .catch(console.error);
+
     const rawData = fs.readFileSync(`${__dirname}/../../json/videoGaming.json`);
     const jsonData = JSON.parse(rawData);
-    if (jsonData.id !== data.items[0]) {
-      // New video or video not sent
+    //console.log("videoCheck_Gaming : Test if new video Gaming or not...");
+    if (jsonData.id !== data.items[0].id) {
+      console.log("videoCheck_Gaming : NEW VIDEO spot");
+      console.log("videoCheck_Gaming : Starting the notification creator...");
       fs.writeFileSync(
         `${__dirname}/../../json/videoGaming.json`,
         JSON.stringify({ id: data.items[0].id })
       );
+
       const guild = await client.guilds
         .fetch(`${guildId}`)
         .catch(console.error);
@@ -29,6 +34,7 @@ module.exports = (client) => {
         .fetch(`${MyYoutubeGuildChannelID}`)
         .catch(console.error);
       const { title, link, id, author } = data.items[0];
+      //console.log("videoCheck_Gaming : Creating the embed...");
       const embed = new EmbedBuilder({
         title: title,
         url: link,
@@ -47,13 +53,20 @@ module.exports = (client) => {
         },
         color: 8388629,
       });
-      await channel
-        .send({
+      //console.log("videoCheck_Gaming : Embed successfully Created !");
+      try {
+        //console.log("videoCheck_Gaming : Sending the message...");
+        await channel.send({
           embeds: [embed],
-          content: `:loudspeaker: Hey <@&${MyYoutubeRoleID}> 
-Regarde une nouvelle vidéo sur la chaine **Gaming** !`,
-        })
-        .catch(console.error);
+          content: `:loudspeaker: Hey <@&${MyYoutubeRoleID}> Regarde une nouvelle vidéo sur la chaine **Gaming** !`,
+        });
+        console.log("videoCheck_Gaming : Message successfully sended !");
+      } catch (error) {
+        console.error(error);
+      }
     }
+    else console.log("videoCheck_Gaming : Most recently video have been send");
+    console.log("videoCheck_Gaming : checking finish, restart in 30sec");
   };
+
 };
