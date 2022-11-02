@@ -55,8 +55,7 @@ module.exports = (client) => {
       try {
         await channel.send({
           embeds: [embed],
-          content: `:loudspeaker: Hey <@&${MyYoutubeRoleID}> 
-Regarde une nouvelle vidéo sur la chaine **Gaming** !`,
+          content: `:loudspeaker: Hey <@&${MyYoutubeRoleID}> Regarde une nouvelle vidéo sur la chaine **Gaming** !`,
         });
       } catch (error) {
         console.error(error);
