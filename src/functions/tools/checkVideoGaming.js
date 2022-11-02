@@ -9,6 +9,7 @@ const guildId = process.env.GUILD_ID;
 const parser = new Parser();
 module.exports = (client) => {
   client.checkVideoGaming = async () => {
+    console.log("Video checking for Gaming every 30 sec");
     const data = await parser
       .parseURL(
         `https://youtube.com/feeds/videos.xml?channel_id=${MyYoutubeChannelID01}`
@@ -17,8 +18,9 @@ module.exports = (client) => {
 
     const rawData = fs.readFileSync(`${__dirname}/../../json/videoGaming.json`);
     const jsonData = JSON.parse(rawData);
-//test si nouvelle video ou video pas envoyée
+    console.log("Test if new video or not");
     if (jsonData.id !== data.items[0].id) {
+      console.log("NEW VIDEO spot");
       fs.writeFileSync(
         `${__dirname}/../../json/videoGaming.json`,
         JSON.stringify({ id: data.items[0].id })
@@ -31,6 +33,7 @@ module.exports = (client) => {
         .fetch(`${MyYoutubeGuildChannelID}`)
         .catch(console.error);
       const { title, link, id, author } = data.items[0];
+      console.log("Creating the embed");
       const embed = new EmbedBuilder({
         title: title,
         url: link,
@@ -49,13 +52,15 @@ module.exports = (client) => {
         },
         color: 8388629,
       });
-      await channel
-        .send({
+      try {
+        await channel.send({
           embeds: [embed],
           content: `:loudspeaker: Hey <@&${MyYoutubeRoleID}> 
 Regarde une nouvelle vidéo sur la chaine **Gaming** !`,
-        })
-        .catch(console.error);
+        });
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 };
