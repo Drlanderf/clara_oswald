@@ -9,7 +9,7 @@ const guildId = process.env.GUILD_ID;
 const parser = new Parser();
 module.exports = (client) => {
   client.checkVideoGaming = async () => {
-    console.log("videoCheck_Gaming : checking every 30 sec");
+    //console.log("videoCheck_Gaming : checking every 30 sec");
     const data = await parser
       .parseURL(
         `https://youtube.com/feeds/videos.xml?channel_id=${MyYoutubeChannelID01}`
@@ -60,13 +60,13 @@ module.exports = (client) => {
           embeds: [embed],
           content: `:loudspeaker: Hey <@&${MyYoutubeRoleID}> Regarde une nouvelle vidéo sur la chaine **Gaming** !`,
         });
-        console.log("videoCheck_Gaming : Message successfully sended !");
+        //console.log("videoCheck_Gaming : Message successfully sended !");
       } catch (error) {
         console.error(error);
       }
     }
     else console.log("videoCheck_Gaming : Most recently video have been send");
-    console.log("videoCheck_Gaming : checking finish, restart in 30sec");
+    //console.log("videoCheck_Gaming : checking finish, restart in 30sec");
   };
 
 };
