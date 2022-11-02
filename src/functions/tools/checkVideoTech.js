@@ -14,14 +14,16 @@ module.exports = (client) => {
         `https://youtube.com/feeds/videos.xml?channel_id=${MyYoutubeChannelID00}`
       )
       .catch(console.error);
+
     const rawData = fs.readFileSync(`${__dirname}/../../json/videoTech.json`);
     const jsonData = JSON.parse(rawData);
-    if (jsonData.id !== data.items[0]) {
-      // New video or video not sent
+
+    if (jsonData.id !== data.items[0].id) {
       fs.writeFileSync(
         `${__dirname}/../../json/videoTech.json`,
         JSON.stringify({ id: data.items[0].id })
       );
+
       const guild = await client.guilds
         .fetch(`${guildId}`)
         .catch(console.error);
