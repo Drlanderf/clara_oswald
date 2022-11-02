@@ -60,7 +60,7 @@ module.exports = (client) => {
           embeds: [embed],
           content: `:loudspeaker: Hey <@&${MyYoutubeRoleID}> Regarde une nouvelle vidéo sur la chaine **Tech** !`,
         });
-        console.log("videoCheck_Tech : Sending the message...");
+        console.log("videoCheck_Tech : Message successfully sended !");
       } catch (error) {
         console.error(error);
       }
