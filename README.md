@@ -55,16 +55,18 @@ Second, to improve visibility of ur pull request, you are requested to commit wi
   - [ ] Tracking number of member on discord (put in a channel name)
   - [ ] Ticket management
   - [ ] Auto-mod (i think discord server auto-mod is enough)
-  - [ ] Instead of .env use Database to store any variable
+  - [ ] Instead of .env use Database to store any variable -> Wich database you want to use ?
   - [ ] Allow to use different discord server by using main bot token
-  
 
----  
-  
-</h5>
+---
+
 <h3 align="center">
-<a  rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
-<img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" />
-</a><br />Ce(tte) œuvre est mise à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
-Licence Creative Commons Attribution - Pas d&#39;Utilisation Commerciale - Pas de Modification 4.0 International</a>
-  </h5>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+    <img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" />
+  </a>
+  <br />
+  Ce(tte) œuvre est mise à disposition selon les termes de la
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+    Licence Creative Commons Attribution - Pas d&#39;Utilisation Commerciale - Pas de Modification 4.0 International
+  </a>
+</h3>
