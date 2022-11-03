@@ -21,7 +21,6 @@ module.exports = (client) => {
     //console.log("videoCheck_Tech : Test if new video  tech or not");
     if (jsonData.id !== data.items[0].id) {
       console.log("videoCheck_Tech : NEW VIDEO spot");
-      console.log("videoCheck_Tech : Starting the notification creator...");
       fs.writeFileSync(
         `${__dirname}/../../json/videoTech.json`,
         JSON.stringify({ id: data.items[0].id })
