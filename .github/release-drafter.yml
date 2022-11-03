@@ -1,31 +1,37 @@
 name-template: 'v$RESOLVED_VERSION 🌈'
 tag-template: 'v$RESOLVED_VERSION'
+template: |
+  <h1 align=center>🤖 Discord Bot 🤖</h1>
+  
+  <h3 align="center">
+  
+  ![](https://komarev.com/ghpvc/?username=DrLanderf&label=Views&color=lightgrey) [![Twitter Follow](https://img.shields.io/twitter/follow/LanderfCorp?label=Follow)](https://twitter.com/intent/follow?screen_name=LanderfCorp) [![GitHub followers](https://img.shields.io/github/followers/DrLanderf?label=Follow&style=social)](https://github.com/Drlanderf) [![discord](https://img.shields.io/badge/Join_Discord-5865F2.svg?&style=flat-square&logo=discord&logoColor=white&link=https://discord.gg/rqNgRkvZsq)](https://discord.gg/rqNgRkvZsq) [![youtube](https://img.shields.io/youtube/channel/subscribers/UCnK7oWn1A7RvKiB19ZIECZg?style=social)](https://www.youtube.com/channel/UCnK7oWn1A7RvKiB19ZIECZg) [![youtube](https://img.shields.io/twitch/status/doc_landerf?style=social)](https://www.twitch.tv/doc_landerf)
+  [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/landerf0311)
+  
+  </h3>
+  
+  ## 🧰 Technologies & Tools used for this project
+  
+  ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+  
+  ## What's Changed
+
+  $CHANGES
+
+
 categories:
   - title: '🚀 Features'
-    labels:
+    label:
       - 'feature'
-      - 'enhancement'
+      - '🚀'
   - title: '🐛 Bug Fixes'
     labels:
       - 'fix'
       - 'bugfix'
       - 'bug'
-  - title: '🧰 Maintenance'
-    label: 'chore'
-change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
-change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
-version-resolver:
-  major:
+      - '🐛'
+  - title: '⚡️ Performances Improve'
     labels:
-      - 'major'
-  minor:
-    labels:
-      - 'minor'
-  patch:
-    labels:
-      - 'patch'
-  default: patch
-template: |
-  ## Changes
-
-  $CHANGES
+      - '⚡️'
+      - 'improve'
+      - 'performances'
