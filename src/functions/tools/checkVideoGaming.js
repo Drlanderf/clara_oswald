@@ -19,7 +19,7 @@ module.exports = (client) => {
     const rawData = fs.readFileSync(`${__dirname}/../../json/videoGaming.json`);
     const jsonData = JSON.parse(rawData);
     //console.log("videoCheck_Gaming : Test if new video Gaming or not...");
-    if (jsonData.id !== data.items[0].id) {
+    if (jsonData.id !== data.items[0].id) {//
       console.log("videoCheck_Gaming : NEW VIDEO spotted");
       fs.writeFileSync(
         `${__dirname}/../../json/videoGaming.json`,
