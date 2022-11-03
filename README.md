@@ -28,10 +28,9 @@
 
 ## ⚖️ Rules of good conduct in order to contribute to the project
 
-- Always start by work on alpha branch
-	- IF BUG : merge on beta branch fix the bug then merge on release
-	- IF NOT BUG : merge on release
-	- Update all branches after merge on release
+- Always start by work on dev branch
+	- IF BUG : fix the bug then pull request on release
+	- IF NOT BUG : pull request on release
 - Update the changelog with the release-it
 
 - If u make any pull request directly on the release branch, please comment/setup a description of ur pull request with following instructions:
