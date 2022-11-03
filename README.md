@@ -1,4 +1,4 @@
-<h1 align=center>💻 Basic Discord Bot 💻</h1>
+<h1 align=center>🤖 Basic Discord Bot 🤖</h1>
 
 <h3 align="center">
 
@@ -32,6 +32,7 @@
 	- IF BUG : merge on beta branch fix the bug then merge on release
 	- IF NOT BUG : merge on release
 	- Update all branches after merge on release
+- Update the changelog with the release-it
 
 - If u make any pull request directly on the release branch, please comment/setup a description of ur pull request with following instructions:
 	- Versionning
