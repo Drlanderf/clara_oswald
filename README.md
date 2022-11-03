@@ -14,7 +14,7 @@
 </h3>
 
 ## 🧰 Technologies & Tools used for this project
-
+PLE8qG3faRgVPafoM4c1Re3A_79Z6cxHlM
 ![PhpStorm](https://img.shields.io/badge/phpstorm-143?style=for-the-badge&logo=phpstorm&logoColor=black&color=black&labelColor=darkorchid)
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
@@ -42,10 +42,10 @@
 
 [![gitmoji badge](https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square)](https://github.com/carloscuesta/gitmoji)
 
-	
-			 
-			 
-  
+
+
+
+
 ## 🗺️ RoadMap :
   - [X] Essential moderation command *(kick,timeout,ban,clear)*
   - [X] Talking as bot
@@ -60,17 +60,36 @@
   - [ ] Twitch Live notification
   - [ ] Twitter notification
   - [ ] Bot auto log message *(exept from bot)*
-  - [ ] Tracking invite creator number member coming by 
+  - [ ] Tracking invite creator number member coming by
   - [ ] Tracking number of member on discord *(put in a channel name)*
   - [ ] Ticket management
-  - [ ] Instead of .env use Database *(MongoDB)* to store any variable 
+  - [ ] Instead of .env use Database *(MongoDB)* to store any variable
   - [ ] Allow to use different discord server by using main bot token
-  
+
 ---
 
 <h1 align=center>Any suggestion.s ? U can ask me on discord.</h1>
 
+## 📜 Youtube French video
 
+<img src="https://img.shields.io/youtube/channel/subscribers/UCnK7oWn1A7RvKiB19ZIECZg?style=for-the-badge"></img>
+<table>
+
+<tr>
+<td><img src="https://img.youtube.com/vi/3coo6NVhHLY/default.jpg"></img></td>
+<td>
+<a href="https://www.youtube.com/watch?v=3coo6NVhHLY">Faire son bot discord, préparation de l&#39;environnement de travail #00 || Discord.JS v14</a> (5 days ago) <br/>
+<img src="https://img.shields.io/youtube/views/3coo6NVhHLY?style=flat-square"> </img>
+</td>
+</tr>
+<tr>
+<td><img src="https://img.youtube.com/vi/_3ZPngikmQI/default.jpg"></img></td>
+<td>
+<a href="https://www.youtube.com/watch?v=_3ZPngikmQI">Faire son bot discord, préparation de l&#39;environnement de travail #00bis || Discord JS v14</a> (1 day ago) <br/>
+<img src="https://img.shields.io/youtube/views/_3ZPngikmQI?style=flat-square"> </img>
+</td>
+</tr>
+</table>
 
 <h3 align="center">
   <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
