@@ -30,4 +30,4 @@ jobs:
           git add .
           git commit -m "📝 locally generated"
           git status
-          git push origin main
+          git push origin dev
