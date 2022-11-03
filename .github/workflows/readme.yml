@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          ref: main
+          ref: dev
       - name: Render Template
         uses: muesli/readme-scribe@master
         env:
