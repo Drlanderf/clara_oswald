@@ -53,11 +53,9 @@
   - [ ] Tracking invite creator number member coming by
   - [ ] Tracking number of member on discord *(put in a channel name)*
   - [ ] Ticket management
-  - [ ] Instead of .env use Database *(MongoDB)* to store any variable
-  - [ ] Allow to use different discord server by using main bot token
+  - [ ] Working on a CI to do automaticly .env from a template
 
 ---
-
 
 ## 📜 Youtube French video
 
