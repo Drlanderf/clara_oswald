@@ -1,0 +1,33 @@
+name: Update README
+
+on:
+  push:
+  schedule:
+    - cron: "0 */1 * * *"
+
+jobs:
+  markscribe:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: main
+      - name: Render Template
+        uses: muesli/readme-scribe@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+        with:
+          template: "templates/README.md.tpl"
+          writeTo: "README.md"
+
+      - name: Push
+        run: |
+          date > generated.txt
+          git config user.name readme-scribe 🤖
+          git config user.email actions@github.com
+          git add .
+          git commit -m "📝 locally generated"
+          git status
+          git push origin main
