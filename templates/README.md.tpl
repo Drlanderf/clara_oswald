@@ -74,21 +74,15 @@ PLE8qG3faRgVPafoM4c1Re3A_79Z6cxHlM
 
 <img src="https://img.shields.io/youtube/channel/subscribers/UCnK7oWn1A7RvKiB19ZIECZg?style=for-the-badge"></img>
 <table>
-
+{{range rss "https://www.youtube.com/feeds/videos.xml?playlist_id=PLE8qG3faRgVPafoM4c1Re3A_79Z6cxHlM" 10}}
 <tr>
-<td><img src="https://img.youtube.com/vi/3coo6NVhHLY/default.jpg"></img></td>
+<td><img src="https://img.youtube.com/vi/{{slice .URL 32}}/default.jpg"></img></td>
 <td>
-<a href="https://www.youtube.com/watch?v=3coo6NVhHLY">Faire son bot discord, préparation de l&#39;environnement de travail #00 || Discord.JS v14</a> (5 days ago) <br/>
-<img src="https://img.shields.io/youtube/views/3coo6NVhHLY?style=flat-square"> </img>
+<a href="{{.URL}}">{{.Title}}</a> ({{humanize .PublishedAt}}) <br/>
+<img src="https://img.shields.io/youtube/views/{{slice .URL 32}}?style=flat-square"> </img>
 </td>
 </tr>
-<tr>
-<td><img src="https://img.youtube.com/vi/_3ZPngikmQI/default.jpg"></img></td>
-<td>
-<a href="https://www.youtube.com/watch?v=_3ZPngikmQI">Faire son bot discord, préparation de l&#39;environnement de travail #00bis || Discord JS v14</a> (1 day ago) <br/>
-<img src="https://img.shields.io/youtube/views/_3ZPngikmQI?style=flat-square"> </img>
-</td>
-</tr>
+{{- end}}
 </table>
 
 <h3 align="center">
