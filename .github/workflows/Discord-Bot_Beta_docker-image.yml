@@ -3,7 +3,7 @@ name: Discord Bot Beta CI/CD
 on: 
   push:
     branches:
-      - beta
+      - dev
 jobs:
   build-Docker-Image: 
     runs-on: ubuntu-latest
