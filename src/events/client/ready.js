@@ -1,16 +1,12 @@
 module.exports = {
   name: "ready",
-  once: true,
   async execute(client) {
-    setInterval(client.pickPresence, 10 * 1000);
+    setInterval(client.pickPresence, 30 * 1000);
+    setInterval(client.checkVideoTech, 30 * 1000); // ?
+    setInterval(client.checkVideoGaming, 30 * 1000); // ?
     console.log(`o--------------------------------------------o`);
-    console.log(`|                                            |`);
     console.log(`|          Logged into Discord as            |`);
-    console.log(`|                                            |`);
     console.log(`|            ${client.user.tag}               |`);
-    console.log(`|                                            |`);
     console.log(`o--------------------------------------------o`);
-    setTimeout(client.checkVideoTech, 20 * 1000);
-    setTimeout(client.checkVideoGaming, 20 * 1000);
   },
 };
