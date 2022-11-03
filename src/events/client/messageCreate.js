@@ -21,10 +21,10 @@ module.exports = {
     try {
       const test = message.content;
       const result = test.toLowerCase();
-      /*if (result.includes(`${MyTestingReplyVar00}`))
+      if (result.includes(`${MyTestingReplyVar00}`))
         message.reply(`${MyReplyVar00}`).then(() => {
           console.log(`Reply Action ${MyReplyVar00} SUCCEED !`);
-        });*/
+        });
       if (result.includes(`${MyTestingReplyVar01}`))
         message.reply(`${MyReplyVar01}`).then(() => {
           console.log(`Reply Action ${MyReplyVar01} SUCCEED !`);
