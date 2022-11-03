@@ -20,7 +20,7 @@ module.exports = (client) => {
     const jsonData = JSON.parse(rawData);
     //console.log("videoCheck_Tech : Test if new video  tech or not");
     if (jsonData.id !== data.items[0].id) {
-      console.log("videoCheck_Tech : NEW VIDEO spot");
+      console.log("videoCheck_Tech : NEW VIDEO spotted");
       fs.writeFileSync(
         `${__dirname}/../../json/videoTech.json`,
         JSON.stringify({ id: data.items[0].id })
