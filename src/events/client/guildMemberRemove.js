@@ -33,7 +33,7 @@ module.exports = {
     try {
       const n = Math.floor(Math.random() * (LeavingMessages.length - 1));
       const Message = LeavingMessages[n];
-
+//
       WelcomeChannel.send(`<@${member.id}> ${Message}`);
     } catch (error) {
       console.log(error);
