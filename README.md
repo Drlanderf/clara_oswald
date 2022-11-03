@@ -24,43 +24,53 @@
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
-## 🧰 Usage to help the dev of the bot :
 
-First, you are requested to pull requests only on the BETA BRANCHES any pull request on master branches would be ignore.
-Note that your pull requests will first be analyzed and tested on the beta branch before being published on the master branch.
 
-NB : The alpha branches is only used by owner just ignore it, any pull request on it would be ignore.
+## ⚖️ Rules of good conduct in order to contribute to the project
 
-Second, to improve visibility of ur pull request, you are requested to commit with the correct syntax and using gitmoji !
+- Always start by work on alpha branch
+	- IF BUG : merge on beta branch fix the bug then merge on release
+	- IF NOT BUG : merge on release
+	- Update all branches after merge on release
 
-<a href="https://gitmoji.dev">
-		<img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square"
-			 alt="Gitmoji">
+- If u make any pull request directly on the release branch, please comment/setup a description of ur pull request with following instructions:
+	- Versionning
+	- If u trying it before *(every pull request on release* **MUST** *be tested)*
+	- Detailed changelog of what you did
+
+- Be sure to follow the versioning syntax already in place using gitmoji.dev
+
+[![gitmoji badge](https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square)](https://github.com/carloscuesta/gitmoji)
+
+	
 			 
 			 
   
 ## 🗺️ RoadMap :
-  - [X] Essential moderation command (kick,timeout,ban,clear)
+  - [X] Essential moderation command *(kick,timeout,ban,clear)*
   - [X] Talking as bot
   - [X] Welcome Message with canvas
   - [X] Auto-role when joining
   - [X] Leaving random message
   - [X] Ping command
   - [X] Embed example command
-  - [X] Event on message create with some auto reply (exept from bot)
+  - [X] Event on message create with some auto reply *(exept from bot)*
   - [X] Custom pickPresence
   - [X] Youtube Video notification in custom embed
   - [ ] Twitch Live notification
   - [ ] Twitter notification
-  - [ ] Bot auto log message (exept from bot)
+  - [ ] Bot auto log message *(exept from bot)*
   - [ ] Tracking invite creator number member coming by 
-  - [ ] Tracking number of member on discord (put in a channel name)
+  - [ ] Tracking number of member on discord *(put in a channel name)*
   - [ ] Ticket management
-  - [ ] Auto-mod (i think discord server auto-mod is enough)
-  - [ ] Instead of .env use Database (MongoDB) to store any variable 
+  - [ ] Instead of .env use Database *(MongoDB)* to store any variable 
   - [ ] Allow to use different discord server by using main bot token
-
+  
 ---
+
+<h1 align=center>Any suggestion.s ? U can ask me on discord.</h1>
+
+
 
 <h3 align="center">
   <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
