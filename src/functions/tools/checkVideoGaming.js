@@ -65,7 +65,7 @@ module.exports = (client) => {
         console.error(error);
       }
     }
-    else console.log("videoCheck_Gaming : Most recently video have been send");
+    //else console.log("videoCheck_Gaming : Most recently video have been send");
     //console.log("videoCheck_Gaming : checking finish, restart in 30sec");
   };
 
