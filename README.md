@@ -22,8 +22,6 @@
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
-
-
 ## ⚖️ Rules of good conduct in order to contribute to the project
 
 - Always start by work on dev branch
@@ -55,11 +53,9 @@
   - [ ] Tracking invite creator number member coming by
   - [ ] Tracking number of member on discord *(put in a channel name)*
   - [ ] Ticket management
-  - [ ] Instead of .env use Database *(MongoDB)* to store any variable
-  - [ ] Allow to use different discord server by using main bot token
+  - [ ] Working on a CI to do automaticly .env from a template
 
 ---
-
 
 ## 📜 Youtube French video
 
