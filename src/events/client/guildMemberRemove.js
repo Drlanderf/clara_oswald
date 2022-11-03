@@ -8,6 +8,9 @@ const LeavingMessages = [
   process.env.MY_LEAVING_MESSAGE01,
   process.env.MY_LEAVING_MESSAGE02,
   process.env.MY_LEAVING_MESSAGE03,
+  process.env.MY_LEAVING_MESSAGE04,
+  process.env.MY_LEAVING_MESSAGE05,
+  process.env.MY_LEAVING_MESSAGE06,
 ]
 
 //Actif quand une personne quitte le serveur discord.
