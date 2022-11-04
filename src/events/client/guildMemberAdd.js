@@ -1,5 +1,5 @@
 const canvacord = require("canvacord");
-const {AttachmentBuilder,Discord} = require('discord.js');
+const { AttachmentBuilder,Discord} = require('discord.js');
 require("dotenv").config();
 const MyWelcomeChannelID = process.env.JOIN_CHANNEL;
 const MyRoleID00 = process.env.ROLE_ID00;
@@ -16,12 +16,18 @@ module.exports = {
     console.log("Event guildMemberAdd successfully apply");
     let welcomeCard = new canvacord.Welcomer(textTitle = "Bienvenue",textMessage = "Bienvenue sur {server}" )
       .setUsername(member.user.username)
+      .setDiscriminator(member.user.discriminator)
       .setAvatar(member.user.displayAvatarURL({ format: "png" }))
+      .setColor("title", "#ffffff")
       .setColor("username-box", "#30a2be")
+      .setColor("discriminator-box", "#30a2be")
       .setColor("message-box", "#30a2be")
+      .setColor("background", "#30a2be")
+      .setColor("message", "#ffffff")
+      .setColor("hashtag", "#ffffff")
       .setColor("border", "#191246")
       .setColor("avatar", "#191246")
-      .setBackground(`${process.cwd()}/assets/img/tardis.png`)
+      .setBackground(`${process.cwd()}/assets/img/bg.png`)
       .setMemberCount(member.guild.memberCount);
       welcomeCard.textTitle = `Bienvenue`;
       welcomeCard.textMessage = `Bienvenue sur ${member.guild.name}`
