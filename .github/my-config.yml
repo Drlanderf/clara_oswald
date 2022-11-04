@@ -26,6 +26,7 @@ version-resolver:
       - 'patch'
   default: patch
 template: |
+  
   <h1 align=center>🤖 Discord Bot 🤖</h1>
   
   <h3 align="center">

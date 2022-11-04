@@ -7,7 +7,7 @@
     "rss-parser": "^3.12.0"
   },
   "name": "clara_oswald",
-  "version": "3.7.2",
+  "version": "3.8.0",
   "main": "src/bot.js",
   "scripts": {
     "test": "node .",
