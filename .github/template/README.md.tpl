@@ -47,9 +47,12 @@
   - [X] Event on message create with some auto reply *(exept from bot)*
   - [X] Custom pickPresence
   - [X] Youtube new Video notification
+  - [X] Bot auto log message create *(exept from bot)*
+  - [ ] Bot auto log message modify *(exept from bot)*
+  - [ ] Bot auto log message delete *(exept from bot)*
+  - [ ] Bot auto log interaction/command used *(exept from bot)*
   - [ ] Twitch Live notification
   - [ ] Twitter notification
-  - [ ] Bot auto log message *(exept from bot)*
   - [ ] Tracking invite creator number member coming by
   - [ ] Tracking number of member on discord *(put in a channel name)*
   - [ ] Ticket management
