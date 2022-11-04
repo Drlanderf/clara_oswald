@@ -1,10 +1,9 @@
-const { Message, EmbedBuilder } = require("discord.js");
+const {Message} = require("discord.js");
 require("dotenv").config();
 const MyTestingReplyVar00 = process.env.MY_TESTING_REPLY_VAR00;
 const MyTestingReplyVar01 = process.env.MY_TESTING_REPLY_VAR01;
 const MyReplyVar00 = process.env.MY_REPLY_VAR00;
 const MyReplyVar01 = process.env.MY_REPLY_VAR01;
-const LogChannelID = process.env.CHANNEL_AUTOLOG_ID;
 module.exports = {
   name: "messageCreate",
   /**
@@ -17,8 +16,6 @@ module.exports = {
       console.warn(`Event messageCreate from another bot, do anything.`);
     } else {
       console.log("Event messageCreate successfully apply");
-      const logChannel = client.channels.cache.get(`${LogChannelID}`);
-
       try {
         const test = message.content;
         const result = test.toLowerCase();

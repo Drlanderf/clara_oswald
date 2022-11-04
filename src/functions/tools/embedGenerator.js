@@ -1,4 +1,4 @@
-const { Message,EmbedBuilder } = require("discord.js");
+const {EmbedBuilder} = require("discord.js");
 require("dotenv").config();
 const LogChannelID = process.env.CHANNEL_AUTOLOG_ID;
 module.exports = (client) => {
