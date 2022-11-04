@@ -31,6 +31,9 @@ categories:
       - '⚡️'
       - 'improve'
       - 'performances'
-  - title: '🎨 Improve structure / format of the code.'
+  - title: '🎨 Improve structure / format of the code'
     labels:
       - 'structure'
+  - title: '🧰 Maintenance'
+    labels:
+      - 'maintenance'
