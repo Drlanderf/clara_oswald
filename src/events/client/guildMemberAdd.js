@@ -27,7 +27,7 @@ module.exports = {
       .setColor("hashtag", "#ffffff")
       .setColor("border", "#191246")
       .setColor("avatar", "#191246")
-      .setBackground(`${process.cwd()}/assets/img/bg.png`)
+      .setBackground(`${process.cwd()}/assets/img/tardis.png`)
       .setMemberCount(member.guild.memberCount);
       welcomeCard.textTitle = `Bienvenue`;
       welcomeCard.textMessage = `Bienvenue sur ${member.guild.name}`
