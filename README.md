@@ -24,15 +24,16 @@
 
 ## ⚖️ Rules of good conduct in order to contribute to the project
 
-- Always start by work on dev branch
-	- IF BUG : fix the bug then pull request on release
-	- IF NOT BUG : pull request on release
-- Update the changelog with the release-it
+- Always start by work on a copy branch of release
+- Pull request on dev branch
+	- IF BUG : fix the bug then pull request from dev on release
+	- IF NOT BUG : pull request from dev on release
 
 - If u make any pull request directly on the release branch, please comment/setup a description of ur pull request with following instructions:
 	- Versionning
 	- If u trying it before *(every pull request on release* **MUST** *be tested)*
 	- Detailed changelog of what you did
+	- Don't forget to label ur pull request (for my automatic changelog, I'm gonna double check it of course)
 
 - Be sure to follow the versioning syntax already in place using gitmoji.dev
 
