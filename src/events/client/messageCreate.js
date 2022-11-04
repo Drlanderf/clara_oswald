@@ -15,7 +15,7 @@ module.exports = {
     // WARNING CLIENT EVERYTIME THE LAST
     if (message.author.bot)
       console.warn(`Event messageCreate from another bot, do anything.`);
-    else{
+    else{//
       console.log("Event messageCreate successfully apply");
       const logChannel = client.channels.cache.get(`${LogChannelID}`);
 
