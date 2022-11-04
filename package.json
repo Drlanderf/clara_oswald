@@ -11,7 +11,7 @@
   "main": "src/bot.js",
   "scripts": {
     "test": "node .",
-    "release": "dotenv release-it -- && release-it"
+    "release": "dotenv release-it --"
   },
   "keywords": [],
   "author": "landerf",
