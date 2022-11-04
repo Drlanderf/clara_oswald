@@ -1,9 +1,6 @@
 const Canvas = require("@napi-rs/canvas");
 const {
   AttachmentBuilder,
-  Client,
-  Events,
-  GatewayIntentBits,
   Discord,
 } = require("discord.js");
 const { request } = require("undici");
