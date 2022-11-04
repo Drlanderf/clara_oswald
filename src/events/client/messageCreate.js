@@ -1,4 +1,4 @@
-const { Message } = require("discord.js");
+const { Message, EmbedBuilder } = require("discord.js");
 require("dotenv").config();
 const MyTestingReplyVar00 = process.env.MY_TESTING_REPLY_VAR00;
 const MyTestingReplyVar01 = process.env.MY_TESTING_REPLY_VAR01;
@@ -30,13 +30,23 @@ module.exports = {
           message.reply(`${MyReplyVar01}`).then(() => {
             console.log(`Reply Action ${MyReplyVar01} SUCCEED !`);
           });
+
+        const embed = new EmbedBuilder()
+          .setTitle("Auto-Log")
+          .setDescription(`${message.content}`)
+          .setColor("Random")
+          .setTimestamp(Date.now())
+          .setFooter({
+            iconURL: client.user.displayAvatarURL(),
+            text: client.user.tag,
+          });
+
         logChannel.send({
-          content: `${message.content}`
+          embeds: [embed],
         });
       } catch (error) {
         console.error(error);
       }
     }
-
   },
 };
