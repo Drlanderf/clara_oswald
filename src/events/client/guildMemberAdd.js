@@ -1,5 +1,6 @@
 const Canvas = require('@napi-rs/canvas');
 const { AttachmentBuilder, Client, Events, GatewayIntentBits,Discord } = require('discord.js');
+const { request } = require('undici');
 const MyWelcomeChannelID = process.env.JOIN_CHANNEL;
 const MyRoleID00 = process.env.ROLE_ID00;
 const MyRoleID01 = process.env.ROLE_ID01;
