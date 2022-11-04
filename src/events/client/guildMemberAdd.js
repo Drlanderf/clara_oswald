@@ -19,12 +19,12 @@ module.exports = {
       .setUsername(member.user.username)
       .setDiscriminator(member.user.discriminator)
       .setAvatar(member.user.displayAvatarURL({ format: "png" }))
-      .setColor("title", "#ff0000")
-      .setColor("username-box", "#ee00ff")
-      .setColor("discriminator-box", "#ffc400")
-      .setColor("message-box", "#ffffff")
-      .setColor("border", "#000000")
-      .setColor("avatar", "#00ffea")
+      .setColor("title", "#46009f")
+      .setColor("username-box", "#46009f")
+      .setColor("discriminator-box", "#46009f")
+      .setColor("message-box", "#46009f")
+      .setColor("border", "#19002f")
+      .setColor("avatar", "#46009f")
       .setBackground(`${process.cwd()}/assets/img/bg.png`)
       .setMemberCount(member.guild.memberCount);
     let Attachment = new AttachmentBuilder(await welcomeCard.build(), "welcome.png");
