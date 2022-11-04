@@ -15,16 +15,16 @@ module.exports = {
    */
   async execute(member, client) {
     console.log("Event guildMemberAdd successfully apply");
-    const welcomeCard = new canvacord.Welcomer()
+    const welcomeCard = new canvacord.Welcomer(textTitle = "Bienvenue",textMessage = "Bienvenue sur {server}" )
       .setUsername(member.user.username)
       .setDiscriminator(member.user.discriminator)
       .setAvatar(member.user.displayAvatarURL({ format: "png" }))
-      .setColor("title", "#575757")
-      .setColor("username-box", "#575757")
-      .setColor("discriminator-box", "#575757")
-      .setColor("message-box", "#575757")
+      .setColor("title", "#ff0000")
+      .setColor("username-box", "#ee00ff")
+      .setColor("discriminator-box", "#ffc400")
+      .setColor("message-box", "#ffffff")
       .setColor("border", "#000000")
-      .setColor("avatar", "#575757")
+      .setColor("avatar", "#00ffea")
       .setBackground(`${process.cwd()}/assets/img/bg.png`)
       .setMemberCount(member.guild.memberCount);
     let Attachment = new AttachmentBuilder(await welcomeCard.build(), "welcome.png");
