@@ -21,7 +21,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
         with:
-          template: ".github/tpl/README.md.tpl"
+          template: ".github/template/README.md.tpl"
           writeTo: "README.md"
 
       - name: Push
