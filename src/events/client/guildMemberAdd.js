@@ -1,8 +1,5 @@
 const Canvas = require("@napi-rs/canvas");
-const {
-  AttachmentBuilder,
-  Discord,
-} = require("discord.js");
+const { AttachmentBuilder, Discord } = require("discord.js");
 const { request } = require("undici");
 const MyWelcomeChannelID = process.env.JOIN_CHANNEL;
 const MyRoleID00 = process.env.ROLE_ID00;
@@ -58,9 +55,9 @@ module.exports = {
       canvas.height / 1.8
     );
 
-    let Attachment = new AttachmentBuilder(
-        context,"welcome.png"
-    );
+    const attachment = new AttachmentBuilder(await canvas.encode("png"), {
+      name: "profile-image.png",
+    });
     const welcomeChannel = member.guild.channels.cache.get(
       `${MyWelcomeChannelID}`
     );
@@ -68,7 +65,7 @@ module.exports = {
     try {
       welcomeChannel.send({
         content: `:wave::skin-tone-2: Salutation ${member},\n${MyCustomWelcomeMessage}`,
-        files: [Attachment],
+        files: [attachment],
       });
       await member.roles.add(`${MyRoleID00}`);
       await member.roles.add(`${MyRoleID01}`);
