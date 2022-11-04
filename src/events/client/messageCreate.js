@@ -13,29 +13,30 @@ module.exports = {
    */
   async execute(message, client) {
     // WARNING CLIENT EVERYTIME THE LAST
-    if (message.author.bot) {
+    if (message.author.bot)
       console.warn(`Event messageCreate from another bot, do anything.`);
-      return;
-    }
-    console.log("Event messageCreate successfully apply");
-    const logChannel = client.channels.cache.get(`${LogChannelID}`);
+    else{
+      console.log("Event messageCreate successfully apply");
+      const logChannel = client.channels.cache.get(`${LogChannelID}`);
 
-    try {
-      const test = message.content;
-      const result = test.toLowerCase();
-      if (result.includes(`${MyTestingReplyVar00}`))
-        message.reply(`${MyReplyVar00}`).then(() => {
-          console.log(`Reply Action ${MyReplyVar00} SUCCEED !`);
+      try {
+        const test = message.content;
+        const result = test.toLowerCase();
+        if (result.includes(`${MyTestingReplyVar00}`))
+          message.reply(`${MyReplyVar00}`).then(() => {
+            console.log(`Reply Action ${MyReplyVar00} SUCCEED !`);
+          });
+        if (result.includes(`${MyTestingReplyVar01}`))
+          message.reply(`${MyReplyVar01}`).then(() => {
+            console.log(`Reply Action ${MyReplyVar01} SUCCEED !`);
+          });
+        logChannel.send({
+          content: `${message.content}`
         });
-      if (result.includes(`${MyTestingReplyVar01}`))
-        message.reply(`${MyReplyVar01}`).then(() => {
-          console.log(`Reply Action ${MyReplyVar01} SUCCEED !`);
-        });
-      logChannel.send({
-        content: `${message.content}`
-      });
-    } catch (error) {
-      console.error(error);
+      } catch (error) {
+        console.error(error);
+      }
     }
+
   },
 };
