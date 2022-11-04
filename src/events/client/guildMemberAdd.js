@@ -13,6 +13,7 @@ module.exports = {
      */
     async execute(member, client) {
         console.log("Event guildMemberAdd successfully apply");
+        const canvas = Canvas.createCanvas(700, 250);
         const context = canvas.getContext('2d');
         const background = await Canvas.loadImage(`${process.cwd()}/assets/img/tardis.png`);
         context.drawImage(background, 0, 0, canvas.width, canvas.height);
