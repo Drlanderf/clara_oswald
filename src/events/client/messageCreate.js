@@ -30,8 +30,8 @@ module.exports = {
           message.reply(`${MyReplyVar01}`).then(() => {
             console.log(`Reply Action ${MyReplyVar01} SUCCEED !`);
           });
-
-        const embed = new EmbedBuilder()
+        client.embedGenerator(message,"New incoming message...",client);
+        /*const embed = new EmbedBuilder()
           .setTitle(`New incoming message...`)
           .setAuthor({
             iconURL: message.author.displayAvatarURL(),
@@ -47,7 +47,7 @@ module.exports = {
 
         logChannel.send({
           embeds: [embed],
-        });
+        });*/
       } catch (error) {
         console.error(error);
       }
