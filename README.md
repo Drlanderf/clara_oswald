@@ -1,5 +1,4 @@
-<h1 align=center>🤖 Basic Discord Bot 🤖</h1>
-
+<h1 align=center>🤖 Discord Bot 🤖</h1>
 <h3 align="center">
 
 ![](https://komarev.com/ghpvc/?username=DrLanderf&label=Views&color=lightgrey)
@@ -14,7 +13,6 @@
 </h3>
 
 ## 🧰 Technologies & Tools used for this project
-
 ![PhpStorm](https://img.shields.io/badge/phpstorm-143?style=for-the-badge&logo=phpstorm&logoColor=black&color=black&labelColor=darkorchid)
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
@@ -23,8 +21,6 @@
 ![Unraid](https://img.shields.io/badge/unraid-%23F15A2C.svg?style=for-the-badge&logo=unraid&logoColor=white)
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-
-
 
 ## ⚖️ Rules of good conduct in order to contribute to the project
 
@@ -40,12 +36,6 @@
 
 - Be sure to follow the versioning syntax already in place using gitmoji.dev
 
-[![gitmoji badge](https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square)](https://github.com/carloscuesta/gitmoji)
-
-	
-			 
-			 
-  
 ## 🗺️ RoadMap :
   - [X] Essential moderation command *(kick,timeout,ban,clear)*
   - [X] Talking as bot
@@ -56,21 +46,37 @@
   - [X] Embed example command
   - [X] Event on message create with some auto reply *(exept from bot)*
   - [X] Custom pickPresence
-  - [X] Youtube Video notification in custom embed
+  - [X] Youtube new Video notification
   - [ ] Twitch Live notification
   - [ ] Twitter notification
   - [ ] Bot auto log message *(exept from bot)*
-  - [ ] Tracking invite creator number member coming by 
+  - [ ] Tracking invite creator number member coming by
   - [ ] Tracking number of member on discord *(put in a channel name)*
   - [ ] Ticket management
-  - [ ] Instead of .env use Database *(MongoDB)* to store any variable 
-  - [ ] Allow to use different discord server by using main bot token
-  
+  - [ ] Working on a CI to do automaticly .env from a template
+
 ---
 
-<h1 align=center>Any suggestion.s ? U can ask me on discord.</h1>
+## 📜 Youtube French video
 
+<img src="https://img.shields.io/youtube/channel/subscribers/UCnK7oWn1A7RvKiB19ZIECZg?style=for-the-badge"></img>
+<table>
 
+<tr>
+<td><img src="https://img.youtube.com/vi/3coo6NVhHLY/default.jpg"></img></td>
+<td>
+<a href="https://www.youtube.com/watch?v=3coo6NVhHLY">Faire son bot discord, préparation de l&#39;environnement de travail #00 || Discord.JS v14</a> (6 days ago) <br/>
+<img src="https://img.shields.io/youtube/views/3coo6NVhHLY?style=flat-square"> </img>
+</td>
+</tr>
+<tr>
+<td><img src="https://img.youtube.com/vi/_3ZPngikmQI/default.jpg"></img></td>
+<td>
+<a href="https://www.youtube.com/watch?v=_3ZPngikmQI">Faire son bot discord, préparation de l&#39;environnement de travail #00bis || Discord JS v14</a> (2 days ago) <br/>
+<img src="https://img.shields.io/youtube/views/_3ZPngikmQI?style=flat-square"> </img>
+</td>
+</tr>
+</table>
 
 <h3 align="center">
   <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">

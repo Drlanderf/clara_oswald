@@ -8,6 +8,8 @@ const LeavingMessages = [
   process.env.MY_LEAVING_MESSAGE01,
   process.env.MY_LEAVING_MESSAGE02,
   process.env.MY_LEAVING_MESSAGE03,
+  process.env.MY_LEAVING_MESSAGE04,
+  process.env.MY_LEAVING_MESSAGE05,
 ]
 
 //Actif quand une personne quitte le serveur discord.
@@ -30,7 +32,7 @@ module.exports = {
     try {
       const n = Math.floor(Math.random() * (LeavingMessages.length - 1));
       const Message = LeavingMessages[n];
-
+//
       WelcomeChannel.send(`<@${member.id}> ${Message}`);
     } catch (error) {
       console.log(error);

@@ -3,7 +3,7 @@ const { ActivityType } = require("discord.js");
 /**
  * @type {{type: ActivityType; text: string; status: string}[]}
  */
-const CLIENT_PRESENCES = [
+const CLIENT_PRESENCES = [//
   {
     type: ActivityType.Watching,
     text: "le tardis avec admiration",

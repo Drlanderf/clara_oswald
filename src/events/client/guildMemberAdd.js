@@ -19,7 +19,6 @@ const MyRoleID00 = process.env.ROLE_ID00;
 const MyRoleID01 = process.env.ROLE_ID01;
 const MyRoleID02 = process.env.ROLE_ID02;
 const MyCustomWelcomeMessage = process.env.CUSTOM_WELCOME_MESSAGE;
-//Actif quand une personne rejoin le serveur discord.
 module.exports = {
   name: "guildMemberAdd",
   /**

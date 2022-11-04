@@ -1,5 +1,4 @@
-<h1 align=center>🤖 Basic Discord Bot 🤖</h1>
-
+<h1 align=center>🤖 Discord Bot 🤖</h1>
 <h3 align="center">
 
 ![](https://komarev.com/ghpvc/?username=DrLanderf&label=Views&color=lightgrey)
@@ -14,7 +13,6 @@
 </h3>
 
 ## 🧰 Technologies & Tools used for this project
-PLE8qG3faRgVPafoM4c1Re3A_79Z6cxHlM
 ![PhpStorm](https://img.shields.io/badge/phpstorm-143?style=for-the-badge&logo=phpstorm&logoColor=black&color=black&labelColor=darkorchid)
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
@@ -23,8 +21,6 @@ PLE8qG3faRgVPafoM4c1Re3A_79Z6cxHlM
 ![Unraid](https://img.shields.io/badge/unraid-%23F15A2C.svg?style=for-the-badge&logo=unraid&logoColor=white)
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-
-
 
 ## ⚖️ Rules of good conduct in order to contribute to the project
 
@@ -40,12 +36,6 @@ PLE8qG3faRgVPafoM4c1Re3A_79Z6cxHlM
 
 - Be sure to follow the versioning syntax already in place using gitmoji.dev
 
-[![gitmoji badge](https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square)](https://github.com/carloscuesta/gitmoji)
-
-
-
-
-
 ## 🗺️ RoadMap :
   - [X] Essential moderation command *(kick,timeout,ban,clear)*
   - [X] Talking as bot
@@ -56,19 +46,16 @@ PLE8qG3faRgVPafoM4c1Re3A_79Z6cxHlM
   - [X] Embed example command
   - [X] Event on message create with some auto reply *(exept from bot)*
   - [X] Custom pickPresence
-  - [X] Youtube Video notification in custom embed
+  - [X] Youtube new Video notification
   - [ ] Twitch Live notification
   - [ ] Twitter notification
   - [ ] Bot auto log message *(exept from bot)*
   - [ ] Tracking invite creator number member coming by
   - [ ] Tracking number of member on discord *(put in a channel name)*
   - [ ] Ticket management
-  - [ ] Instead of .env use Database *(MongoDB)* to store any variable
-  - [ ] Allow to use different discord server by using main bot token
+  - [ ] Working on a CI to do automaticly .env from a template
 
 ---
-
-<h1 align=center>Any suggestion.s ? U can ask me on discord.</h1>
 
 ## 📜 Youtube French video
 

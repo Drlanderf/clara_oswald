@@ -2,6 +2,8 @@ name: Update README
 
 on:
   push:
+    branches:
+    - release
   schedule:
     - cron: "0 */1 * * *"
 
@@ -13,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          ref: main
+          ref: release
       - name: Render Template
         uses: muesli/readme-scribe@master
         env:
@@ -30,4 +32,4 @@ jobs:
           git add .
           git commit -m "📝 locally generated"
           git status
-          git push origin main
+          git push origin release
