@@ -32,7 +32,7 @@ module.exports = {
           });
 
         const embed = new EmbedBuilder()
-          .setTitle("Auto-Log")
+          .setTitle(`Log from : ${message.author}`)
           .setDescription(`${message.content}`)
           .setColor("Random")
           .setTimestamp(Date.now())
