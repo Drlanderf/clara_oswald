@@ -4,6 +4,7 @@ const MyTestingReplyVar00 = process.env.MY_TESTING_REPLY_VAR00;
 const MyTestingReplyVar01 = process.env.MY_TESTING_REPLY_VAR01;
 const MyReplyVar00 = process.env.MY_REPLY_VAR00;
 const MyReplyVar01 = process.env.MY_REPLY_VAR01;
+const LogChannelID = process.env.CHANNEL_AUTOLOG_ID;
 module.exports = {
   name: "messageCreate",
   /**
@@ -17,6 +18,7 @@ module.exports = {
       return;
     }
     console.log("Event messageCreate successfully apply");
+    const logChannel = client.channels.cache.get(`${LogChannelID}`);
 
     try {
       const test = message.content;
@@ -29,6 +31,9 @@ module.exports = {
         message.reply(`${MyReplyVar01}`).then(() => {
           console.log(`Reply Action ${MyReplyVar01} SUCCEED !`);
         });
+      logChannel.send({
+        content: `${message.content}`
+      });
     } catch (error) {
       console.error(error);
     }
