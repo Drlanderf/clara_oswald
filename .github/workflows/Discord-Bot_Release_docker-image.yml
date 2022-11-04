@@ -30,5 +30,6 @@ jobs:
     - name: Build and push the Image. . .
       uses: docker/build-push-action@v3.2.0
       with:
+        build-args: --env-file .env.example up
         push: true
         tags: landerf/clara_oswlad:latest,landerf/clara_oswlad:release_${{steps.version_by_tag.outputs.tag}}
