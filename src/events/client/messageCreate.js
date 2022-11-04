@@ -32,7 +32,11 @@ module.exports = {
           });
 
         const embed = new EmbedBuilder()
-          .setTitle(`Log from : ${message.author}`)
+          .setTitle(`New incoming message...`)
+          .setAuthor({
+            iconURL: message.author.displayAvatarURL(),
+            name: message.author.tag,
+          })
           .setDescription(`${message.content}`)
           .setColor("Random")
           .setTimestamp(Date.now())
