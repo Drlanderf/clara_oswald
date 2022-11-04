@@ -5,17 +5,8 @@ const fs = require("fs");
 
 const myToken = process.env.BOT_TOKEN;
 const client = new Client({
-  intents:
-    GatewayIntentBits.Guilds |
-    GatewayIntentBits.GuildPresences |
-    GatewayIntentBits.GuildMembers |
-    GatewayIntentBits.GuildBans |
-    GatewayIntentBits.GuildMessageReactions |
-    GatewayIntentBits.GuildScheduledEvents |
-    GatewayIntentBits.DirectMessages |
-    GatewayIntentBits.MessageContent,
+  intents:3276799 // => That will include ALL intents
 });
-
 client.commands = new Collection();
 client.commandArray = [];
 
