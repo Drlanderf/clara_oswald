@@ -1,10 +1,12 @@
-FROM node:16
+FROM node:16-slim
 
 WORKDIR /app/
 
 COPY package*.json ./
 
-RUN npm i
+RUN npm install
+
+RUN sudo apt-get install fontconfig
 
 COPY . .
 
