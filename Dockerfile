@@ -6,7 +6,7 @@ COPY package*.json ./
 
 RUN npm install
 
-RUN sudo apt-get install fontconfig
+RUN apt-get update && apt-get install -y fontconfig
 
 COPY . .
 
