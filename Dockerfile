@@ -10,6 +10,4 @@ RUN npm i
 
 COPY . .
 
-RUN mv .env.exemple .env
-
 CMD ["node", "src/bot.js"]
