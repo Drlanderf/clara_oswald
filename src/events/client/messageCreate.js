@@ -31,23 +31,6 @@ module.exports = {
             console.log(`Reply Action ${MyReplyVar01} SUCCEED !`);
           });
         client.embedGenerator(message,"New incoming message...",client);
-        /*const embed = new EmbedBuilder()
-          .setTitle(`New incoming message...`)
-          .setAuthor({
-            iconURL: message.author.displayAvatarURL(),
-            name: message.author.tag,
-          })
-          .setDescription(`${message.content}`)
-          .setColor("Random")
-          .setTimestamp(Date.now())
-          .setFooter({
-            iconURL: client.user.displayAvatarURL(),
-            text: client.user.tag,
-          });
-
-        logChannel.send({
-          embeds: [embed],
-        });*/
       } catch (error) {
         console.error(error);
       }
