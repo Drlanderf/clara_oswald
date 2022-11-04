@@ -62,8 +62,7 @@ module.exports = {
     );
 
     let Attachment = new AttachmentBuilder(
-      await welcomeCard.build(),
-      "welcome.png"
+        context,"welcome.png"
     );
     const welcomeChannel = member.guild.channels.cache.get(
       `${MyWelcomeChannelID}`
