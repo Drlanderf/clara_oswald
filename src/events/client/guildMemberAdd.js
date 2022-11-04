@@ -15,24 +15,26 @@ module.exports = {
    */
   async execute(member, client) {
     console.log("Event guildMemberAdd successfully apply");
-    const welcomeCard = new canvacord.Welcomer(textTitle = "Bienvenue",textMessage = "Bienvenue sur {server}" )
+    let welcomeCard = new canvacord.Welcomer(textTitle = "Bienvenue",textMessage = "Bienvenue sur {server}" )
       .setUsername(member.user.username)
       .setDiscriminator(member.user.discriminator)
       .setAvatar(member.user.displayAvatarURL({ format: "png" }))
-      .setColor("title", "#46009f")
-      .setColor("username-box", "#46009f")
-      .setColor("discriminator-box", "#46009f")
-      .setColor("message-box", "#46009f")
-      .setColor("border", "#19002f")
-      .setColor("avatar", "#46009f")
+      .setColor("title", "#8651d0")
+      .setColor("username-box", "#8651d0")
+      .setColor("discriminator-box", "#8651d0")
+      .setColor("message-box", "#8651d0")
+      .setColor("border", "#49296c")
+      .setColor("avatar", "#8651d0")
       .setBackground(`${process.cwd()}/assets/img/bg.png`)
       .setMemberCount(member.guild.memberCount);
-    let Attachment = new AttachmentBuilder(await welcomeCard.build(), "welcome.png");
+      welcomeCard.textTitle = `Bienvenue`;
+      welcomeCard.textMessage = `Bienvenue sur ${member.guild.name}`
+      let Attachment = new AttachmentBuilder(await welcomeCard.build(), "welcome.png");
     const welcomeChannel = member.guild.channels.cache.get(`${MyWelcomeChannelID}`);
 
     try {
         welcomeChannel.send({
-            content: `:wave::skin-tone-2: Salutation ${member}, bienvenue sur ${member.guild.name}\n${MyCustomWelcomeMessage}`,
+            content: `:wave::skin-tone-2: Salutation ${member},\n${MyCustomWelcomeMessage}`,
             files: [Attachment],
         });
       await member.roles.add(`${MyRoleID00}`);
