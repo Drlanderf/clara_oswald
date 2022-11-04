@@ -1,5 +1,8 @@
 const Canvas = require("@napi-rs/canvas");
-const Discord = require("discord.js");
+const {
+  AttachmentBuilder,
+  Discord,
+} = require("discord.js");
 const MyWelcomeChannelID = process.env.JOIN_CHANNEL;
 const MyRoleID00 = process.env.ROLE_ID00;
 const MyRoleID01 = process.env.ROLE_ID01;
@@ -51,16 +54,21 @@ module.exports = {
       canvas.context.drawImage(img, 393, 125, 238, 238);
     });
 
-      //const attachment = new Discord.AttachmentBuilder(await canvas.encode('png'), { name: `welcome-${member.id}.png` });
-    const attachment = new Discord.AttachmentBuilder(canvas.create.toBuffer()).setName(`welcome-${member.id}.png`);
-
+    const attachment = new AttachmentBuilder(
+      await canvas.create.encode("png"),
+      { name: "profile-image.png" }
+    );
 
     try {
       welcomeChannel.send({
         content: `:wave::skin-tone-2: Salutation ${member},\n${MyCustomWelcomeMessage}`,
         files: [attachment],
       });
-      await member.roles.add([`${MyRoleID00}`,`${MyRoleID01}`,`${MyRoleID02}`]);
+      await member.roles.add([
+        `${MyRoleID00}`,
+        `${MyRoleID01}`,
+        `${MyRoleID02}`,
+      ]);
     } catch (error) {
       console.log(error);
     }
