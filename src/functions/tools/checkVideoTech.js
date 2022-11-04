@@ -16,7 +16,7 @@ module.exports = (client) => {
       )
       .catch(console.error);
 
-    const rawData = fs.readFileSync(`${__dirname}/../../json/videoTech.json`);
+    const rawData = fs.readFileSync(`${__dirname}/../../json/videoTech.json`);//
     const jsonData = JSON.parse(rawData);
     //console.log("videoCheck_Tech : Test if new video  tech or not");
     if (jsonData.id !== data.items[0].id) {/*Warning, put everytime the last video ID for not spamming*/

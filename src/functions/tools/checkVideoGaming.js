@@ -21,7 +21,7 @@ module.exports = (client) => {
     //console.log("videoCheck_Gaming : Test if new video Gaming or not...");
     if (jsonData.id !== data.items[0].id) {/*Warning, put everytime the last video ID for not spamming*/
       console.log("videoCheck_Gaming : NEW VIDEO spotted");
-      fs.writeFileSync(
+      fs.writeFileSync(//
         `${__dirname}/../../json/videoGaming.json`,
         JSON.stringify({ id: data.items[0].id })
       );
