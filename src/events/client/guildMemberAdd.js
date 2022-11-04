@@ -51,7 +51,9 @@ module.exports = {
       canvas.context.drawImage(img, 393, 125, 238, 238);
     });
 
-      const attachment = new Discord.AttachmentBuilder(await canvas.encode('png'), { name: `welcome-${member.id}.png` });
+      //const attachment = new Discord.AttachmentBuilder(await canvas.encode('png'), { name: `welcome-${member.id}.png` });
+    const attachment = new Discord.AttachmentBuilder(canvas.create.toBuffer()).setName(`welcome-${member.id}.png`);
+
 
     try {
       welcomeChannel.send({
