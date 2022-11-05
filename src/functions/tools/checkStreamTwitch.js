@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require("discord.js");
-const {fetch} = require(`node-superfetch`);
+const {fetch} = require("node-superfetch");
 const myTwitchChannelName = process.env.TWITCH_CHANNEL_NAME;
 const myTwitchGuildChannelID = process.env.TWITCH_GUILD_CHANNEL_ID;
 const myTwitchRoleID = process.env.TWITCH_NOTIFICATION_ROLE_ID;
