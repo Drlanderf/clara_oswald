@@ -2,7 +2,6 @@ const Parser = require(`rss-parser`);
 const { EmbedBuilder } = require("discord.js");
 const fs = require(`fs`);
 const fetch = require(`node-superfetch`);
-require("dotenv").config();
 const myTwitchChannelName = process.env.TWITCH_CHANNEL_NAME;
 const myTwitchGuildChannelID = process.env.TWITCH_GUILD_CHANNEL_ID;
 const myTwitchRoleID = process.env.TWITCH_NOTIFICATION_ROLE_ID;

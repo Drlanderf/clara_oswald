@@ -1,5 +1,4 @@
 const fs = require("fs");
-
 module.exports = (client) => {
   client.handleEvents = async () => {
     console.log("Handler of Events successfully apply");

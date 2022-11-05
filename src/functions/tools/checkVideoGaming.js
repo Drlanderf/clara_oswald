@@ -1,7 +1,6 @@
 const Parser = require(`rss-parser`);
 const { EmbedBuilder } = require("discord.js");
 const fs = require(`fs`);
-require("dotenv").config();
 const MyYoutubeChannelID01 = process.env.YOUTUBE_CHANNEL_ID01;
 const MyYoutubeGuildChannelID = process.env.YOUTUBE_GUILD_CHANNEL_ID;
 const MyYoutubeRoleID = process.env.YOUTUBE_NOTIFICATION_ROLE_ID;
