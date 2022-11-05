@@ -78,6 +78,7 @@ module.exports = (client) => {
       } catch (error) {
         console.error(error);
       }
+      temp = `${myTwitchChannelName} is offline`;
     }
   };
 };
