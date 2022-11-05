@@ -19,7 +19,7 @@ module.exports = {
    * @param {import("../../bot.js")} client
    */
   async execute(member, client) {
-    console.log("Event guildMemberRemove successfully apply");
+    console.log("[Event] guildMemberRemove successfully apply");
 
     if (!MyLeavingChannelID) {
       console.error('No Leaving Channel configured.');

@@ -2,9 +2,9 @@ const { SlashCommandBuilder } = require("discord.js");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("ping")
-    .setDescription("Retourne mon ping"),
+    .setDescription("Return my ping"),
   async execute(interaction, client) {
-    console.log("Command ping successfully apply");
+    console.log("[Command] ping successfully apply");
     const message = await interaction.deferReply({
       fetchReply: true,
     });

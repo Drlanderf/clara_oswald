@@ -2,12 +2,12 @@ const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("embed")
-    .setDescription("Retourne une embed"),
+    .setDescription("Return an embed"),
   async execute(interaction, client) {
-    console.log("Command embed successfully apply");
+    console.log("[Command] embed successfully apply");
     const embed = new EmbedBuilder()
-      .setTitle(`Ceci est une embed`)
-      .setDescription(`Ceci est une description trop cooool !`)
+      .setTitle(`This is an embed title`)
+      .setDescription(`This is an AWESOME description !`)
       .setColor(0x18e1ee)
       .setImage(client.user.displayAvatarURL())
       .setThumbnail(client.user.displayAvatarURL())
@@ -24,13 +24,13 @@ module.exports = {
       .setURL(`https://www.youtube.com/channel/UCnK7oWn1A7RvKiB19ZIECZg`)
       .addFields([
         {
-          name: `Champ 1`,
-          value: `Valeur du champ 1`,
+          name: `Field 1`,
+          value: `Value of field 1`,
           inline: true,
         },
         {
-          name: `Champ 2`,
-          value: `Valeur du champ 2`,
+          name: `Field 2`,
+          value: `Value of field 2`,
           inline: true,
         },
       ]);
