@@ -30,7 +30,7 @@ module.exports = {
    * @param {import("../../bot.js")} client
    */
   async execute(member, client) {
-    console.log("Event guildMemberAdd successfully apply");
+    console.log("[Event] guildMemberAdd successfully apply");
     const welcomeChannel = client.channels.cache.get(`${MyWelcomeChannelID}`);
 
     let canvas = welcomeCanvas;
@@ -39,7 +39,7 @@ module.exports = {
     canvas.context.fillText(member.user.tag.toUpperCase(), 512, 425);
     canvas.context.font = "28px sans-serif";
     canvas.context.fillText(
-      `Tu es le ${member.guild.memberCount}e membres`,
+      `You are the ${member.guild.memberCount}th member.s`,
       512,
       475
     );
@@ -61,7 +61,7 @@ module.exports = {
 
     try {
       welcomeChannel.send({
-        content: `:wave::skin-tone-2: Salutation ${member},\n${MyCustomWelcomeMessage}`,
+        content: `:wave::skin-tone-2: Hey ${member},\n${MyCustomWelcomeMessage}`,
         files: [attachment],
       });
       await member.roles.add([

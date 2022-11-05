@@ -20,7 +20,7 @@ module.exports = {
         .setRequired(true)
     ),
   async execute(interaction, client) {
-    console.log("Command databaseSetup successfully apply");
+    console.log("[Command] dbset successfully apply");
     const property = interaction.options.getString(`property`);
     const string = interaction.options.getString(`string`);
     console.log(`Want this ${property} with this value: ${string}`);

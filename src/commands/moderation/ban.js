@@ -2,26 +2,27 @@ const { SlashCommandBuilder } = require("discord.js");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("ban")
-    .setDescription("ban le membre souhaité en supprimant X message.s.")
+    .setDescription("ban the desired member by deleting X message.s.")
     .addUserOption((option) =>
       option
         .setName(`target`)
-        .setDescription(`Le membre que vous souhaitez ban.`)
+        .setDescription(`The member you wish to ban.`)
         .setRequired(true)
     )
     .addStringOption((option) =>
-      option.setName(`reason`).setDescription(`Indiquez la raison du ban.`)
+      option
+        .setName(`reason`)
+        .setDescription(`Indicate the reason for the ban.`)
     ),
 
   async execute(interaction, client) {
-    console.log("Command ban successfully apply");
+    console.log("[Command] ban successfully apply");
     const user = interaction.options.getUser(`target`);
     let reason = interaction.options.getString(`reason`);
-    //let day = interaction.options.getInteger(`day`);
     const member = await interaction.guild.members
       .fetch(user.id)
       .catch(console.error);
-    if (!reason) reason = "Aucune raison fournie.";
+    if (!reason) reason = "No reason provided.";
     await member
       .ban({
         deleteMessageDays: 1,
@@ -30,7 +31,7 @@ module.exports = {
       .catch(console.error);
 
     await interaction.reply({
-      content: `Ban ${user.tag} a été banni !\n(raison : ${reason})`,
+      content: `Ban ${user.tag} has been banned!\n(reason: ${reason})`,
       ephemeral: true,
     });
   },

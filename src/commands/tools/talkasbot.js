@@ -3,23 +3,23 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("talkasbot")
     .setDescription(
-      "Envoi un message dans le salon comme si c'était le bot qui parlait."
+      "Send a message as the bot"
     )
     .addStringOption((option) =>
       option
         .setName(`message`)
-        .setDescription(`Indiquez le message.`)
+        .setDescription(`The message you want to send as bot`)
         .setRequired(true)
     ),
   async execute(interaction, client) {
-    console.log("Command talkasbot successfully apply");
+    console.log("[Command] talkasbot successfully apply");
     let message = interaction.options.getString(`message`);
 
     if (!message) return;
 
     interaction.channel.send(`${message}`);
     interaction.reply({
-      content: `le message "${message}" a bien été envoyé`,
+      content: `The message "${message}" was sent successfully !`,
       ephemeral: true, //
     });
   },

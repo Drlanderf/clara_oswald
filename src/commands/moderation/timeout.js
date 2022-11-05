@@ -2,23 +2,25 @@ const { SlashCommandBuilder } = require("discord.js");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("timeout")
-    .setDescription("timeout le membre souhaité durant X.")
+    .setDescription("timeout the member during X.")
     .addUserOption((option) =>
       option
         .setName(`target`)
-        .setDescription(`Le membre que vous souhaitez timeout.`)
+        .setDescription(`The member you want timeout.`)
         .setRequired(true)
     )
     .addIntegerOption((option) =>
       option
         .setName(`time`)
-        .setDescription(`Minute.s que vous désirez timeout le membre.`)
+        .setDescription(`Minute.s that you want to timeout the member.`)
     )
     .addStringOption((option) =>
-      option.setName(`reason`).setDescription(`Indiquez la raison du timeout.`)
+      option
+        .setName(`reason`)
+        .setDescription(`Indicate the reason for the timeout.`)
     ),
   async execute(interaction, client) {
-    console.log("Command timeout successfully apply");
+    console.log("[Command] timeout successfully apply");
     const user = interaction.options.getUser(`target`);
     let reason = interaction.options.getString(`reason`);
     let time = interaction.options.getInteger(`time`);
@@ -26,7 +28,7 @@ module.exports = {
       .fetch(user.id)
       .catch(console.error);
 
-    if (!reason) reason = "Aucune raison fournie.";
+    if (!reason) reason = "No reason provided.";
     if (!time) time = null;
 
     await member
@@ -34,7 +36,7 @@ module.exports = {
       .catch(console.error);
 
     interaction.reply({
-      content: `kick ${user.tag} a été timeout!\n(raison : ${reason})`,
+      content: `${user.tag} timed out!\n(reason: ${reason})`,
       ephemeral: true,
     });
   },
