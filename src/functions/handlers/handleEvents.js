@@ -1,5 +1,5 @@
 const fs = require("fs");
-const { connection } = require("mongoose");
+const { connection } = require('mongoose');
 module.exports = (client) => {
   client.handleEvents = async () => {
     console.log("Handler of Events successfully apply");
