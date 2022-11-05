@@ -5,6 +5,7 @@
     "discord-canvas": "^1.5.2",
     "discord.js": "^14.6.0",
     "dotenv": "^16.0.3",
+    "mongoose": "^6.7.1",
     "node-fetch": "^3.2.10",
     "node-superfetch": "^0.3.3",
     "rest-api-constructor": "^1.0.6",
