@@ -1,5 +1,4 @@
 const {EmbedBuilder} = require("discord.js");
-require("dotenv").config();
 const LogChannelID = process.env.CHANNEL_AUTOLOG_ID;
 module.exports = (client) => {
     client.embedGenerator = async (message,title, client) => {
