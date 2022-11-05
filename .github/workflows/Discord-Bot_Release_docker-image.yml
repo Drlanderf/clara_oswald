@@ -1,5 +1,5 @@
 
-name: Discord Bot RELEASE CI/CD
+name: Discord Bot Docker CI/CD
 
 on: 
  push:

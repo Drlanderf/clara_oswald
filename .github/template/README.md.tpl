@@ -10,7 +10,7 @@
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/landerf0311)
 
-[![Discord Bot Docker](https://github.com/Drlanderf/clara_oswald/actions/workflows/Discord-Bot_Release_docker-image.yml/badge.svg)](https://github.com/Drlanderf/clara_oswald/actions/workflows/Discord-Bot_Release_docker-image.yml) [![Release Drafter](https://github.com/Drlanderf/clara_oswald/actions/workflows/Auto-Release.yml/badge.svg)](https://github.com/Drlanderf/clara_oswald/actions/workflows/Auto-Release.yml)
+[![Discord Bot Docker CI/CD](https://github.com/Drlanderf/clara_oswald/actions/workflows/Discord-Bot_Release_docker-image.yml/badge.svg)](https://github.com/Drlanderf/clara_oswald/actions/workflows/Discord-Bot_Release_docker-image.yml)
 
 </h3>
 
