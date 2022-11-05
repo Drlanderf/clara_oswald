@@ -1,9 +1,8 @@
 require("dotenv").config();
-
-const { Client, Collection, GatewayIntentBits,EmbedBuilder } = require("discord.js");
+const {BOT_TOKEN,DATABASE_TOKEN} = process.env;
+const { Client, Collection} = require("discord.js");
+const {connect} = require("mongoose");
 const fs = require("fs");
-
-const myToken = process.env.BOT_TOKEN;
 const client = new Client({
   intents:3276799 // => That will include ALL intents
 });
@@ -27,4 +26,7 @@ for (const folder of functionFolders) {
 
 client.handleEvents();
 //client.handleCommands();
-client.login(myToken).then();
+client.login(BOT_TOKEN).then();
+(async () => {
+  await connect(DATABASE_TOKEN).catch(console.error)
+})();
