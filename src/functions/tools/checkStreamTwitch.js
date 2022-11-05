@@ -22,29 +22,20 @@ module.exports = (client) => {
       `https://decapi.me/twitch/game/${myTwitchChannelName}`
     );
 
+    const twitch = require("../../schemas/twitchSchema");
+    let data = await twitch.findOne({user:myTwitchChannelName, title: title.body });
+
     if (uptime.body !== `${myTwitchChannelName} is offline`) {
-      /*********************************************/
-      /*     setup the message for notification    */
-      /*********************************************/
-      //Setup the embed for message
-      const embed = new EmbedBuilder({
-        title: `${title.text}`,
-        timestamp: Date.now(),
-        image: {
-          url: `https://static-cdn.jtvnw.net/previews-ttv/live_user_${myTwitchChannelName}-620x378.jpg`,
-        },
-        author: {
+      //setting up the embed for message
+      const embed = new EmbedBuilder()
+        .setAuthor({
           name: `${myTwitchChannelName}`,
           iconURL: `${avatar.text}`,
           url: `https://www.twitch.tv/${myTwitchChannelName}`,
-        },
-        footer: {
-          text: client.user.tag,
-          iconURL: client.user.displayAvatarURL(),
-        },
-        color: 8388629,
-      })
-        .setThumbnail(`${avatar.text}`)
+        })
+        .setTitle(`${title.body}`)
+        .setThumbnail(`${avatar.body}`)
+        .setURL(`https://www.twitch.tv/${myTwitchChannelName}`)
         .addFields([
           {
             name: `Jeu`,
@@ -57,28 +48,53 @@ module.exports = (client) => {
             inline: true,
           },
         ])
+        .setImage(
+          `https://static-cdn.jtvnw.net/previews-ttv/live_user_${myTwitchChannelName}-620x378.jpg`
+        )
+        .setFooter({
+          iconURL: client.user.displayAvatarURL(),
+          text: client.user.tag,
+        })
         .setColor("Purple");
-      //Setup the guild for message
-      const guild = await client.guilds
-        .fetch(`${guildId}`)
-        .catch(console.error);
-      //Setup the channel for message
-      const channel = await guild.channels
-        .fetch(`${myTwitchGuildChannelID}`)
-        .catch(console.error);
+      if (!data) {
+        const newdata = new twitch({
+          user: myTwitchChannelName,
+          title: `${title.body}`,
+        });
+        /*************************************/
+        /*     trying to send the message    */
+        /*************************************/
+        try {
+          await client.channels.cache.get(`${myTwitchGuildChannelID}`).send({
+            embeds: [embed],
+            content: `:loudspeaker: Hey <@&${myTwitchRoleID}> Regarde , **${myTwitchChannelName}** est en live !\nhttps://www.twitch.tv/${myTwitchChannelName}`,
+          });
+        } catch (error) {
+          console.error(error);
+        }
+
+        return await newdata.save();
+      }
+      if (data.title === `${title.body}`) return;
 
       /*************************************/
       /*     trying to send the message    */
       /*************************************/
       try {
-        await channel.send({
+        await client.channels.cache.get(`${myTwitchGuildChannelID}`).send({
           embeds: [embed],
-          content: `:loudspeaker: Hey <@&${myTwitchRoleID}> Regarde , **${myTwitchChannelName}** est en live !`,
+          content: `:loudspeaker: Hey <@&${myTwitchRoleID}> Regarde , **${myTwitchChannelName}** est en live !\nhttps://www.twitch.tv/${myTwitchChannelName}`,
         });
       } catch (error) {
         console.error(error);
       }
-      temp = `${myTwitchChannelName} is offline`;
+
+      await twitch.findOneAndUpdate(
+        {
+          user: myTwitchChannelName,
+        },
+        { title: title.body }
+      );
     }
   };
 };
