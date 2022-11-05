@@ -27,15 +27,9 @@
 ## ⚖️ Rules of good conduct in order to contribute to the project
 
 - Always start by work on a copy branch of release
-- Pull request on dev branch
-	- IF BUG : fix the bug then pull request from dev on release
-	- IF NOT BUG : pull request from dev on release
-
-- If u make any pull request directly on the release branch, please comment/setup a description of ur pull request with following instructions:
-	- Versionning
-	- If u trying it before *(every pull request on release* **MUST** *be tested)*
-	- Detailed changelog of what you did
-	- Don't forget to label ur pull request (for my automatic changelog, I'm gonna double check it of course)
+    - Name your PR explicit (like: release.My_awsomewNewFeature) that will help me a lot.
+	- Detailed changelog of what you did (using emoji please that will be more clean).
+	- every PR **MUST** be tested before making a PR.
 
 - Be sure to follow the versioning syntax already in place using gitmoji.dev
 
