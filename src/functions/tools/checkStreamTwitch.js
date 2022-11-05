@@ -1,12 +1,9 @@
-const Parser = require(`rss-parser`);
 const { EmbedBuilder } = require("discord.js");
-const fs = require(`fs`);
 const fetch = require(`node-superfetch`);
 const myTwitchChannelName = process.env.TWITCH_CHANNEL_NAME;
 const myTwitchGuildChannelID = process.env.TWITCH_GUILD_CHANNEL_ID;
 const myTwitchRoleID = process.env.TWITCH_NOTIFICATION_ROLE_ID;
 const guildId = process.env.GUILD_ID;
-const parser = new Parser();
 module.exports = (client) => {
   client.checkSteamTwitch = async () => {
     const uptime = await fetch.get(
