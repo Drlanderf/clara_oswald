@@ -1,4 +1,3 @@
-const { EmbedBuilder } = require("discord.js");
 const fetch = require("node-superfetch");
 const myTwitchChannelName = process.env.TWITCH_CHANNEL_NAME;
 const myTwitchGuildChannelID = process.env.TWITCH_GUILD_CHANNEL_ID;
@@ -28,14 +27,14 @@ module.exports = (client) => {
       /*********************************************/
       //Setup the embed for message
       const embed = new EmbedBuilder({
-        title: `${title.body}`,
+        title: `${title.text}`,
         timestamp: Date.now(),
         image: {
           url: `https://static-cdn.jtvnw.net/previews-ttv/live_user_${myTwitchChannelName}-620x378.jpg`,
         },
         author: {
           name: `${myTwitchChannelName}`,
-          iconURL: `${avatar.body}`,
+          iconURL: `${avatar.text}`,
           url: `https://www.twitch.tv/${myTwitchChannelName}`,
         },
         footer: {
@@ -44,7 +43,7 @@ module.exports = (client) => {
         },
         color: 8388629,
       })
-        .setThumbnail(`${avatar.body}`)
+        .setThumbnail(`${avatar.text}`)
         .addFields([
           {
             name: `Jeu`,
