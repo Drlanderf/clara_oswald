@@ -12,16 +12,8 @@ module.exports = {
     .addStringOption((option) =>
       option.setName(`reason`).setDescription(`Indiquez la raison du ban.`)
     ),
-  /*.addIntegerOption(
-      (
-        option // Optionnel à implémenter !
-      ) =>
-        option
-          .setName(`day`)
-          .setDescription(
-            `Message.s du membre que vous désirez suprimer. (valeur entre 0 et 7) par défaut, ne suprime aucun messages`
-          )////
-    )*/ async execute(interaction, client) {
+
+  async execute(interaction, client) {
     console.log("Command ban successfully apply");
     const user = interaction.options.getUser(`target`);
     let reason = interaction.options.getString(`reason`);
@@ -29,11 +21,7 @@ module.exports = {
     const member = await interaction.guild.members
       .fetch(user.id)
       .catch(console.error);
-
     if (!reason) reason = "Aucune raison fournie.";
-    //if (!day) day = 0;
-    //On peut rajouter un message... attention il faut bien l'envoyer avant le ban ! et catch l'erreur si DM sont fermé !
-
     await member
       .ban({
         deleteMessageDays: 1,
