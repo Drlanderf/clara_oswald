@@ -28,14 +28,14 @@ module.exports = (client) => {
       /*********************************************/
       //Setup the embed for message
       const embed = new EmbedBuilder({
-        title: title.body,
+        title: `${title.body}`,
         timestamp: Date.now(),
         image: {
           url: `https://static-cdn.jtvnw.net/previews-ttv/live_user_${myTwitchChannelName}-620x378.jpg`,
         },
         author: {
           name: `${myTwitchChannelName}`,
-          iconURL: avatar.body,
+          iconURL: `${avatar.body}`,
           url: `https://www.twitch.tv/${myTwitchChannelName}`,
         },
         footer: {
