@@ -80,6 +80,13 @@
 <img src="https://img.shields.io/youtube/views/_3ZPngikmQI?style=flat-square"> </img>
 </td>
 </tr>
+<tr>
+<td><img src="https://img.youtube.com/vi/vn788hCSlXI/default.jpg"></img></td>
+<td>
+<a href="https://www.youtube.com/watch?v=vn788hCSlXI">Faire son bot discord,  Initialisation du bot #01 || Discord JS v14</a> (today) <br/>
+<img src="https://img.shields.io/youtube/views/vn788hCSlXI?style=flat-square"> </img>
+</td>
+</tr>
 </table>
 
 <h3 align="center">
