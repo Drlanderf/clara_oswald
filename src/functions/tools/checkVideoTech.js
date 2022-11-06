@@ -8,7 +8,7 @@ module.exports = (client) => {
     client.checkVideoGaming = async () => {
       const Guilds = client.guilds.cache.map((guild) => guild.id);
       let guildProfile = await Guild.findOne({
-        guildId: Guilds,
+        guildId: Guilds[0],
       });
       const MyYoutubeGuildChannelID = guildProfile.roleYoutubeNotificationId;
       const MyYoutubeRoleID = guildProfile.roleTwitchNotificationId;

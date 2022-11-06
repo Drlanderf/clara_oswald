@@ -8,15 +8,15 @@ const rest = new REST({
 }).setToken(process.env.BOT_TOKEN);
 module.exports = (client) => {
   client.handleCommands = async () => {
-    const Guilds = client.guilds.cache.map((guild) => guild.id);
+    const guildConfigurations = await client.getGuilds();
     let guildProfile = await Guild.findOne({
-      guildId: Guilds,
+      guildId: guildConfigurations[0],
     });
     console.log("Handler of Commands successfully apply");
     await rest.put(Routes.applicationCommands(clientId), { body: [] });
-    await rest.put(Routes.applicationGuildCommands(clientId, guildProfile.guildId), {
+    /*await rest.put(Routes.applicationGuildCommands(clientId, Guilds[0]), {
       body: [],
-    });
+    });*/
     const commandFolders = fs.readdirSync("./src/commands");
     for (const folder of commandFolders) {
       const commandFiles = fs
@@ -34,7 +34,7 @@ module.exports = (client) => {
     }
     try {
       console.log("Started refreshing application (/) commands.");
-      await rest.put(Routes.applicationCommands(clientId, guildId), {
+      await rest.put(Routes.applicationCommands(clientId, guildConfigurations[0]), {
         body: client.commandArray,
       });
       console.log("Successfully reloaded application (/) commands.");

@@ -4,7 +4,7 @@ module.exports = (client) => {
     client.embedGenerator = async (message,title, client) => {
         const Guilds = client.guilds.cache.map((guild) => guild.id);
         let guildProfile = await Guild.findOne({
-            guildId: Guilds,
+            guildId: Guilds[0],
         });
         const LogChannelID = guildProfile.guildAutoLogChannel;
 

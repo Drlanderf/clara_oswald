@@ -5,7 +5,7 @@ module.exports = (client) => {
   client.checkStreamTwitch = async () => {
     const Guilds = client.guilds.cache.map((guild) => guild.id);
     let guildProfile = await Guild.findOne({
-      guildId: Guilds,
+      guildId: Guilds[0],
     });
 
 

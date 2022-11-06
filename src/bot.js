@@ -8,7 +8,7 @@ const client = new Client({
 });
 client.commands = new Collection();
 client.commandArray = [];
-
+client.configs = new Collection();
 client.colour = "";
 
 console.log(`o--------------------------------------------o`);
@@ -23,10 +23,6 @@ for (const folder of functionFolders) {
   for (const file of functionFiles)
     require(`./functions/${folder}/${file}`)(client);
 }
-const Guilds = client.guilds.cache.map(guild => guild.id);
-
-
-client.defaultDBSetup(Guilds);
 client.handleEvents();
 client.handleCommands();
 client.login(BOT_TOKEN).then();
