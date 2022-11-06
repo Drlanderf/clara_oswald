@@ -20,9 +20,7 @@ const CLIENT_PRESENCES = [//
     status: "dnd",
   },
 ];
-
-module.exports = (client) => {
-  client.pickPresence = async () => {
+async function pickPresence(client) {
     const choice =
       CLIENT_PRESENCES[
         Math.floor(Math.random() * (CLIENT_PRESENCES.length - 1))
@@ -37,5 +35,4 @@ module.exports = (client) => {
       ],
       status: choice.status,
     });
-  };
-};
+  }module.exports={pickPresence};

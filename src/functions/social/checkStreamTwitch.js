@@ -1,8 +1,7 @@
 const fetch = require("node-superfetch");
 const { EmbedBuilder } = require("discord.js");
 const Guild = require(`../../schemas/guild`);
-module.exports = (client) => {
-  client.checkStreamTwitch = async () => {
+async function checkStreamTwitch(client){
     const Guilds = client.guilds.cache.map((guild) => guild.id);
     let guildProfile = await Guild.findOne({
       guildId: Guilds[0],
@@ -105,5 +104,4 @@ module.exports = (client) => {
         { title: title.body }
       );
     }
-  };
-};
+  }module.exports= {checkStreamTwitch};

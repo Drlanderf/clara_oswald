@@ -2,10 +2,12 @@ const fs = require("fs");
 const { connection } = require("mongoose");
 const ascii = require("ascii-table");
 const chalk = require("chalk");
-module.exports = (client) => {
-  client.handleEvents = async () => {
+async function loadEvents(client){
     const table = new ascii().setHeading("Events", "Status");
     const eventFolders = fs.readdirSync("./src/events");
+
+    await client.events.clear();
+
     for (const folder of eventFolders) {
       const eventFiles = fs
         .readdirSync(`./src/events/${folder}`)
@@ -22,7 +24,7 @@ module.exports = (client) => {
               client.on(event.name, (...args) =>
                 event.execute(...args, client)
               );
-            table.addRow(event.name, `LOADED`);
+            table.addRow(event.name, `LOADED 🟩`);
           }
           break;
         case "mongo":
@@ -36,13 +38,12 @@ module.exports = (client) => {
               connection.on(event.name, (...args) =>
                 event.execute(...args, client)
               );
-            table.addRow(event.name, `LOADED`);
+            table.addRow(event.name, `LOADED 🟩`);
           }
           break;
         default:
           break;
       }
     }
-    console.log(table.toString());
-  };
-};
+    return console.log(table.toString(),"\nEvents Loaded");
+  }module.exports= {loadEvents};

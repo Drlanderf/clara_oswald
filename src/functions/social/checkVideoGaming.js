@@ -4,8 +4,7 @@ const Guild = require(`../../schemas/guild`);
 const MyYoutubeChannelID01 = process.env.YOUTUBE_CHANNEL_ID01;
 
 const parser = new Parser();
-module.exports = (client) => {
-  client.checkVideoGaming = async () => {
+async function checkVideoGaming(client){
     const Guilds = client.guilds.cache.map((guild) => guild.id);
     let guildProfile = await Guild.findOne({
       guildId: Guilds[0],
@@ -67,5 +66,5 @@ module.exports = (client) => {
     }
     //else console.log("videoCheck_Gaming : Most recently video have been send");
     //console.log("videoCheck_Gaming : checking finish, restart in 30sec");
-  };
-};
+  }module.exports={checkVideoGaming};
+

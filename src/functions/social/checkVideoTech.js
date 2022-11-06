@@ -2,8 +2,7 @@ const Parser = require(`rss-parser`);
 const { EmbedBuilder } = require("discord.js");
 const Guild = require(`../../schemas/guild`);
 const parser = new Parser();
-module.exports = (client) => {
-  client.checkVideoTech = async () => {
+async function checkVideoTech(client){
       const Guilds = client.guilds.cache.map((guild) => guild.id);
       let guildProfile = await Guild.findOne({
         guildId: Guilds[0],
@@ -66,5 +65,4 @@ module.exports = (client) => {
       }
       //else console.log("videoCheck_Tech : Most recently video have been send");
       //console.log("videoCheck_Tech : checking finish, restart in 30sec");
-    };
-};
+    }module.exports={checkVideoTech};

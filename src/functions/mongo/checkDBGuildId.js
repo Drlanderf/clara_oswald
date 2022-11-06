@@ -1,6 +1,6 @@
 const chalk = require("chalk");
-module.exports = (client) => {
-  client.checkDBGuildId = async () => {
+
+  async function checkDBGuildId(client){
     const guildConfigurations = await client.getGuilds();
     for (const guild of guildConfigurations) {
       console.log(
@@ -21,5 +21,4 @@ module.exports = (client) => {
       }
       console.log(chalk.green(`[Database Check] Found : (${guild})`));
     }
-  };
-};
+  }module.exports= {checkDBGuildId};
