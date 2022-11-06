@@ -3,7 +3,8 @@ const { ActivityType } = require("discord.js");
 /**
  * @type {{type: ActivityType; text: string; status: string}[]}
  */
-const CLIENT_PRESENCES = [//
+const CLIENT_PRESENCES = [
+  //
   {
     type: ActivityType.Watching,
     text: "le tardis avec admiration",
@@ -21,18 +22,16 @@ const CLIENT_PRESENCES = [//
   },
 ];
 async function pickPresence(client) {
-    const choice =
-      CLIENT_PRESENCES[
-        Math.floor(Math.random() * (CLIENT_PRESENCES.length - 1))
-      ];
+  const choice =
+    CLIENT_PRESENCES[Math.floor(Math.random() * (CLIENT_PRESENCES.length - 1))];
 
-    client.user.setPresence({
-      activities: [
-        {
-          name: choice.text,
-          type: choice.type,
-        },
-      ],
-      status: choice.status,
-    });
-  }module.exports={pickPresence};
+  client.user.setPresence({
+    activities: [
+      {
+        name: choice.text,
+        type: choice.type,
+      },
+    ],
+    status: choice.status,
+  });
+}module.exports={pickPresence};

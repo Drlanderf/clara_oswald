@@ -30,7 +30,7 @@ module.exports = {
     });*/
     let guildProfile = await client.checkDBFindGuildID(interaction.guild.id);
     if (!guildProfile) {
-      await client.createNewDBEntry(guildProfile,interaction.guild.id);
+      await client.createNewDBEntry(guildProfile, interaction.guild.id);
       /*
       guildProfile = await new Guild({
         _id: mongoose.Types.ObjectId(),
@@ -258,7 +258,9 @@ module.exports = {
           });
           break;
         default:
-          await interaction.reply({ content: `Wrong property name, checkout the doc !` });
+          await interaction.reply({
+            content: `Wrong property name, checkout the doc !`,
+          });
           break;
       }
     }

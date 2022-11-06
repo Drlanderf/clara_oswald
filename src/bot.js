@@ -12,7 +12,7 @@ const { connect } = require("mongoose");
 const fs = require("fs");
 const ascii = require("ascii-table");
 const chalk = require("chalk");
-const {loadEvents} = require("../src/functions/handlers/handleEvents");
+const { loadEvents } = require("../src/functions/handlers/handleEvents");
 
 const client = new Client({
   intents: 3276799,
@@ -24,7 +24,6 @@ client.configs = new Collection();
 client.events = new Collection();
 loadEvents(client).then();
 client.commands = new Collection();
-
 
 /*const functionFolders = fs.readdirSync(`./src/functions`);
 for (const folder of functionFolders) {

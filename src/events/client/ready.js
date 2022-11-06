@@ -1,10 +1,12 @@
 const ascii = require("ascii-table");
-const {loadCommands} = require("../../functions/handlers/handleCommands")
-const {checkDBGuildId} = require("../../functions/mongo/checkDBGuildId")
-const {checkStreamTwitch} = require("../../functions/social/checkStreamTwitch")
-const {checkVideoGaming} = require("../../functions/social/checkVideoGaming")
-const {checkVideoTech} = require("../../functions/social/checkVideoTech")
-const {pickPresence} = require("../../functions/tools/pickPresence")
+const { loadCommands } = require("../../functions/handlers/handleCommands");
+const { checkDBGuildId } = require("../../functions/mongo/checkDBGuildId");
+const {
+  checkStreamTwitch,
+} = require("../../functions/social/checkStreamTwitch");
+const { checkVideoGaming } = require("../../functions/social/checkVideoGaming");
+const { checkVideoTech } = require("../../functions/social/checkVideoTech");
+const { pickPresence } = require("../../functions/tools/pickPresence");
 module.exports = {
   name: "ready",
   execute(client) {
@@ -17,6 +19,5 @@ module.exports = {
     setInterval(checkVideoTech(client), 15 * 1000);
     setInterval(checkVideoGaming(client), 15 * 1000);
     setInterval(checkStreamTwitch(client), 60 * 1000);
-
   },
 };
