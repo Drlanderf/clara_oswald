@@ -1,11 +1,22 @@
 const fetch = require("node-superfetch");
 const { EmbedBuilder } = require("discord.js");
-const myTwitchChannelName = process.env.TWITCH_CHANNEL_NAME;
-const myTwitchGuildChannelID = process.env.TWITCH_GUILD_CHANNEL_ID;
-const myTwitchRoleID = process.env.TWITCH_NOTIFICATION_ROLE_ID;
-const guildId = process.env.GUILD_ID;
+const Guild = require(`../../schemas/guild`);
 module.exports = (client) => {
   client.checkStreamTwitch = async () => {
+    const Guilds = client.guilds.cache.map((guild) => guild.id);
+    let guildProfile = await Guild.findOne({
+      guildId: Guilds,
+    });
+
+
+
+    const myTwitchChannelName = guildProfile.guildTwitchChannel;
+    const myTwitchGuildChannelID = guildProfile.guildTwitchChannel;
+    const myTwitchRoleID = guildProfile.roleTwitchNotificationId;
+
+
+
+
     const uptime = await fetch.get(
       `https://decapi.me/twitch/uptime/${myTwitchChannelName}`
     );
