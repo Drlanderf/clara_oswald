@@ -1,13 +1,11 @@
 const { EmbedBuilder } = require("discord.js");
 const Guild = require(`../../schemas/guild`);
-module.exports = (client) => {
-  client.embedGenerator = async (message, title, client) => {
-    const Guilds = client.guilds.cache.map((guild) => guild.id);
+async function embedGenerator(message, title, client){
+    console.log(message.guild.id)
     let guildProfile = await Guild.findOne({
-      guildId: Guilds[0],
+        guildId: message.guild.id,
     });
     const LogChannelID = guildProfile.guildAutoLogChannel;
-
     const logChannel = client.channels.cache.get(`${LogChannelID}`);
     const embed = new EmbedBuilder()
       .setTitle(`${title}`)
@@ -25,5 +23,4 @@ module.exports = (client) => {
     logChannel.send({
       embeds: [embed],
     });
-  };
-};
+  }module.exports={embedGenerator};
