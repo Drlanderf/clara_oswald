@@ -20,7 +20,7 @@ module.exports = {
       guildProfile.customLeavingMessage03,
     ];
 
-    console.log("[Event] guildMemberRemove successfully apply");
+    console.log("[Event] guildMemberRemove : successfully apply");
 
     if (!MyLeavingChannelID) {
       console.error("No Leaving Channel configured.");

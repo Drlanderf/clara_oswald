@@ -18,9 +18,9 @@ module.exports = {
 
     // WARNING CLIENT EVERYTIME THE LAST
     if (message.author.bot) {
-      console.warn(`[Event] messageCreate from another bot, do anything.`);
+      console.warn(`[Event] messageCreate : from another bot, do anything.`);
     } else {
-      console.log("[Event] messageCreate successfully apply");
+      console.log("[Event] messageCreate : successfully apply");
       try {
         const test = message.content;
         const result = test.toLowerCase();
