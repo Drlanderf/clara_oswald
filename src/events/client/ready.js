@@ -16,9 +16,9 @@ module.exports = {
     checkDBGuildId(client).then();
     loadCommands(client).then();
 
-    setInterval((()=>pickPresence(client)),15 * 1000);
-    setInterval((()=>checkVideoTech(client)),15 * 1000);
-    setInterval((()=>checkVideoGaming(client)),15 * 1000);
-    setInterval((()=>checkStreamTwitch(client)),60 * 1000);
+    setInterval(() => pickPresence(client), 15 * 1000);
+    setInterval(() => checkVideoTech(client), 15 * 1000);
+    setInterval(() => checkVideoGaming(client), 15 * 1000);
+    setInterval(() => checkStreamTwitch(client), 60 * 1000);
   },
 };

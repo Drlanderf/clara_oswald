@@ -34,4 +34,5 @@ async function pickPresence(client) {
     ],
     status: choice.status,
   });
-}module.exports={pickPresence};
+}
+module.exports = { pickPresence };

@@ -1,9 +1,12 @@
 const chalk = require("chalk");
-const {getGuilds}=require("../../functions/tools/getGuilds")
-const {checkDBFindGuildID}=require("../../functions/mongo/checkDBFindGuildID")
+const { getGuilds } = require("../../functions/tools/getGuilds");
+const { createNewDBEntry } = require("../../functions/mongo/createNewDBEntry");
+const {
+  checkDBFindGuildID,
+} = require("../../functions/mongo/checkDBFindGuildID");
 
 async function checkDBGuildId(client) {
-  const guildConfigurations = await getGuilds(client);
+  let guildConfigurations = await getGuilds(client);
   for (const guild of guildConfigurations) {
     console.log(
       chalk.cyan(`[Database Check] Trying to resolve : guildId(${guild})...`)
@@ -19,7 +22,7 @@ async function checkDBGuildId(client) {
       console.log(
         chalk.green(`[Database Check] : New entry successfully create with :`)
       );
-      await client.createNewDBEntry(guildProfile, guild);
+      await createNewDBEntry(guildProfile, guild, client);
     }
     console.log(chalk.green(`[Database Check] Found : (${guild})`));
   }

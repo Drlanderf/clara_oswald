@@ -57,5 +57,5 @@ async function checkVideoGaming(client) {
       console.error(error);
     }
   }
-}module.exports={checkVideoGaming};
-
+}
+module.exports = { checkVideoGaming };

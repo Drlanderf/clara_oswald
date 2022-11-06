@@ -104,4 +104,5 @@ async function checkStreamTwitch(client) {
       { title: title.body }
     );
   }
-}module.exports= {checkStreamTwitch};
+}
+module.exports = { checkStreamTwitch };

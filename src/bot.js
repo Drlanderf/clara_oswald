@@ -24,15 +24,6 @@ client.configs = new Collection();
 client.events = new Collection();
 loadEvents(client).then();
 client.commands = new Collection();
-
-/*const functionFolders = fs.readdirSync(`./src/functions`);
-for (const folder of functionFolders) {
-  const functionFiles = fs
-    .readdirSync(`./src/functions/${folder}`)
-    .filter((file) => file.endsWith(".js"));
-  for (const file of functionFiles)
-    require(`./functions/${folder}/${file}`)(client);
-}*/
 client.login(BOT_TOKEN).then();
 (async () => {
   await connect(DATABASE_TOKEN).catch(console.error);
