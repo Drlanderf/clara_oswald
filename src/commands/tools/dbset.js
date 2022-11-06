@@ -2,6 +2,8 @@ const { SlashCommandBuilder } = require("discord.js");
 const Guild = require(`../../schemas/guild`);
 const mongoose = require(`mongoose`);
 const chalk = require("chalk");
+const {checkDBFindGuildID}= require("../../functions/mongo/checkDBFindGuildID")
+const{createNewDBEntry}=require("../../functions/mongo/createNewDBEntry")
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("dbset")
@@ -28,9 +30,9 @@ module.exports = {
     /*let guildProfile = await Guild.findOne({
       guildId: interaction.guild.id,
     });*/
-    let guildProfile = await client.checkDBFindGuildID(interaction.guild.id);
+    let guildProfile = await checkDBFindGuildID(interaction.guild.id);
     if (!guildProfile) {
-      await client.createNewDBEntry(guildProfile, interaction.guild.id);
+      await createNewDBEntry(guildProfile, interaction.guild.id,client);
     } else {
       switch (property) {
         case "guildJoinChannel":
