@@ -1,7 +1,7 @@
 const { REST, Routes } = require("discord.js");
 const { request } = require('undici');
 const fs = require("fs");
-const Guild = require(`src/schemas/guild`);
+const Guild = require(`../../schemas/guild`);
 const clientId = process.env.CLIENT_ID;
 const rest = new REST({
   version: "10",
@@ -27,8 +27,6 @@ module.exports = (client) => {
         }
       }
       try {
-
-
         console.log(`[${client.guilds.cache.get(guild).name}] Started refreshing application (/) commands.`);
         await rest.put(Routes.applicationCommands(clientId, guildConfigurations[0]), {
           body: client.commandArray,

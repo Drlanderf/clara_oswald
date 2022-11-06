@@ -4,7 +4,7 @@ module.exports = (client) => {
     const guildConfigurations = await client.getGuilds();
     for (const guild of guildConfigurations) {
       console.log(
-        chalk.cyan(`[Database Check]: Trying to resolve guildId(${guild})...`)
+        chalk.cyan(`[Database Check] Trying to resolve : guildId(${guild})...`)
       );
       let guildProfile = await client.checkDBFindGuildID(guild);
       if (!guildProfile) {

@@ -24,15 +24,21 @@ module.exports = {
       try {
         const test = message.content;
         const result = test.toLowerCase();
-        if (result.includes(`${MyTestingReplyVar00}`))
-          message.reply(`${MyReplyVar00}`).then(() => {
-            console.log(`Reply Action ${MyReplyVar00} SUCCEED !`);
-          });
-        if (result.includes(`${MyTestingReplyVar01}`))
-          message.reply(`${MyReplyVar01}`).then(() => {
-            console.log(`Reply Action ${MyReplyVar01} SUCCEED !`);
-          });
-        client.embedGenerator(message, "New incoming message...", client);
+        switch (result) {
+          case MyTestingReplyVar00:
+            message.reply(`${MyReplyVar00}`).then(() => {
+              console.log(`Reply Action ${MyReplyVar00} SUCCEED !`);
+            });
+            break;
+          case MyTestingReplyVar01:
+            message.reply(`${MyReplyVar01}`).then(() => {
+              console.log(`Reply Action ${MyReplyVar01} SUCCEED !`);
+            });
+            break;
+          default:
+            break;
+        }
+        //client.embedGenerator(message, "New incoming message...",guildProfile, client);
       } catch (error) {
         console.error(error);
       }
