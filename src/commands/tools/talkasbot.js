@@ -2,9 +2,7 @@ const { SlashCommandBuilder } = require("discord.js");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("talkasbot")
-    .setDescription(
-      "Send a message as the bot"
-    )
+    .setDescription("Send a message as the bot")
     .addStringOption((option) =>
       option
         .setName(`message`)

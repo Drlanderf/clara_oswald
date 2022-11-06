@@ -30,6 +30,7 @@ const guildSchema = new Schema({
   replyVar00: { type: String, required: false },
   testingReplyVar01: { type: String, required: false },
   replyVar01: { type: String, required: false },
+  //last video id from YT
   lastVideo00: { type: String, required: false },
   lastVideo01: { type: String, required: false },
 });

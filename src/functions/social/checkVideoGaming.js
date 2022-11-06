@@ -4,68 +4,58 @@ const Guild = require(`../../schemas/guild`);
 const MyYoutubeChannelID01 = process.env.YOUTUBE_CHANNEL_ID01;
 
 const parser = new Parser();
-module.exports = (client) => {
-  client.checkVideoGaming = async () => {
-    const Guilds = client.guilds.cache.map((guild) => guild.id);
-    let guildProfile = await Guild.findOne({
-      guildId: Guilds[0],
-    });
-    const MyYoutubeGuildChannelID = guildProfile.guildYoutubeChannel;
-    const MyYoutubeRoleID = guildProfile.roleTwitchNotificationId;
-    const guildId = guildProfile.guildId;
-    //const MyYoutubeChannelID01 = guildProfile.;
-    const data = await parser
-      .parseURL(
-        `https://youtube.com/feeds/videos.xml?channel_id=${MyYoutubeChannelID01}`
-      )
+async function checkVideoGaming(client) {
+  const Guilds = client.guilds.cache.map((guild) => guild.id);
+  let guildProfile = await Guild.findOne({
+    guildId: Guilds[0],
+  });
+  const MyYoutubeGuildChannelID = guildProfile.guildYoutubeChannel;
+  const MyYoutubeRoleID = guildProfile.roleTwitchNotificationId;
+  const guildId = guildProfile.guildId;
+  //const MyYoutubeChannelID01 = guildProfile.; //for future
+  const data = await parser
+    .parseURL(
+      `https://youtube.com/feeds/videos.xml?channel_id=${MyYoutubeChannelID01}`
+    )
+    .catch(console.error);
+  if (guildProfile.lastVideo01 !== data.items[0].id) {
+    console.log("[videoCheck_Gaming] NEW VIDEO spotted");
+    await guildProfile
+      .updateOne({ lastVideo01: data.items[0].id })
       .catch(console.error);
-    //console.log("videoCheck_Gaming : Test if new video Gaming or not...");
-    if (guildProfile.lastVideo01 !== data.items[0].id) {
-      console.log("videoCheck_Gaming : NEW VIDEO spotted");
-      await guildProfile
-        .updateOne({ lastVideo01: data.items[0].id })
-        .catch(console.error);
-      await guildProfile.save().catch(console.error);
+    await guildProfile.save().catch(console.error);
 
-      const guild = await client.guilds
-        .fetch(`${guildId}`)
-        .catch(console.error);
-      const channel = await guild.channels
-        .fetch(`${MyYoutubeGuildChannelID}`)
-        .catch(console.error);
-      const { title, link, id, author } = data.items[0];
-      //console.log("videoCheck_Gaming : Creating the embed...");
-      const embed = new EmbedBuilder({
-        title: title,
-        url: link,
-        timestamp: Date.now(),
-        image: {
-          url: `https://img.youtube.com/vi/${id.slice(9)}/maxresdefault.jpg`,
-        },
-        author: {
-          name: author,
-          iconURL: `https://bit.ly/3TRMTkf`,
-          url: `https://youtube.com/channel/${MyYoutubeChannelID01}/?sub_confirmation=1`,
-        },
-        footer: {
-          text: client.user.tag,
-          iconURL: client.user.displayAvatarURL(),
-        },
-        color: 8388629,
+    const guild = await client.guilds.fetch(`${guildId}`).catch(console.error);
+    const channel = await guild.channels
+      .fetch(`${MyYoutubeGuildChannelID}`)
+      .catch(console.error);
+    const { title, link, id, author } = data.items[0];
+    const embed = new EmbedBuilder({
+      title: title,
+      url: link,
+      timestamp: Date.now(),
+      image: {
+        url: `https://img.youtube.com/vi/${id.slice(9)}/maxresdefault.jpg`,
+      },
+      author: {
+        name: author,
+        iconURL: `https://bit.ly/3TRMTkf`,
+        url: `https://youtube.com/channel/${MyYoutubeChannelID01}/?sub_confirmation=1`,
+      },
+      footer: {
+        text: client.user.tag,
+        iconURL: client.user.displayAvatarURL(),
+      },
+      color: 8388629,
+    });
+    try {
+      await channel.send({
+        embeds: [embed],
+        content: `:loudspeaker: Hey <@&${MyYoutubeRoleID}> Regarde une nouvelle vidéo sur la chaine **Gaming** !`,
       });
-      //console.log("videoCheck_Gaming : Embed successfully Created !");
-      try {
-        //console.log("videoCheck_Gaming : Sending the message...");
-        await channel.send({
-          embeds: [embed],
-          content: `:loudspeaker: Hey <@&${MyYoutubeRoleID}> Regarde une nouvelle vidéo sur la chaine **Gaming** !`,
-        });
-        //console.log("videoCheck_Gaming : Message successfully sended !");
-      } catch (error) {
-        console.error(error);
-      }
+    } catch (error) {
+      console.error(error);
     }
-    //else console.log("videoCheck_Gaming : Most recently video have been send");
-    //console.log("videoCheck_Gaming : checking finish, restart in 30sec");
-  };
-};
+  }
+}
+module.exports = { checkVideoGaming };

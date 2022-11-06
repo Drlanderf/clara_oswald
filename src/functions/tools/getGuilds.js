@@ -1,5 +1,4 @@
-module.exports = (client) => {
-  client.getGuilds = async () => {
-    return client.guilds.cache.map(guild => guild.id);
-  };
-};
+async function getGuilds(client) {
+  return client.guilds.cache.map((guild) => guild.id);
+}
+module.exports = { getGuilds };

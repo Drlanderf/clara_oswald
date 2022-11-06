@@ -1,25 +1,30 @@
 const chalk = require("chalk");
-module.exports = (client) => {
-  client.checkDBGuildId = async () => {
-    const guildConfigurations = await client.getGuilds();
-    for (const guild of guildConfigurations) {
+const { getGuilds } = require("../../functions/tools/getGuilds");
+const { createNewDBEntry } = require("../../functions/mongo/createNewDBEntry");
+const {
+  checkDBFindGuildID,
+} = require("../../functions/mongo/checkDBFindGuildID");
+
+async function checkDBGuildId(client) {
+  let guildConfigurations = await getGuilds(client);
+  for (const guild of guildConfigurations) {
+    console.log(
+      chalk.cyan(`[Database Check] Trying to resolve : guildId(${guild})...`)
+    );
+    let guildProfile = await checkDBFindGuildID(guild);
+    if (!guildProfile) {
       console.log(
-        chalk.cyan(`[Database Check] Trying to resolve : guildId(${guild})...`)
+        chalk.yellow(`[Database Check] Warning : no entry with ${guild}`)
       );
-      let guildProfile = await client.checkDBFindGuildID(guild);
-      if (!guildProfile) {
-        console.log(
-          chalk.yellow(`[Database Check] Warning : no entry with ${guild}`)
-        );
-        console.log(
-          chalk.cyan(`[Database Check] : Creating new entry with ${guild}`)
-        );
-        console.log(
-          chalk.green(`[Database Check] : New entry successfully create with :`)
-        );
-        await client.createNewDBEntry(guildProfile, guild);
-      }
-      console.log(chalk.green(`[Database Check] Found : (${guild})`));
+      console.log(
+        chalk.cyan(`[Database Check] : Creating new entry with ${guild}`)
+      );
+      console.log(
+        chalk.green(`[Database Check] : New entry successfully create with :`)
+      );
+      await createNewDBEntry(guildProfile, guild, client);
     }
-  };
-};
+    console.log(chalk.green(`[Database Check] Found : (${guild})`));
+  }
+}
+module.exports = { checkDBGuildId };

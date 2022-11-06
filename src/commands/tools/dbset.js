@@ -30,21 +30,7 @@ module.exports = {
     });*/
     let guildProfile = await client.checkDBFindGuildID(interaction.guild.id);
     if (!guildProfile) {
-      await client.createNewDBEntry(guildProfile,interaction.guild.id);
-      /*
-      guildProfile = await new Guild({
-        _id: mongoose.Types.ObjectId(),
-        guildId: interaction.guild.id,
-        guildName: interaction.guild.name,
-        guildIcon: interaction.guild.iconURL()
-          ? interaction.guild.iconURL()
-          : "None.",
-      });
-      await guildProfile.save().catch(console.error);
-      await interaction.reply({
-        content: `Server Name: ${guildProfile.guildName}`,
-      });
-      console.log(guildProfile);*/
+      await client.createNewDBEntry(guildProfile, interaction.guild.id);
     } else {
       switch (property) {
         case "guildJoinChannel":
@@ -258,7 +244,9 @@ module.exports = {
           });
           break;
         default:
-          await interaction.reply({ content: `Wrong property name, checkout the doc !` });
+          await interaction.reply({
+            content: `Wrong property name, checkout the doc !`,
+          });
           break;
       }
     }
