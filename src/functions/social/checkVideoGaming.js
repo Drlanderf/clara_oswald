@@ -10,7 +10,7 @@ module.exports = (client) => {
     let guildProfile = await Guild.findOne({
       guildId: Guilds[0],
     });
-    const MyYoutubeGuildChannelID = guildProfile.roleYoutubeNotificationId;
+    const MyYoutubeGuildChannelID = guildProfile.guildYoutubeChannel;
     const MyYoutubeRoleID = guildProfile.roleTwitchNotificationId;
     const guildId = guildProfile.guildId;
     //const MyYoutubeChannelID01 = guildProfile.;
@@ -19,7 +19,7 @@ module.exports = (client) => {
         `https://youtube.com/feeds/videos.xml?channel_id=${MyYoutubeChannelID01}`
       )
       .catch(console.error);
-    console.log("videoCheck_Gaming : Test if new video Gaming or not...");
+    //console.log("videoCheck_Gaming : Test if new video Gaming or not...");
     if (guildProfile.lastVideo01 !== data.items[0].id) {
       console.log("videoCheck_Gaming : NEW VIDEO spotted");
       await guildProfile

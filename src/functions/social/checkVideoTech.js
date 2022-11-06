@@ -8,7 +8,7 @@ module.exports = (client) => {
       let guildProfile = await Guild.findOne({
         guildId: Guilds[0],
       });
-      const MyYoutubeGuildChannelID = guildProfile.roleYoutubeNotificationId;
+      const MyYoutubeGuildChannelID = guildProfile.guildYoutubeChannel;
       const MyYoutubeRoleID = guildProfile.roleTwitchNotificationId;
       const guildId = guildProfile.guildId;
       const MyYoutubeChannelID00 = guildProfile.youtubeChannelId00;
