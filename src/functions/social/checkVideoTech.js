@@ -1,11 +1,9 @@
 const Parser = require(`rss-parser`);
 const { EmbedBuilder } = require("discord.js");
-const fs = require(`fs`);
 const Guild = require(`../../schemas/guild`);
 const parser = new Parser();
 module.exports = (client) => {
   client.checkVideoTech = async () => {
-    client.checkVideoGaming = async () => {
       const Guilds = client.guilds.cache.map((guild) => guild.id);
       let guildProfile = await Guild.findOne({
         guildId: Guilds[0],
@@ -14,24 +12,19 @@ module.exports = (client) => {
       const MyYoutubeRoleID = guildProfile.roleTwitchNotificationId;
       const guildId = guildProfile.guildId;
       const MyYoutubeChannelID00 = guildProfile.youtubeChannelId00;
-
-      //console.log("videoCheck_Tech : checking every 30 sec");
       const data = await parser
         .parseURL(
           `https://youtube.com/feeds/videos.xml?channel_id=${MyYoutubeChannelID00}`
         )
         .catch(console.error);
-
-      const rawData = fs.readFileSync(`${__dirname}/../../json/videoTech.json`); //
-      const jsonData = JSON.parse(rawData);
       //console.log("videoCheck_Tech : Test if new video  tech or not");
       if (guildProfile.lastVideo00 !== data.items[0].id) {
         /*Warning, put everytime the last video ID for not spamming*/
         console.log("videoCheck_Tech : NEW VIDEO spotted");
-        fs.writeFileSync(
-          `${__dirname}/../../json/videoTech.json`,
-          JSON.stringify({ id: data.items[0].id })
-        );
+        await guildProfile
+          .updateOne({ lastVideo00: data.items[0].id })
+          .catch(console.error);
+        await guildProfile.save().catch(console.error);
 
         const guild = await client.guilds
           .fetch(`${guildId}`)
@@ -74,5 +67,4 @@ module.exports = (client) => {
       //else console.log("videoCheck_Tech : Most recently video have been send");
       //console.log("videoCheck_Tech : checking finish, restart in 30sec");
     };
-  };
 };

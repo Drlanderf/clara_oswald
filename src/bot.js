@@ -32,7 +32,7 @@ for (const folder of functionFolders) {
     require(`./functions/${folder}/${file}`)(client);
 }
 client.handleEvents();
-client.handleCommands();
+//client.handleCommands();
 client.login(BOT_TOKEN).then();
 (async () => {
   await connect(DATABASE_TOKEN).catch(console.error);
