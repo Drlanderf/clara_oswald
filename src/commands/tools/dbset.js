@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require("discord.js");
 const Guild = require(`../../schemas/guild`);
 const mongoose = require(`mongoose`);
+const chalk = require("chalk");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("dbset")
@@ -24,11 +25,13 @@ module.exports = {
     const property = interaction.options.getString(`property`);
     const string = interaction.options.getString(`string`);
     console.log(`Want this ${property} with this value: ${string}`);
-    let guildProfile = await Guild.findOne({
+    /*let guildProfile = await Guild.findOne({
       guildId: interaction.guild.id,
-    });
-
+    });*/
+    let guildProfile = await client.checkDBFindGuildID(interaction.guild.id);
     if (!guildProfile) {
+      await client.createNewDBEntry(guildProfile,interaction.guild.id);
+      /*
       guildProfile = await new Guild({
         _id: mongoose.Types.ObjectId(),
         guildId: interaction.guild.id,
@@ -41,7 +44,7 @@ module.exports = {
       await interaction.reply({
         content: `Server Name: ${guildProfile.guildName}`,
       });
-      console.log(guildProfile);
+      console.log(guildProfile);*/
     } else {
       switch (property) {
         case "guildJoinChannel":

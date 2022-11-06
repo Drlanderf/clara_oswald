@@ -1,10 +1,11 @@
 const fs = require("fs");
-const { connection } = require('mongoose');
+const { connection } = require("mongoose");
+const ascii = require("ascii-table");
 module.exports = (client) => {
   client.handleEvents = async () => {
+    const table = new ascii().setHeading("Events", "Status");
     console.log("Handler of Events successfully apply");
     const eventFolders = fs.readdirSync("./src/events");
-
     for (const folder of eventFolders) {
       const eventFiles = fs
         .readdirSync(`./src/events/${folder}`)
@@ -21,6 +22,7 @@ module.exports = (client) => {
               client.on(event.name, (...args) =>
                 event.execute(...args, client)
               );
+            table.addRow(event.name, "🟩");
           }
           break;
 
@@ -35,6 +37,7 @@ module.exports = (client) => {
               connection.on(event.name, (...args) =>
                 event.execute(...args, client)
               );
+            table.addRow(event.name, "🟩");
           }
           break;
         default:

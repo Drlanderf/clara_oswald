@@ -14,11 +14,10 @@ module.exports = (client) => {
         console.log(
           chalk.cyan(`[Database Check] : Creating new entry with ${guild}`)
         );
-        await client.createNewDBEntry(guildProfile);
         console.log(
           chalk.green(`[Database Check] : New entry successfully create with :`)
         );
-        console.log(guildProfile);
+        await client.createNewDBEntry(guildProfile, guild);
       }
       console.log(chalk.green(`[Database Check] Found : (${guild})`));
     }

@@ -1,17 +1,16 @@
 const { REST, Routes } = require("discord.js");
 const { request } = require('undici');
 const fs = require("fs");
-const Guild = require(`../../schemas/guild`);
+const Guild = require(`src/schemas/guild`);
 const clientId = process.env.CLIENT_ID;
 const rest = new REST({
   version: "10",
 }).setToken(process.env.BOT_TOKEN);
 module.exports = (client) => {
   client.handleCommands = async () => {
-      /*await rest.put(Routes.applicationCommands(clientId), { body: [] });
-      await rest.put(Routes.applicationGuildCommands(clientId, guild), {
-        body: [],
-      });*/
+      const guildConfigurations = await client.getGuilds();
+      for (const guild of guildConfigurations) {
+
       const commandFolders = fs.readdirSync("./src/commands");
       for (const folder of commandFolders) {
         const commandFiles = fs
@@ -28,6 +27,8 @@ module.exports = (client) => {
         }
       }
       try {
+
+
         console.log(`[${client.guilds.cache.get(guild).name}] Started refreshing application (/) commands.`);
         await rest.put(Routes.applicationCommands(clientId, guildConfigurations[0]), {
           body: client.commandArray,
@@ -35,6 +36,6 @@ module.exports = (client) => {
         console.log(`[${client.guilds.cache.get(guild).name}] Successfully reloaded application (/) commands.`);
       } catch (error) {
         console.error(error);
-      }
+      }}
   };
 };

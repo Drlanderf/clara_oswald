@@ -1,7 +1,7 @@
 const Guild = require(`../../schemas/guild`);
 const mongoose = require(`mongoose`);
 module.exports = (client) => {
-  client.createNewDBEntry = async (guildProfile) => {
+  client.createNewDBEntry = async (guildProfile,guild) => {
     guildProfile = new Guild({
       _id: mongoose.Types.ObjectId(),
       guildId: `${guild}`,
@@ -11,5 +11,6 @@ module.exports = (client) => {
         : "None.",
     });
     await guildProfile.save().catch(console.error);
+    console.log(guildProfile);
   };
 };

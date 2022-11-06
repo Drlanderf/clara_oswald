@@ -1,20 +1,33 @@
 require("dotenv").config();
 const { BOT_TOKEN, DATABASE_TOKEN } = process.env;
-const { Client, Collection, Interaction } = require("discord.js");
+const {
+  Client,
+  Collection,
+  Interaction,
+  GatewayIntentBits,
+  Partials,
+} = require("discord.js");
+const { User, Message, GuildMember, ThreadMember } = Partials;
 const { connect } = require("mongoose");
 const fs = require("fs");
-const client = new Client({
-  intents: 3276799, // => That will include ALL intents
-});
-client.commands = new Collection();
-client.commandArray = [];
-client.configs = new Collection();
-client.colour = "";
 
+const client = new Client({
+  intents: 3276799,
+  partials: [User, Message, GuildMember, ThreadMember],
+}); // => That will include ALL intents/partials needed to work
+
+//const {loadEvents}= require("./handlers/handleEvents")
 console.log(`o--------------------------------------------o`);
 console.log(`|           Thanks to use my bot             |`);
 console.log(`o--------------------------------------------o`);
+client.configs = new Collection();
+client.events = new Collection();
+client.commands = new Collection();
+client.commandArray = [];
 
+
+
+//loadEvents(client).then();
 const functionFolders = fs.readdirSync(`./src/functions`);
 for (const folder of functionFolders) {
   const functionFiles = fs
