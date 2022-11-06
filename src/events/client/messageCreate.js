@@ -1,5 +1,6 @@
 const { Message } = require("discord.js");
 const Guild = require(`../../schemas/guild`);
+const chalk = require("chalk");
 module.exports = {
   name: "messageCreate",
   /**
@@ -16,22 +17,27 @@ module.exports = {
     const MyReplyVar00 = guildProfile.replyVar00;
     const MyReplyVar01 = guildProfile.replyVar01;
 
-    // WARNING CLIENT EVERYTIME THE LAST
     if (message.author.bot) {
-      console.warn(`[Event] messageCreate from another bot, do anything.`);
+      console.warn(`[Event] messageCreate : ${chalk.red("from another bot, do anything.")}`);
     } else {
-      console.log("[Event] messageCreate successfully apply");
+      console.log(`[Event] messageCreate : ${chalk.cyan("not from a bot, let's do something !")}`);
       try {
         const test = message.content;
         const result = test.toLowerCase();
-        if (result.includes(`${MyTestingReplyVar00}`))
-          message.reply(`${MyReplyVar00}`).then(() => {
-            console.log(`Reply Action ${MyReplyVar00} SUCCEED !`);
-          });
-        if (result.includes(`${MyTestingReplyVar01}`))
-          message.reply(`${MyReplyVar01}`).then(() => {
-            console.log(`Reply Action ${MyReplyVar01} SUCCEED !`);
-          });
+        switch (result) {
+          case MyTestingReplyVar00:
+            message.reply(`${MyReplyVar00}`).then(() => {
+              console.log(`[Event] messageCreate : ${chalk.green(`reply action ${MyReplyVar00} SUCCEED !`)}`);
+            });
+            break;
+          case MyTestingReplyVar01:
+            message.reply(`${MyReplyVar01}`).then(() => {
+              console.log(`[Event] messageCreate : ${chalk.green(`reply action ${MyReplyVar01} SUCCEED !`)}`);
+            });
+            break;
+          default: console.log(`[Event] messageCreate : ${chalk.red("Oh dear, nothing happened...")}`);
+            break;
+        }
         client.embedGenerator(message, "New incoming message...", client);
       } catch (error) {
         console.error(error);
@@ -39,3 +45,5 @@ module.exports = {
     }
   },
 };
+
+

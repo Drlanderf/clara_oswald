@@ -30,5 +30,7 @@ const guildSchema = new Schema({
   replyVar00: { type: String, required: false },
   testingReplyVar01: { type: String, required: false },
   replyVar01: { type: String, required: false },
+  lastVideo00: { type: String, required: false },
+  lastVideo01: { type: String, required: false },
 });
 module.exports = model("Guild", guildSchema, "guilds");

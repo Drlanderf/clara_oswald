@@ -8,14 +8,9 @@ module.exports = (client) => {
       guildId: Guilds[0],
     });
 
-
-
     const myTwitchChannelName = guildProfile.twitchChannelName;
     const myTwitchGuildChannelID = guildProfile.guildTwitchChannel;
     const myTwitchRoleID = guildProfile.roleTwitchNotificationId;
-
-
-
 
     const uptime = await fetch.get(
       `https://decapi.me/twitch/uptime/${myTwitchChannelName}`
@@ -34,7 +29,10 @@ module.exports = (client) => {
     );
 
     const twitch = require("../../schemas/twitchSchema");
-    let data = await twitch.findOne({user:myTwitchChannelName, title: title.body });
+    let data = await twitch.findOne({
+      user: myTwitchChannelName,
+      title: title.body,
+    });
 
     if (uptime.body !== `${myTwitchChannelName} is offline`) {
       //setting up the embed for message

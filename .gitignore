@@ -4,3 +4,4 @@
 .release-it.json
 .prettierrc
 .env
+/src/json/*
