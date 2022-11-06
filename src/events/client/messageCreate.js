@@ -1,6 +1,7 @@
 const { Message } = require("discord.js");
 const Guild = require(`../../schemas/guild`);
 const chalk = require("chalk");
+const {embedGenerator}=require("../../functions/tools/embedGenerator")
 module.exports = {
   name: "messageCreate",
   /**
@@ -8,9 +9,8 @@ module.exports = {
    * @param {Message} message
    */
   async execute(message, client) {
-    const Guilds = client.guilds.cache.map((guild) => guild.id);
     let guildProfile = await Guild.findOne({
-      guildId: Guilds,
+      guildId: message.guild.id,
     });
     const MyTestingReplyVar00 = guildProfile.testingReplyVar00;
     const MyTestingReplyVar01 = guildProfile.testingReplyVar01;
@@ -57,7 +57,7 @@ module.exports = {
             );
             break;
         }
-        client.embedGenerator(message, "New incoming message...", client);
+        await embedGenerator(message, "New incoming message...", client);
       } catch (error) {
         console.error(error);
       }

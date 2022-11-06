@@ -1,6 +1,5 @@
 const Canvas = require("@napi-rs/canvas");
 const { AttachmentBuilder, Discord } = require("discord.js");
-
 const Guild = require(`../../schemas/guild`);
 
 const welcomeCanvas = {};
@@ -24,9 +23,8 @@ module.exports = {
    * @param {import("../../bot.js")} client
    */
   async execute(member, client) {
-    const Guilds = client.guilds.cache.map((guild) => guild.id);
     let guildProfile = await Guild.findOne({
-      guildId: Guilds,
+      guildId: member.guild.id,
     });
 
     const MyWelcomeChannelID = guildProfile.guildJoinChannel;
