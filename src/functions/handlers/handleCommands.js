@@ -1,15 +1,20 @@
 const { REST, Routes } = require("discord.js");
 const fs = require("fs");
+const Guild = require(`../../schemas/guild`);
 const clientId = process.env.CLIENT_ID;
-const guildId = process.env.GUILD_ID;
+//const guildId = process.env.GUILD_ID;
 const rest = new REST({
   version: "9",
 }).setToken(process.env.BOT_TOKEN);
 module.exports = (client) => {
   client.handleCommands = async () => {
+    const Guilds = client.guilds.cache.map((guild) => guild.id);
+    let guildProfile = await Guild.findOne({
+      guildId: Guilds,
+    });
     console.log("Handler of Commands successfully apply");
     await rest.put(Routes.applicationCommands(clientId), { body: [] });
-    await rest.put(Routes.applicationGuildCommands(clientId, guildId), {
+    await rest.put(Routes.applicationGuildCommands(clientId, guildProfile.guildId), {
       body: [],
     });
     const commandFolders = fs.readdirSync("./src/commands");

@@ -23,8 +23,10 @@ for (const folder of functionFolders) {
   for (const file of functionFiles)
     require(`./functions/${folder}/${file}`)(client);
 }
+const Guilds = client.guilds.cache.map(guild => guild.id);
 
-client.defaultDBSetup(client.guilds.cache.map(guild => guild.id));
+
+client.defaultDBSetup(Guilds);
 client.handleEvents();
 client.handleCommands();
 client.login(BOT_TOKEN).then();

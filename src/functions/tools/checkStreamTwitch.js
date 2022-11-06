@@ -10,7 +10,7 @@ module.exports = (client) => {
 
 
 
-    const myTwitchChannelName = guildProfile.guildTwitchChannel;
+    const myTwitchChannelName = guildProfile.twitchChannelName;
     const myTwitchGuildChannelID = guildProfile.guildTwitchChannel;
     const myTwitchRoleID = guildProfile.roleTwitchNotificationId;
 
