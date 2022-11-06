@@ -14,6 +14,8 @@ module.exports = (client) => {
     const MyYoutubeGuildChannelID = guildProfile.roleYoutubeNotificationId;
     const MyYoutubeRoleID = guildProfile.roleTwitchNotificationId;
     const guildId = guildProfile.guildId;
+    //const MyYoutubeChannelID01 = guildProfile.;
+
 
     //console.log("videoCheck_Gaming : checking every 30 sec");
     const data = await parser
@@ -25,7 +27,7 @@ module.exports = (client) => {
     const rawData = fs.readFileSync(`${__dirname}/../../json/videoGaming.json`);
     const jsonData = JSON.parse(rawData);
     //console.log("videoCheck_Gaming : Test if new video Gaming or not...");
-    if (jsonData.id !== data.items[0].id) {
+    if (guildProfile.lastVideo01 !== data.items[0].id) {
       /*Warning, put everytime the last video ID for not spamming*/
       console.log("videoCheck_Gaming : NEW VIDEO spotted");
       fs.writeFileSync(
