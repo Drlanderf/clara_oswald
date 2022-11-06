@@ -54,6 +54,7 @@
   - [ ] Tracking invite creator number member coming by
   - [ ] Tracking number of member on discord *(put in a channel name)*
   - [ ] Ticket management
+  - [ ] Make a doc for the settings of the bot before sharing the invitation link in public
 
 ---
 
