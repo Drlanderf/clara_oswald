@@ -3,7 +3,8 @@ const mongoose = require(`mongoose`);
 const chalk = require("chalk");
 module.exports = {
   name: "guildCreate",
-  async execute(client) {
+  once:false,
+  async execute(guild,client) {
     const guildConfigurations = await client.getGuilds();
     for (const guild of guildConfigurations) {
       console.log(
