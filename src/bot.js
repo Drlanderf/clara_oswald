@@ -1,10 +1,10 @@
 require("dotenv").config();
-const {BOT_TOKEN,DATABASE_TOKEN} = process.env;
-const { Client, Collection} = require("discord.js");
-const {connect} = require("mongoose");
+const { BOT_TOKEN, DATABASE_TOKEN } = process.env;
+const { Client, Collection, Interaction } = require("discord.js");
+const { connect } = require("mongoose");
 const fs = require("fs");
 const client = new Client({
-  intents:3276799 // => That will include ALL intents
+  intents: 3276799, // => That will include ALL intents
 });
 client.commands = new Collection();
 client.commandArray = [];
@@ -24,9 +24,10 @@ for (const folder of functionFolders) {
     require(`./functions/${folder}/${file}`)(client);
 }
 
+client.defaultDBSetup(client.guilds.cache.map(guild => guild.id));
 client.handleEvents();
 client.handleCommands();
 client.login(BOT_TOKEN).then();
 (async () => {
-  await connect(DATABASE_TOKEN).catch(console.error)
+  await connect(DATABASE_TOKEN).catch(console.error);
 })();

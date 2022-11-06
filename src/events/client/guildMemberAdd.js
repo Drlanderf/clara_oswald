@@ -1,13 +1,7 @@
 const Canvas = require("@napi-rs/canvas");
-const {
-  AttachmentBuilder,
-  Discord,
-} = require("discord.js");
-const MyWelcomeChannelID = process.env.JOIN_CHANNEL;
-const MyRoleID00 = process.env.ROLE_ID00;
-const MyRoleID01 = process.env.ROLE_ID01;
-const MyRoleID02 = process.env.ROLE_ID02;
-const MyCustomWelcomeMessage = process.env.CUSTOM_WELCOME_MESSAGE;
+const { AttachmentBuilder, Discord } = require("discord.js");
+
+const Guild = require(`../../schemas/guild`);
 
 const welcomeCanvas = {};
 welcomeCanvas.create = Canvas.createCanvas(1024, 500);
@@ -30,6 +24,16 @@ module.exports = {
    * @param {import("../../bot.js")} client
    */
   async execute(member, client) {
+    const Guilds = client.guilds.cache.map((guild) => guild.id);
+    let guildProfile = await Guild.findOne({
+      guildId: Guilds,
+    });
+
+    const MyWelcomeChannelID = guildProfile.guildJoinChannel;
+    const MyRoleID00 = guildProfile.roleId00;
+    const MyRoleID01 = guildProfile.roleId01;
+    const MyRoleID02 = guildProfile.roleId02;
+    const MyCustomWelcomeMessage = guildProfile.customWelcomeMessage;
     console.log("[Event] guildMemberAdd successfully apply");
     const welcomeChannel = client.channels.cache.get(`${MyWelcomeChannelID}`);
 

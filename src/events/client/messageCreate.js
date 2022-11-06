@@ -1,8 +1,5 @@
-const {Message} = require("discord.js");
-const MyTestingReplyVar00 = process.env.MY_TESTING_REPLY_VAR00;
-const MyTestingReplyVar01 = process.env.MY_TESTING_REPLY_VAR01;
-const MyReplyVar00 = process.env.MY_REPLY_VAR00;
-const MyReplyVar01 = process.env.MY_REPLY_VAR01;
+const { Message } = require("discord.js");
+const Guild = require(`../../schemas/guild`);
 module.exports = {
   name: "messageCreate",
   /**
@@ -10,6 +7,15 @@ module.exports = {
    * @param {Message} message
    */
   async execute(message, client) {
+    const Guilds = client.guilds.cache.map((guild) => guild.id);
+    let guildProfile = await Guild.findOne({
+      guildId: Guilds,
+    });
+    const MyTestingReplyVar00 = guildProfile.testingReplyVar00;
+    const MyTestingReplyVar01 = guildProfile.testingReplyVar01;
+    const MyReplyVar00 = guildProfile.replyVar00;
+    const MyReplyVar01 = guildProfile.replyVar01;
+
     // WARNING CLIENT EVERYTIME THE LAST
     if (message.author.bot) {
       console.warn(`[Event] messageCreate from another bot, do anything.`);
@@ -26,7 +32,7 @@ module.exports = {
           message.reply(`${MyReplyVar01}`).then(() => {
             console.log(`Reply Action ${MyReplyVar01} SUCCEED !`);
           });
-        client.embedGenerator(message,"New incoming message...",client);
+        client.embedGenerator(message, "New incoming message...", client);
       } catch (error) {
         console.error(error);
       }

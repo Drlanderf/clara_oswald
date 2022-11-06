@@ -1,13 +1,23 @@
 const Parser = require(`rss-parser`);
 const { EmbedBuilder } = require("discord.js");
 const fs = require(`fs`);
+const Guild = require(`../../schemas/guild`);
 const MyYoutubeChannelID01 = process.env.YOUTUBE_CHANNEL_ID01;
-const MyYoutubeGuildChannelID = process.env.YOUTUBE_GUILD_CHANNEL_ID;
-const MyYoutubeRoleID = process.env.YOUTUBE_NOTIFICATION_ROLE_ID;
-const guildId = process.env.GUILD_ID;
+
 const parser = new Parser();
 module.exports = (client) => {
   client.checkVideoGaming = async () => {
+    const Guilds = client.guilds.cache.map((guild) => guild.id);
+    let guildProfile = await Guild.findOne({
+      guildId: Guilds,
+    });
+    const MyYoutubeGuildChannelID = guildProfile.roleYoutubeNotificationId;
+    const MyYoutubeRoleID = guildProfile.roleTwitchNotificationId;
+    const guildId = guildProfile.guildId;
+
+
+
+
     //console.log("videoCheck_Gaming : checking every 30 sec");
     const data = await parser
       .parseURL(
