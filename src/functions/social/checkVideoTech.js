@@ -1,7 +1,7 @@
 const Parser = require(`rss-parser`);
 const { EmbedBuilder } = require("discord.js");
 const fs = require(`fs`);
-const Guild = require(`../../schemas/guild`);
+const Guild = require(`src/schemas/guild`);
 const parser = new Parser();
 module.exports = (client) => {
   client.checkVideoTech = async () => {
