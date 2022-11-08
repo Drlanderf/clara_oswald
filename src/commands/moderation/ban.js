@@ -16,7 +16,6 @@ module.exports = {
     ),
 
   async execute(interaction, client) {
-    console.log("[Command] ban successfully apply");
     const user = interaction.options.getUser(`target`);
     let reason = interaction.options.getString(`reason`);
     const member = await interaction.guild.members

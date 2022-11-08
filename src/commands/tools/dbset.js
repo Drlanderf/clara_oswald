@@ -1,7 +1,4 @@
 const { SlashCommandBuilder } = require("discord.js");
-const Guild = require(`../../schemas/guild`);
-const mongoose = require(`mongoose`);
-const chalk = require("chalk");
 const {checkDBFindGuildID}= require("../../functions/mongo/checkDBFindGuildID")
 const{createNewDBEntry}=require("../../functions/mongo/createNewDBEntry")
 module.exports = {

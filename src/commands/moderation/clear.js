@@ -12,7 +12,6 @@ module.exports = {
         .setRequired(true)
     ),
   async execute(interaction, client) {
-    console.log("[Command] clear successfully apply");
     let number = interaction.options.getInteger(`number`);
 
     if (number >= 1 && number <= 100) {
