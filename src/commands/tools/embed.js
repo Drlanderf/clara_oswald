@@ -4,7 +4,6 @@ module.exports = {
     .setName("embed")
     .setDescription("Return an embed"),
   async execute(interaction, client) {
-    console.log("[Command] embed successfully apply");
     const embed = new EmbedBuilder()
       .setTitle(`This is an embed title`)
       .setDescription(`This is an AWESOME description !`)

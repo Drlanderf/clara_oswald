@@ -1,7 +1,4 @@
-const { REST } = require("discord.js");
-const ascii = require("ascii-table");
 async function loadCommands(client) {
-  const { REST, Routes } = require("discord.js");
   const fs = require("fs");
   const ascii = require("ascii-table");
 
@@ -21,7 +18,7 @@ async function loadCommands(client) {
       const command = require(`../../commands/${folder}/${file}`);
       await client.commands.set(command.data.name, command);
       client.commandsArray.push(command.data.toJSON());
-      table.addRow(command.data.name, `LOADED 🟩`);
+      table.addRow(command.data.name, `🟩`);
     }
   }
   await client.application.commands.set(client.commandsArray);

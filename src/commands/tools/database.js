@@ -6,7 +6,6 @@ module.exports = {
     .setName("database")
     .setDescription("Return information from DB"),
   async execute(interaction, client) {
-    console.log("[Command] database successfully apply");
     let guildProfile = await Guild.findOne({
       guildId: interaction.guild.id,
     });

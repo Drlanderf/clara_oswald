@@ -20,7 +20,6 @@ module.exports = {
         .setDescription(`Indicate the reason for the timeout.`)
     ),
   async execute(interaction, client) {
-    console.log("[Command] timeout successfully apply");
     const user = interaction.options.getUser(`target`);
     let reason = interaction.options.getString(`reason`);
     let time = interaction.options.getInteger(`time`);

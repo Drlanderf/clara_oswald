@@ -10,7 +10,6 @@ module.exports = {
         .setRequired(true)
     ),
   async execute(interaction, client) {
-    console.log("[Command] talkasbot successfully apply");
     let message = interaction.options.getString(`message`);
 
     if (!message) return;

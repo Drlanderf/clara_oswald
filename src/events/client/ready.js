@@ -13,8 +13,9 @@ module.exports = {
     const table = new ascii().setHeading("Logged into Discord as");
     table.addRow(`${client.user.tag}`);
     console.log(table.toString());
-    checkDBGuildId(client).then();
     loadCommands(client).then();
+    checkDBGuildId(client).then();
+
 
     setInterval(() => pickPresence(client), 15 * 1000);
     /*

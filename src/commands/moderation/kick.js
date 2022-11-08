@@ -15,7 +15,6 @@ module.exports = {
         .setDescription(`Indicate the reason for the kick.`)
     ),
   async execute(interaction, client) {
-    console.log("[Command] kick successfully apply");
     const user = interaction.options.getUser(`target`);
     let reason = interaction.options.getString(`reason`);
     const member = await interaction.guild.members

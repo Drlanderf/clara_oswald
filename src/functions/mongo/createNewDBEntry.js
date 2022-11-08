@@ -10,6 +10,5 @@ async function createNewDBEntry(guildProfile, guild, client) {
       : "None.",
   });
   await guildProfile.save().catch(console.error);
-  console.log(guildProfile);
 }
 module.exports = { createNewDBEntry };

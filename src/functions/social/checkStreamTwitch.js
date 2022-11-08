@@ -1,12 +1,6 @@
 const fetch = require("node-superfetch");
 const { EmbedBuilder } = require("discord.js");
-const Guild = require(`../../schemas/guild`);
-async function checkStreamTwitch(client) {
-  const Guilds = client.guilds.cache.map((guild) => guild.id);
-  let guildProfile = await Guild.findOne({
-    guildId: Guilds[0],
-  });
-
+async function checkStreamTwitch(guildProfile,client) {
   const myTwitchChannelName = guildProfile.twitchChannelName;
   const myTwitchGuildChannelID = guildProfile.guildTwitchChannel;
   const myTwitchRoleID = guildProfile.roleTwitchNotificationId;
@@ -73,7 +67,7 @@ async function checkStreamTwitch(client) {
       /*     trying to send the message    */
       /*************************************/
       try {
-        await client.channels.cache.get(`${myTwitchGuildChannelID}`).send({
+        await client.channels.cache.get(myTwitchGuildChannelID).send({
           embeds: [embed],
           content: `:loudspeaker: Hey <@&${myTwitchRoleID}> Regarde , **${myTwitchChannelName}** est en live !\nhttps://www.twitch.tv/${myTwitchChannelName}`,
         });
@@ -89,7 +83,7 @@ async function checkStreamTwitch(client) {
     /*     trying to send the message    */
     /*************************************/
     try {
-      await client.channels.cache.get(`${myTwitchGuildChannelID}`).send({
+      await client.channels.cache.get(myTwitchGuildChannelID).send({
         embeds: [embed],
         content: `:loudspeaker: Hey <@&${myTwitchRoleID}> Regarde , **${myTwitchChannelName}** est en live !\nhttps://www.twitch.tv/${myTwitchChannelName}`,
       });
