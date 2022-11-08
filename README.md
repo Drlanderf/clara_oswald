@@ -36,6 +36,10 @@
 
 - Be sure to follow the versioning syntax already in place using gitmoji.dev
 
+## 📝 documentation :
+
+- The discord bot have this own documentation can be found here : https://bit.ly/clara_oswald-wiki
+
 ## 🗺️ RoadMap :
   - [X] Essential moderation command *(kick,timeout,ban,clear)*
   - [X] Talking as bot
