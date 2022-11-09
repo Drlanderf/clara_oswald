@@ -54,6 +54,6 @@ module.exports = {
     await interaction.reply({
       content: `[Command] youtubeCheck successfully apply`,
     });
-    setInterval(() => checkVideoTech(interaction, client), 5 * 1000);
+    setInterval(() => checkVideoTech(interaction, client), 60 * 1000);
   },
 };
