@@ -1,6 +1,8 @@
 const fetch = require("node-superfetch");
 const { EmbedBuilder } = require("discord.js");
-async function checkStreamTwitch(guildProfile,client) {
+const {checkDBFindGuildID} = require("../mongo/checkDBFindGuildID");
+async function checkStreamTwitch(interaction,client) {
+  const guildProfile = await checkDBFindGuildID(interaction.guildId);
   const myTwitchChannelName = guildProfile.twitchChannelName;
   const myTwitchGuildChannelID = guildProfile.guildTwitchChannel;
   const myTwitchRoleID = guildProfile.roleTwitchNotificationId;

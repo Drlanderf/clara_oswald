@@ -9,8 +9,7 @@ const { createNewDBEntry } = require("../../functions/mongo/createNewDBEntry");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("twitch-check")
-    .setDescription("Setup the youtube notification")
-    .addStringOption((option) =>
+    .setDescription("Setup the twitch  notification")option) =>
       option
         .setName(`twitch_name`)
         .setDescription(
@@ -57,6 +56,6 @@ module.exports = {
     await interaction.reply({
       content: `[Command] checkStreamTwitch successfully apply`,
     });
-    setInterval(() => checkStreamTwitch(guildProfile, client), 120 * 1000);
+    setInterval(() => checkStreamTwitch(interaction, client), 120 * 1000);
   },
 };
