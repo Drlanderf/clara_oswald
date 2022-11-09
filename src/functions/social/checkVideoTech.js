@@ -1,7 +1,9 @@
 const Parser = require(`rss-parser`);
 const { EmbedBuilder } = require("discord.js");
+const { checkDBFindGuildID } = require("../mongo/checkDBFindGuildID");
 const parser = new Parser();
-async function checkVideoTech(guildProfile, client) {
+async function checkVideoTech(interaction, client) {
+  const guildProfile = await checkDBFindGuildID(interaction.guildId);
   const MyYoutubeGuildChannelID = guildProfile.guildYoutubeChannel;
   const MyYoutubeRoleID = guildProfile.roleYoutubeNotificationId;
   const MyYoutubeChannelID00 = guildProfile.youtubeChannelId00;
@@ -10,6 +12,7 @@ async function checkVideoTech(guildProfile, client) {
       `https://youtube.com/feeds/videos.xml?channel_id=${MyYoutubeChannelID00}`
     )
     .catch(console.error);
+
   if (guildProfile.lastVideo00 !== data.items[0].id) {
     //new video or not sent
     await guildProfile

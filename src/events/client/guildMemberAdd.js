@@ -32,7 +32,6 @@ module.exports = {
     const MyRoleID01 = guildProfile.roleId01;
     const MyRoleID02 = guildProfile.roleId02;
     const MyCustomWelcomeMessage = guildProfile.customWelcomeMessage;
-    console.log("[Event] guildMemberAdd : successfully apply");
     const welcomeChannel = client.channels.cache.get(`${MyWelcomeChannelID}`);
 
     let canvas = welcomeCanvas;

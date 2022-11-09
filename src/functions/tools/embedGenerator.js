@@ -1,7 +1,6 @@
 const { EmbedBuilder } = require("discord.js");
 const Guild = require(`../../schemas/guild`);
 async function embedGenerator(message, title, client){
-    console.log(message.guild.id)
     let guildProfile = await Guild.findOne({
         guildId: message.guild.id,
     });
