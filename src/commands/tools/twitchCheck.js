@@ -9,7 +9,8 @@ const { createNewDBEntry } = require("../../functions/mongo/createNewDBEntry");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("twitch-check")
-    .setDescription("Setup the twitch  notification")option) =>
+    .setDescription("Setup the twitch  notification")
+    .addStringOption((option) =>
       option
         .setName(`twitch_name`)
         .setDescription(
@@ -34,7 +35,8 @@ module.exports = {
     const myTwitchNotificationRoleId = interaction.options.getString(
       `twitch_notification_role_id`
     );
-    const myTwitchChannelId = interaction.options.getString(`twitch_channel_id`);
+    const myTwitchChannelId =
+      interaction.options.getString(`twitch_channel_id`);
 
     let guildProfile = await checkDBFindGuildID(interaction.guild.id);
     if (!guildProfile) {
