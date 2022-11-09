@@ -9,8 +9,7 @@ const { createNewDBEntry } = require("../../functions/mongo/createNewDBEntry");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("twitch-check")
-    .setDescription("Setup the twitch  notification")
-    .addStringOption((option) =>
+    .setDescription("Setup the twitch  notification")option) =>
       option
         .setName(`twitch_name`)
         .setDescription(

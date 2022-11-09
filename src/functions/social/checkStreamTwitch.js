@@ -3,7 +3,6 @@ const { EmbedBuilder } = require("discord.js");
 const {checkDBFindGuildID} = require("../mongo/checkDBFindGuildID");
 async function checkStreamTwitch(interaction,client) {
   const guildProfile = await checkDBFindGuildID(interaction.guildId);
-
   const myTwitchChannelName = guildProfile.twitchChannelName;
   const myTwitchGuildChannelID = guildProfile.guildTwitchChannel;
   const myTwitchRoleID = guildProfile.roleTwitchNotificationId;
