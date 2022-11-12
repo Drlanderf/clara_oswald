@@ -29,11 +29,67 @@ async function loadEvents(client) {
           const event = require(`../../events/${folder}/${file}`);
           if (event.once)
             connection.once(event.name, (...args) =>
-              event.execute(...args, client)
+                event.execute(...args, client)
             );
           else
             connection.on(event.name, (...args) =>
-              event.execute(...args, client)
+                event.execute(...args, client)
+            );
+          table.addRow(event.name, `🟩`);
+        }
+        break;
+      case "guild":
+        for (const file of eventFiles) {
+          const event = require(`../../events/${folder}/${file}`);
+          if (event.once)
+            connection.once(event.name, (...args) =>
+                event.execute(...args, client)
+            );
+          else
+            connection.on(event.name, (...args) =>
+                event.execute(...args, client)
+            );
+          table.addRow(event.name, `🟩`);
+        }
+        break;
+      case "interaction":
+        for (const file of eventFiles) {
+          const event = require(`../../events/${folder}/${file}`);
+          if (event.once)
+            connection.once(event.name, (...args) =>
+                event.execute(...args, client)
+            );
+          else
+            connection.on(event.name, (...args) =>
+                event.execute(...args, client)
+            );
+          table.addRow(event.name, `🟩`);
+        }
+        break;
+      case "member":
+        for (const file of eventFiles) {
+          const event = require(`../../events/${folder}/${file}`);
+          if (event.once)
+            connection.once(event.name, (...args) =>
+                event.execute(...args, client)
+            );
+          else
+            connection.on(event.name, (...args) =>
+                event.execute(...args, client)
+            );
+          table.addRow(event.name, `🟩`);
+        }
+        break;
+      case "message":
+        for (const file of eventFiles) {
+          const event = require(`../../events/${folder}/${file}`);
+          if (event.once)
+            connection.once(event.name, (...args) =>
+                event.execute(...args, client)
+            );
+          else
+            connection.on(event.name, (...args) =>
+                event.execute(...args, client)
             );
           table.addRow(event.name, `🟩`);
         }
