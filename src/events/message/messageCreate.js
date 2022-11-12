@@ -1,5 +1,5 @@
 const { Message } = require("discord.js");
-const Guild = require(`src/schemas/guild`);
+const Guild = require(`../../schemas/guild`);
 const {embedGenerator}=require("../../functions/tools/embedGenerator")
 module.exports = {
   name: "messageCreate",

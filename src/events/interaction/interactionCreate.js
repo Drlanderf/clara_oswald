@@ -1,5 +1,10 @@
 module.exports = {
   name: "interactionCreate",
+  /**
+   *
+   * @param {import("discord.js").ChatInputCommandInteraction} interaction
+   * @param {import("../../bot.js")} client
+   */
   async execute(interaction, client) {
     if (interaction.isChatInputCommand()) {
       const { commands } = client;

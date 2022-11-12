@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
-const Guild = require(`src/schemas/guild`);
-
+const Guild = require(`../../schemas/guild`);
 module.exports = {
   name: "guildMemberRemove",
   /**
