@@ -15,7 +15,7 @@ module.exports = {
         if (!reason) reason = "No reason provided.";
         if (!time) time = null;
 
-        await member.timeout(time == null ? null : time * 60 * 1000, reason).catch(console.error);
+        await member.timeout(time == null ? null : time * 60 * 1000, reason + `\nBy: ${interaction.member.user.id}`).catch(console.error);
 
         interaction.reply({
             content: `${user.tag} timed out!\n(reason: ${reason})`,

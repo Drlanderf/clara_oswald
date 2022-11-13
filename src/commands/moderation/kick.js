@@ -11,7 +11,7 @@ module.exports = {
         const member = await interaction.guild.members.fetch(user.id).catch(console.error);
 
         if (!reason) reason = "No reason provided.";
-        await member.kick(reason).catch(console.error);
+        await member.kick(reason + `\nBy: ${interaction.member.user.id}`).catch(console.error);
 
         interaction.reply({
             content: `kick ${user.tag} was kicked!\n(reason: ${reason})`,
