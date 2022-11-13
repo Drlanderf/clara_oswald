@@ -1,10 +1,9 @@
-const Discord = require("discord.js");
-const Guild = require(`../../schemas/guild`);
+const { GuildMember, Client } = require("discord.js");
 module.exports = {
     name: "guildMemberUpdate",
     /**
-     * @param {Discord.GuildMember} member
-     * @param {import("../../bot.js")} client
+     * @param {GuildMember} member
+     * @param {Client} client
      */
     async execute(member) {},
 };

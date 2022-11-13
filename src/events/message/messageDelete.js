@@ -1,10 +1,8 @@
-const { Message } = require("discord.js");
-const Guild = require(`../../schemas/guild`);
-const {embedGenerator}=require("../../functions/tools/embedGenerator")
+const { Message, Client } = require("discord.js");
 module.exports = {
     name: "messageDelete",
     /**
-     * @param {import("../../bot.js")} client
+     * @param {Client} client
      * @param {Message} message
      */
     async execute(message, client) {},
