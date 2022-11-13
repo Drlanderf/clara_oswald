@@ -1,6 +1,9 @@
 const fetch = require("node-superfetch");
 const { EmbedBuilder } = require("discord.js");
 const { checkDBFindGuildID } = require("../mongo/checkDBFindGuildID");
+
+const msg = (role, username) => `:loudspeaker: Hey <@&${role}> look\n**${username}** is live!\nhttps://www.twitch.tv/${username}`;
+
 async function checkStreamTwitch(interaction, client) {
     const guildProfile = await checkDBFindGuildID(interaction.guildId);
     const myTwitchChannelName = guildProfile.twitchChannelName;
@@ -59,7 +62,7 @@ async function checkStreamTwitch(interaction, client) {
             try {
                 await client.channels.cache.get(myTwitchGuildChannelID).send({
                     embeds: [embed],
-                    content: `:loudspeaker: Hey <@&${myTwitchRoleID}> Regarde , **${myTwitchChannelName}** est en live !\nhttps://www.twitch.tv/${myTwitchChannelName}`,
+                    content: msg(myTwitchRoleID, myTwitchChannelName),
                 });
             } catch (error) {
                 console.error(error);
@@ -75,7 +78,7 @@ async function checkStreamTwitch(interaction, client) {
         try {
             await client.channels.cache.get(myTwitchGuildChannelID).send({
                 embeds: [embed],
-                content: `:loudspeaker: Hey <@&${myTwitchRoleID}> Regarde , **${myTwitchChannelName}** est en live !\nhttps://www.twitch.tv/${myTwitchChannelName}`,
+                content: msg(myTwitchRoleID, myTwitchChannelName),
             });
         } catch (error) {
             console.error(error);
