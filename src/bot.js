@@ -5,8 +5,8 @@ const { connect } = require("mongoose");
 const { loadEvents } = require("../src/functions/handlers/handleEvents");
 
 const client = new Client({
-    intents: 3276799,
-}); // => That will include ALL intents needed to work
+    intents: process.argv[3] ? 3276799 : 531,
+}); // => That will include ALL the intents - though
 console.log(`o----------------------------o`);
 console.log(`|   Thanks for using my bot     |`);
 client.configs = new Collection();
