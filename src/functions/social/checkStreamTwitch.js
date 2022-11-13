@@ -52,7 +52,7 @@ async function checkStreamTwitch(interaction, client) {
             })
             .setColor("Purple");
         if (!data) {
-            const newdata = new twitch({
+            const newData = new twitch({
                 user: myTwitchChannelName,
                 title: `${title.body}`,
             });
@@ -68,7 +68,7 @@ async function checkStreamTwitch(interaction, client) {
                 console.error(error);
             }
 
-            return await newdata.save();
+            return await newData.save();
         }
         if (data.title === `${title.body}`) return;
 
