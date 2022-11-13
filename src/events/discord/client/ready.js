@@ -1,7 +1,7 @@
 const ascii = require("ascii-table");
-const { loadCommands } = require("../../functions/handlers/handleCommands");
-const { checkDBGuildId } = require("../../functions/mongo/checkDBGuildId");
-const { pickPresence } = require("../../functions/tools/pickPresence");
+const { loadCommands } = require("../../../functions/handlers/handleCommands");
+const { checkDBGuildId } = require("../../../functions/mongo/checkDBGuildId");
+const { pickPresence } = require("../../../functions/tools/pickPresence");
 module.exports = {
     name: "ready",
     async execute(client) {

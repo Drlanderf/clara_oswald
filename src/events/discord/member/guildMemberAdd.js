@@ -1,6 +1,6 @@
 const Canvas = require("@napi-rs/canvas");
 const { AttachmentBuilder, GuildMember, Client } = require("discord.js");
-const Guild = require(`../../schemas/guild`);
+const Guild = require(`../../../schemas/guild`);
 
 const welcomeCanvas = {};
 welcomeCanvas.create = Canvas.createCanvas(1024, 500);

@@ -2,8 +2,9 @@ const { GuildMember, Client } = require("discord.js");
 module.exports = {
     name: "guildMemberUpdate",
     /**
-     * @param {GuildMember} member
+     * @param {GuildMember} oldMember
+     * @param {GuildMember} newMember
      * @param {Client} client
      */
-    async execute(member) {},
+    async execute(oldMember, newMember, client) {},
 };

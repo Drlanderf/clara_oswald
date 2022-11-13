@@ -1,5 +1,5 @@
 const chalk = require("chalk");
-const { checkDBGuildId } = require("../../functions/mongo/checkDBGuildId");
+const { checkDBGuildId } = require(`${__dirname}/../../../functions/mongo/checkDBGuildId`);
 const { Guild, Client } = require("discord.js");
 module.exports = {
     name: "guildCreate",
