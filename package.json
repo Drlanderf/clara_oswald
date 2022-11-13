@@ -5,15 +5,12 @@
     "chalk": "^4.1.2",
     "discord.js": "^14.6.0",
     "dotenv": "^16.0.3",
-    "glob": "^8.0.3",
     "mongoose": "^6.7.1",
     "node-superfetch": "^0.3.3",
-    "rest-api-constructor": "^1.0.6",
-    "rss-parser": "^3.12.0",
-    "undici": "^5.12.0"
+    "rss-parser": "^3.12.0"
   },
   "name": "clara_oswald",
-  "version": "4.0.1-5",
+  "version": "4.0.1-6",
   "main": "src/bot.js",
   "scripts": {
     "test": "node .",
