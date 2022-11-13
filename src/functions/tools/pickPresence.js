@@ -12,7 +12,7 @@ const activities = [
     },
     {
         type: 2,
-        text: "for commands",
+        text: "commands",
         status: "idle",
     },
     {

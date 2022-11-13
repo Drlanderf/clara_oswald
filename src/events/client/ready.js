@@ -6,7 +6,7 @@ module.exports = {
     name: "ready",
     async execute(client) {
         const table = new ascii().setHeading("Logged into Discord as");
-        table.addRow(`${client.user.tag}`);
+        table.addRow(`${client.user.tag} - ${client.user.id}`);
         console.log(table.toString());
         await loadCommands(client);
         await checkDBGuildId(client);

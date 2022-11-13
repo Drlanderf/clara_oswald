@@ -84,6 +84,7 @@ module.exports = {
         ],
     },
     async execute(interaction, client) {
+        console.log(interaction);
         const user = interaction.options.getUser("targetuser");
         let toDelete = interaction.options.getInteger("amount");
         await interaction.deferReply({ ephemeral: true });
