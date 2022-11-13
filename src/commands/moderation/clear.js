@@ -1,4 +1,3 @@
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const { ChatInputCommandInteraction, Client } = require("discord.js");
 async function timesRepeat(toDelete) {
     if (toDelete < 99) return [toDelete];
