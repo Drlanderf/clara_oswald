@@ -1,4 +1,24 @@
 {
+  "name": "clara_oswald",
+  "version": "4.0.1-6",
+  "description": "",
+  "main": "src/bot.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "test": "node ./src/index.js test",
+    "release": "dotenv release-it --"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Drlanderf/clara_oswald.git"
+  },
+  "keywords": [],
+  "author": "landerf",
+  "license": "CC-BY-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/Drlanderf/clara_oswald/issues"
+  },
+  "homepage": "https://github.com/Drlanderf/clara_oswald#readme",
   "dependencies": {
     "@napi-rs/canvas": "^0.1.30",
     "ascii-table": "^0.0.9",
@@ -9,17 +29,6 @@
     "node-superfetch": "^0.3.3",
     "rss-parser": "^3.12.0"
   },
-  "name": "clara_oswald",
-  "version": "4.0.1-6",
-  "main": "src/bot.js",
-  "scripts": {
-    "test": "node .",
-    "release": "dotenv release-it --"
-  },
-  "keywords": [],
-  "author": "landerf",
-  "license": "CC-BY-SA-4.0",
-  "description": "",
   "devDependencies": {
     "@release-it/bumper": "^4.0.0",
     "@release-it/keep-a-changelog": "^3.1.0",
