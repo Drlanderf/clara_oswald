@@ -3,7 +3,6 @@ const { BOT_TOKEN, DATABASE_TOKEN } = process.env;
 const { Client, Collection } = require("discord.js");
 const { connect } = require("mongoose");
 const { loadEvents } = require("../src/functions/handlers/handleEvents");
-
 const client = new Client({
     intents: process.argv[3] ? 3276799 : 531,
 }); // => That will include ALL the intents - though
