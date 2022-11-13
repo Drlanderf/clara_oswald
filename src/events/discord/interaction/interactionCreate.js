@@ -16,7 +16,10 @@ module.exports = {
                 await command.execute(interaction, client);
             } catch (error) {
                 console.error(error);
-                await interaction.reply({
+                let pick = 0;
+                let picks = ["reply", "editReply"];
+                if (interaction.replied || interaction.deferred) pick = 1;
+                await interaction[picks[pick]]({
                     content: `Something strange happened while executing this command...`,
                     ephemeral: true,
                 });
