@@ -57,34 +57,42 @@ module.exports = {
         let deleting = await timesRepeat(toDelete);
         const channel = (await interaction.options.getChannel("targetchannel")) || (await client.channels.cache.get(interaction.channelId));
         let last;
-        for (let i = deleting.length; i > 0; i--) {
-            let numb = deleting[deleting.length - i];
+        console.log(deleting);
+        for (let i = deleting.length - 1; i > -1; i--) {
+            let a = Number.parseInt(deleting.length - i - 1);
+            let numb = deleting[a];
             if (numb > 0) {
                 let messages = await channel.messages.fetch({
                     limit: parseInt(numb) + 1,
                     after: last,
                 });
-                last = messages.lastKey();
-                if (messages?.size == 0)
-                    return await interaction.editReply({
-                        content: `Got rid of: ${total} ${plural(total)} ${user ? `that ${user} sent` : ``} from ${channel}`,
-                    });
-                let final;
-                if (user) final = [...(await messages.filter((m) => m.author.id == user.id && m.deletable))].map((e) => e[1]).slice(0, numb);
-                else final = [...(await messages.filter((m) => m.deletable))].map((e) => e[1]).slice(0, numb);
-                await channel
-                    .bulkDelete(final, true)
-                    .then((messages) => {
-                        total += messages?.size || 0;
-                    })
-                    .catch(async (error) => {
-                        console.error("error →", error);
-                        return await interaction.editReply({
-                            content: `There was an error, check the console/tell the Developer to do so ^-^"!`,
+                if (messages.size != 0) {
+                    last = messages.lastKey();
+                    let final;
+                    if (user) final = [...(await messages.filter((m) => m.author.id == user.id && m.deletable))].map((e) => e[1]).slice(0, numb);
+                    else
+                        final = [
+                            ...(await messages.filter((m) => {
+                                return m.deletable;
+                            })),
+                        ]
+                            .map((e) => e[1])
+                            .slice(0, numb);
+                    if (final.length == 0) continue;
+                    await channel
+                        .bulkDelete(final, true)
+                        .then((messages) => {
+                            total += messages?.size || 0;
+                        })
+                        .catch(async (error) => {
+                            console.error("error →", error);
+                            return await interaction.editReply({
+                                content: `There was an error, check the console/tell the Developer to do so ^-^"!`,
+                            });
                         });
-                    });
+                }
             }
-            if (i == 1)
+            if (i == 0)
                 await interaction.editReply({
                     content: `Got rid of: ${total} messages ${plural(total)} ${user ? `that ${user} sent` : ``} from ${channel}`,
                 });
