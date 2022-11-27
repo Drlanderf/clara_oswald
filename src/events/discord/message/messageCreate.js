@@ -3,14 +3,14 @@ const chalk = require("chalk");
 const Guild = require(`../../../schemas/guild`);
 const { sendLogMessage } = require("../../../functions/tools/sendLogMessage");
 module.exports = {
-    name: "messageCreate",
-    /**
-     * @param {Message} message
-     * @param {Client} client
-     */
-    async execute(message, client) {
-        //This got disabled as it's something that serves no real purpose but I'm not removing it *yet*
-        /*
+  name: "messageCreate",
+  /**
+   * @param {Message} message
+   * @param {Client} client
+   */
+  async execute(message, client) {
+    //This got disabled as it's something that serves no real purpose but I'm not removing it *yet*
+    /*
         let guildProfile = await Guild.findOne({
             guildId: message.guild.id,
         });
@@ -46,5 +46,5 @@ module.exports = {
                 console.error(error);
             }
         }*/
-    },
+  },
 };
