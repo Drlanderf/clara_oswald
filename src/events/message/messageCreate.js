@@ -1,7 +1,6 @@
 const { Message } = require("discord.js");
 const Guild = require(`../../schemas/guild`);
 const {embedGenerator}=require("../../functions/tools/embedGenerator")
-const chalk = require("chalk");
 module.exports = {
   name: "messageCreate",
   /**
@@ -12,7 +11,6 @@ module.exports = {
     let guildProfile = await Guild.findOne({
       guildId: message.guild.id,
     });
-    console.log(`[Event] messageCreate`);
     const MyTestingReplyVar00 = guildProfile.testingReplyVar00;
     const MyTestingReplyVar01 = guildProfile.testingReplyVar01;
     const MyReplyVar00 = guildProfile.replyVar00;
@@ -28,16 +26,16 @@ module.exports = {
         switch (result) {
           case MyTestingReplyVar00:
             message.reply(`${MyReplyVar00}`).then(() => {
-              console.log(`[Event] messageCreate : ${chalk.green(`reply action ${MyReplyVar00} SUCCEED !`)}`);
+              //console.log(`[Event] messageCreate : ${chalk.green(`reply action ${MyReplyVar00} SUCCEED !`)}`);
             });
             break;
           case MyTestingReplyVar01:
             message.reply(`${MyReplyVar01}`).then(() => {
-              console.log(`[Event] messageCreate : ${chalk.green(`reply action ${MyReplyVar01} SUCCEED !`)}`);
+              //console.log(`[Event] messageCreate : ${chalk.green(`reply action ${MyReplyVar01} SUCCEED !`)}`);
             });
             break;
           default:
-            console.log(`[Event] messageCreate : ${chalk.red("Oh dear, nothing happened...")}`);
+            //console.log(`[Event] messageCreate : ${chalk.red("Oh dear, nothing happened...")}`);
             break;
         }
         await embedGenerator(message, "New incoming message...", client);
