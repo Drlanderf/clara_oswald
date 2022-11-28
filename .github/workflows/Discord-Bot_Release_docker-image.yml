@@ -32,4 +32,4 @@ jobs:
       with:
         build-args: --env-file .env.example up
         push: true
-        tags: landerf/laserotron_evo:latest,landerf/laserotron_evo:release_${{steps.version_by_tag.outputs.tag}}
+        tags: landerf/clara_oswlad:latest,landerf/clara_oswlad:release_${{steps.version_by_tag.outputs.tag}}
