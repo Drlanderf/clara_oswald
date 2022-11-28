@@ -1,7 +1,7 @@
 {
   "name": "clara_oswald",
   "version": "4.0.1-6",
-  "description": "",
+  "description": "<h1 align=center>🤖 Discord Bot 🤖</h1>\r <h3 align=\"center\">",
   "main": "src/index.js",
   "scripts": {
     "start": "node ./src/index.js",
