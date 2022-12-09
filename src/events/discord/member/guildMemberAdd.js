@@ -29,7 +29,7 @@ module.exports = {
     let ctx = canvas.getContext("2d");
     //Setup of the background
     const background = await Canvas.loadImage(
-      `${process.cwd()}/assets/img/The_Enclave_Flag_(Fallout).png`
+      `${process.cwd()}/assets/img/bg.png`
     );
     ctx.drawImage(background, 0, 0, 1024, 500);
     ctx.beginPath();
@@ -70,7 +70,6 @@ module.exports = {
         text: ` ${guildProfile.guildName} all rights reserved`,
       })
       .setTimestamp(Date.now());
-
     /**************************************************************************/
     //Try to send the welcome message
     try {
