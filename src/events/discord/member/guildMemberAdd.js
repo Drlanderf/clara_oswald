@@ -1,5 +1,10 @@
 const Canvas = require("canvas");
-const { AttachmentBuilder, GuildMember, Client } = require("discord.js");
+const {
+  AttachmentBuilder,
+  GuildMember,
+  Client,
+  EmbedBuilder,
+} = require("discord.js");
 const Guild = require(`../../../schemas/guild`);
 module.exports = {
   name: "guildMemberAdd",
@@ -53,13 +58,25 @@ module.exports = {
     let attachment = new AttachmentBuilder(canvas.toBuffer(), {
       name: "made_by_doc_landerf.png",
     });
+    /**************************************************************************/
+    //Setting up the custom embed !
+    let embed = new EmbedBuilder()
+      .setTitle(`:wave::skin-tone-2: Hey ${member}`)
+      .setDescription(`${MyCustomWelcomeMessage}`)
+      .setColor("Random")
+      .setImage(attachment)
+      .setFooter({
+        iconURL: client.user.displayAvatarURL(),
+        text: ` ${guildProfile.guildName} all rights reserved`,
+      })
+      .setTimestamp(Date.now());
 
     /**************************************************************************/
     //Try to send the welcome message
     try {
       welcomeChannel.send({
-        content: `:wave::skin-tone-2: Hey ${member},\n${MyCustomWelcomeMessage}`,
-        files: [attachment],
+        content: `${member}`,
+        embeds: [embed],
       });
       await member.roles.add([
         `${MyRoleID00}`,
@@ -71,4 +88,3 @@ module.exports = {
     }
   },
 };
-
