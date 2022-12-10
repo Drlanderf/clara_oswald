@@ -72,7 +72,7 @@ module.exports = {
       .setImage("attachment://made_by_doc_landerf.png")
       .setFooter({
         iconURL: client.user.displayAvatarURL(),
-        text: `${guildProfile.guildName} all rights reserved\nYou are the ${member.guild.memberCount}th member.s\n`,
+        text: `Doc_Landerf all rights reserved\nYou are the ${member.guild.memberCount}th member.s\n`,
       })
       .setTimestamp(Date.now());
     /**************************************************************************/
