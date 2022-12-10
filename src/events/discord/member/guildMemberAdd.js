@@ -1,4 +1,6 @@
-const Canvas = require("canvas");
+const Canvas = require("@napi-rs/canvas");
+const { promises } = require('fs')
+const { join } = require('path')
 const {
   AttachmentBuilder,
   GuildMember,
@@ -55,19 +57,19 @@ module.exports = {
     ctx.drawImage(avatar, 393, 125, 238, 238);
     /**************************************************************************/
     //Making a new attachement with a custom name signature
-    let attachment = new AttachmentBuilder(canvas.toBuffer(), {
-      name: "made_by_doc_landerf.png",
-    });
+    const pngData = await canvas.encode('png')
+    await promises.writeFile(join(`assets/img/`, 'made_by_doc_landerf.png'), pngData)
+    const file = new AttachmentBuilder('assets/img/made_by_doc_landerf.png');
     /**************************************************************************/
     //Setting up the custom embed !
     let embed = new EmbedBuilder()
-      .setTitle(`:wave::skin-tone-2: Hey ${member}`)
+      .setTitle(`:wave::skin-tone-2: Hey`)
       .setDescription(`${MyCustomWelcomeMessage}`)
       .setColor("Random")
-      .setImage(attachment)
+      .setImage('attachment://made_by_doc_landerf.png')
       .setFooter({
         iconURL: client.user.displayAvatarURL(),
-        text: ` ${guildProfile.guildName} all rights reserved`,
+        text: `${guildProfile.guildName} all rights reserved`,
       })
       .setTimestamp(Date.now());
     /**************************************************************************/
@@ -76,6 +78,7 @@ module.exports = {
       welcomeChannel.send({
         content: `${member}`,
         embeds: [embed],
+        files: [file],
       });
       await member.roles.add([
         `${MyRoleID00}`,

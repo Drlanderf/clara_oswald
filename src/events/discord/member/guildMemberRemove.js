@@ -17,13 +17,14 @@ module.exports = {
       guildProfile.customLeavingMessage02,
       guildProfile.customLeavingMessage03,
     ];
-    //console.log("[Event] guildMemberRemove : successfully apply");
+    console.log("[Event] guildMemberRemove : successfully apply");
     if (!MyLeavingChannelID) {
-      //console.error(`[${member.guild.id}] No Leaving Channel configured.`);
+      console.error(`[${member.guild.id}] No Leaving Channel configured.`);
       return;
     }
     const WelcomeChannel = client.channels.cache.get(MyLeavingChannelID);
     try {
+      console.log("message send");
       const n = Math.floor(Math.random() * (LeavingMessages.length - 1));
       const Message = LeavingMessages[n];
       WelcomeChannel.send(`<@${member.id}> ${Message}`);
