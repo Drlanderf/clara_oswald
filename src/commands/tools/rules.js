@@ -29,7 +29,6 @@ module.exports = {
       .setColor("Red");
     let embedrulespec = new EmbedBuilder()
       .setTitle(`Règlement spécifique à ce discord :`)
-      .setURL(`https://discord.com/terms`)
       .addFields([
         {
           name: `⛔ Art.1`,
