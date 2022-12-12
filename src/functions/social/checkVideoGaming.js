@@ -1,35 +1,37 @@
 const Parser = require(`rss-parser`);
 const { EmbedBuilder } = require("discord.js");
-const Guild = require(`../../schemas/guild`);
-const MyYoutubeChannelID01 = process.env.YOUTUBE_CHANNEL_ID01;
-
+const { checkDBFindGuildID } = require("../mongo/checkDBFindGuildID");
+const msg = (role, type) =>
+  `:loudspeaker: Hey <@&${role}> regarde\n**Landerf** a sorti une nouvelle vidéo ${type} !`;
 const parser = new Parser();
-async function checkVideoGaming(client) {
-  const Guilds = client.guilds.cache.map((guild) => guild.id);
-  let guildProfile = await Guild.findOne({
-    guildId: Guilds[0],
-  });
-  const MyYoutubeGuildChannelID = guildProfile.guildYoutubeChannel;
-  const MyYoutubeRoleID = guildProfile.roleTwitchNotificationId;
-  const guildId = guildProfile.guildId;
-  //const MyYoutubeChannelID01 = guildProfile.; //for future
+async function checkVideoGaming(interaction, client) {
+  const guildProfile = await checkDBFindGuildID(interaction.guildId);
+  /**************************************************************************/
+  //Property
+  const MyYoutubeChannelID01 = process.env.YOUTUBE_CHANNEL_ID01; //ID of the Youtube Channel we want notifications | const MyYoutubeChannelID01 = guildProfile.;=> IN THE FUTURE
+  const MyYoutubeGuildChannelID = guildProfile.guildYoutubeChannel; //ID of the channel in discord server
+  const MyYoutubeRoleID = guildProfile.roleYoutubeNotificationId; //ID of role notification
+  /**************************************************************************/
+  //If all prop aren't setup yet do nothing !
+  if (!MyYoutubeChannelID01 || !MyYoutubeGuildChannelID || !MyYoutubeRoleID)
+    return;
+  /**************************************************************************/
+  //The function
   const data = await parser
     .parseURL(
       `https://youtube.com/feeds/videos.xml?channel_id=${MyYoutubeChannelID01}`
     )
     .catch(console.error);
   if (guildProfile.lastVideo01 !== data.items[0].id) {
-    console.log("[videoCheck_Gaming] NEW VIDEO spotted");
+    console.log("new video gaming");
+    //new video or not sent
     await guildProfile
       .updateOne({ lastVideo01: data.items[0].id })
       .catch(console.error);
     await guildProfile.save().catch(console.error);
-
-    const guild = await client.guilds.fetch(`${guildId}`).catch(console.error);
-    const channel = await guild.channels
-      .fetch(`${MyYoutubeGuildChannelID}`)
-      .catch(console.error);
     const { title, link, id, author } = data.items[0];
+    /**************************************************************************/
+    //Setting up the embed
     const embed = new EmbedBuilder({
       title: title,
       url: link,
@@ -39,7 +41,7 @@ async function checkVideoGaming(client) {
       },
       author: {
         name: author,
-        iconURL: `https://bit.ly/3TRMTkf`,
+        iconURL: `https://bit.ly/3U4TcAQ`,
         url: `https://youtube.com/channel/${MyYoutubeChannelID01}/?sub_confirmation=1`,
       },
       footer: {
@@ -48,10 +50,12 @@ async function checkVideoGaming(client) {
       },
       color: 8388629,
     });
+    /**************************************************************************/
+    //Trying to send the message
     try {
-      await channel.send({
+      await client.channels.cache.get(MyYoutubeGuildChannelID).send({
         embeds: [embed],
-        content: `:loudspeaker: Hey <@&${MyYoutubeRoleID}> Regarde une nouvelle vidéo sur la chaine **Gaming** !`,
+        content: msg(MyYoutubeRoleID, "gaming"),
       });
     } catch (error) {
       console.error(error);
