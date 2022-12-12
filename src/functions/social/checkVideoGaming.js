@@ -5,8 +5,9 @@ const msg = (role, type) =>
   `:loudspeaker: Hey <@&${role}> regarde\n**Landerf** a sorti une nouvelle vidéo ${type} !`;
 const parser = new Parser();
 async function checkVideoGaming(interaction, client) {
-  const guildProfile = await checkDBFindGuildID(interaction.guildId);
+  const guildProfile = await checkDBFindGuildID(interaction.guildId);//to fix it
   /**************************************************************************/
+  //Property
   const MyYoutubeChannelID01 = process.env.YOUTUBE_CHANNEL_ID01; //ID of the Youtube Channel we want notifications | const MyYoutubeChannelID01 = guildProfile.;=> IN THE FUTURE
   const MyYoutubeGuildChannelID = guildProfile.guildYoutubeChannel; //ID of the channel in discord server
   const MyYoutubeRoleID = guildProfile.roleYoutubeNotificationId; //ID of role notification

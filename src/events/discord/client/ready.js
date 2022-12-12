@@ -17,8 +17,8 @@ module.exports = {
     await pickPresence(client);
     await loadComponents(client);
     setInterval(() => pickPresence(client), 15 * 1000);
-    setInterval(() => checkStreamTwitch(interaction, client), 120 * 1000);
-    setInterval(() => checkVideoTech(interaction, client), 60 * 1000);
-    setInterval(() => checkVideoGaming(interaction, client), 60 * 1000);
+    setInterval(() => checkStreamTwitch(interaction, client), 120 * 1000);//to fix it
+    setInterval(() => checkVideoTech(interaction, client), 60 * 1000);//to fix it
+    setInterval(() => checkVideoGaming(interaction, client), 60 * 1000);//to fix it
   },
 };

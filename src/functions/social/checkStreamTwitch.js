@@ -4,8 +4,9 @@ const { checkDBFindGuildID } = require("../mongo/checkDBFindGuildID");
 const msg = (role, username) =>
   `:loudspeaker: Hey <@&${role}> look\n**${username}** is live!\nhttps://www.twitch.tv/${username}`;
 async function checkStreamTwitch(interaction, client) {
-  const guildProfile = await checkDBFindGuildID(interaction.guildId);
+  const guildProfile = await checkDBFindGuildID(interaction.guildId); //to fix it
   /**************************************************************************/
+  //Property
   const myTwitchChannelName = guildProfile.twitchChannelName; //Name of Streamer we want to follow
   const myTwitchGuildChannelID = guildProfile.guildTwitchChannel; //ID of the channel in discord server
   const myTwitchRoleID = guildProfile.roleTwitchNotificationId; //ID of role notification
