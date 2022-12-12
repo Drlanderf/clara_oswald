@@ -158,33 +158,17 @@ module.exports = {
       .setColor("DarkButNotBlack");
     /**************************************************************************/
     //Sending the message
-      interaction.channel.send({
-          embeds: [
-              embedcgu,
-          ],
-          content: `**Bievenue sur le discord communautaire de landerf !**\n\n**Merci de lire ces règles 👇 *ATTENTIVEMENT*  !**`,
-      });
-      interaction.channel.send({
-          embeds: [
-              embedrulespec,
-          ],
-      });
-      interaction.channel.send({
-          embeds: [
-              embedrulessupp,
-          ],
-      });
-      interaction.channel.send({
-          embeds: [
-              embedrulesyoucando,
-          ],
-      });
-      interaction.channel.send({
-          components: [new ActionRowBuilder().addComponents(buttonRules)],
-          embeds: [
-              embedreadandapprove,
-          ],
-      });
+    interaction.channel.send({
+      content: `**Bievenue sur le discord communautaire de landerf !**\n\n**Merci de lire ces règles 👇 *ATTENTIVEMENT*  !**`,
+      embeds: [
+        embedcgu,
+        embedrulespec,
+        embedrulessupp,
+        embedrulesyoucando,
+        embedreadandapprove,
+      ],
+      components: [new ActionRowBuilder().addComponents(buttonRules)],
+    });
     interaction.reply({
       content: `The rules button has been send !`,
       ephemeral: true,
