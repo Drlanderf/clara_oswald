@@ -10,9 +10,6 @@ module.exports = {
     .setName("rolebutton")
     .setDescription("Return the role button panel"),
   async execute(interaction, client) {
-
-
-
     /**************************************************************************/
     //Setting up buttons
     const buttonYt = new ButtonBuilder()
@@ -21,29 +18,39 @@ module.exports = {
       .setStyle(`Secondary`);
 
     const buttonTwitch = new ButtonBuilder()
-        .setCustomId(`notif-twitch`)
-        .setEmoji("📺")
-        .setStyle(`Secondary`);
+      .setCustomId(`notif-twitch`)
+      .setEmoji("📺")
+      .setStyle(`Secondary`);
 
     const buttonArtiste = new ButtonBuilder()
-        .setCustomId(`artiste`)
-        .setEmoji("🎨")
-        .setStyle(`Secondary`);
+      .setCustomId(`artiste`)
+      .setEmoji("🎨")
+      .setStyle(`Secondary`);
 
     const buttonGames = new ButtonBuilder()
-        .setCustomId(`games`)
-        .setEmoji("🎮")
-        .setStyle(`Secondary`);
+      .setCustomId(`games`)
+      .setEmoji("🎮")
+      .setStyle(`Secondary`);
 
     const buttonTech = new ButtonBuilder()
-        .setCustomId(`tech`)
-        .setEmoji("💻")
-        .setStyle(`Secondary`);
+      .setCustomId(`tech`)
+      .setEmoji("💻")
+      .setStyle(`Secondary`);
 
     const buttonClan = new ButtonBuilder()
-        .setCustomId(`clan`)
-        .setEmoji("♦")
-        .setStyle(`Secondary`);
+      .setCustomId(`clan`)
+      .setEmoji("♦")
+      .setStyle(`Secondary`);
+    /**************************************************************************/
+    //Setting up the rows
+    const row1 = new ActionRowBuilder()
+      .addComponents(buttonYt)
+      .addComponents(buttonTwitch)
+      .addComponents(buttonArtiste);
+    const row2 = new ActionRowBuilder()
+      .addComponents(buttonGames)
+      .addComponents(buttonTech)
+      .addComponents(buttonClan);
     /**************************************************************************/
     //Setting up the custom embed !
     let embed = new EmbedBuilder()
@@ -84,21 +91,8 @@ module.exports = {
     /**************************************************************************/
     //Sending the message
     interaction.channel.send({
-      components: [
-        new ActionRowBuilder()
-          .addComponents(buttonYt)
-            .addComponents(buttonTwitch)
-            .addComponents(buttonArtiste),
-      ],
+      components: [row1, row2],
       embeds: [embed],
-    });
-    interaction.channel.send({
-      components: [
-        new ActionRowBuilder()
-            .addComponents(buttonGames)
-            .addComponents(buttonTech)
-            .addComponents(buttonClan),
-      ],
     });
     interaction.reply({
       content: `The Notif button has been send !`,
