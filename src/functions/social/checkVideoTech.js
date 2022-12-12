@@ -5,7 +5,7 @@ const msg = (role, type) =>
   `:loudspeaker: Hey <@&${role}> regarde\n**Landerf** a sorti une nouvelle vidéo ${type} !`;
 const parser = new Parser();
 async function checkVideoTech(interaction, client) {
-  const guildProfile = await checkDBFindGuildID(interaction.guildId);//to fix it
+  const guildProfile = await checkDBFindGuildID(interaction.guildId);
   /**************************************************************************/
   //Property
   const MyYoutubeChannelID00 = guildProfile.youtubeChannelId00; //ID of the Youtube Channel we want notifications
@@ -23,6 +23,7 @@ async function checkVideoTech(interaction, client) {
     )
     .catch(console.error);
   if (guildProfile.lastVideo00 !== data.items[0].id) {
+    console.log("new video tech");
     //new video or not sent
     await guildProfile
       .updateOne({ lastVideo00: data.items[0].id })

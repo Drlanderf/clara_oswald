@@ -5,7 +5,7 @@ const msg = (role, type) =>
   `:loudspeaker: Hey <@&${role}> regarde\n**Landerf** a sorti une nouvelle vidéo ${type} !`;
 const parser = new Parser();
 async function checkVideoGaming(interaction, client) {
-  const guildProfile = await checkDBFindGuildID(interaction.guildId);//to fix it
+  const guildProfile = await checkDBFindGuildID(interaction.guildId);
   /**************************************************************************/
   //Property
   const MyYoutubeChannelID01 = process.env.YOUTUBE_CHANNEL_ID01; //ID of the Youtube Channel we want notifications | const MyYoutubeChannelID01 = guildProfile.;=> IN THE FUTURE
@@ -23,15 +23,12 @@ async function checkVideoGaming(interaction, client) {
     )
     .catch(console.error);
   if (guildProfile.lastVideo01 !== data.items[0].id) {
+    console.log("new video gaming");
     //new video or not sent
     await guildProfile
       .updateOne({ lastVideo01: data.items[0].id })
       .catch(console.error);
     await guildProfile.save().catch(console.error);
-    const guild = await client.guilds.fetch(`${guildId}`).catch(console.error);
-    const channel = await guild.channels
-      .fetch(`${MyYoutubeGuildChannelID}`)
-      .catch(console.error);
     const { title, link, id, author } = data.items[0];
     /**************************************************************************/
     //Setting up the embed
@@ -44,7 +41,7 @@ async function checkVideoGaming(interaction, client) {
       },
       author: {
         name: author,
-        iconURL: `https://bit.ly/3TRMTkf`,
+        iconURL: `https://bit.ly/3U4TcAQ`,
         url: `https://youtube.com/channel/${MyYoutubeChannelID01}/?sub_confirmation=1`,
       },
       footer: {
@@ -56,7 +53,7 @@ async function checkVideoGaming(interaction, client) {
     /**************************************************************************/
     //Trying to send the message
     try {
-      await channel.send({
+      await client.channels.cache.get(MyYoutubeGuildChannelID).send({
         embeds: [embed],
         content: msg(MyYoutubeRoleID, "gaming"),
       });
