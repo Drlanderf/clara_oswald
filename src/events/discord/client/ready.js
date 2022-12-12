@@ -3,6 +3,9 @@ const { loadCommands } = require("../../../functions/handlers/handleCommands");
 const { loadComponents } = require("../../../functions/handlers/handleComponents");
 const { checkDBGuildId } = require("../../../functions/mongo/checkDBGuildId");
 const { pickPresence } = require("../../../functions/tools/pickPresence");
+const { checkVideoTech } = require("../../../functions/social/checkVideoTech");
+const { checkStreamTwitch } = require("../../../functions/social/checkStreamTwitch");
+const { checkVideoGaming } = require("../../../functions/social/checkVideoGaming");
 module.exports = {
   name: "ready",
   async execute(client) {
@@ -14,5 +17,8 @@ module.exports = {
     await pickPresence(client);
     await loadComponents(client);
     setInterval(() => pickPresence(client), 15 * 1000);
+    setInterval(() => checkStreamTwitch(interaction, client), 120 * 1000);
+    setInterval(() => checkVideoTech(interaction, client), 60 * 1000);
+    setInterval(() => checkVideoGaming(interaction, client), 60 * 1000);
   },
 };

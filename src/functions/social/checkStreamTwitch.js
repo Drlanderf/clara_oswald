@@ -1,16 +1,20 @@
 const fetch = require("node-superfetch");
 const { EmbedBuilder } = require("discord.js");
 const { checkDBFindGuildID } = require("../mongo/checkDBFindGuildID");
-
 const msg = (role, username) =>
   `:loudspeaker: Hey <@&${role}> look\n**${username}** is live!\nhttps://www.twitch.tv/${username}`;
-
 async function checkStreamTwitch(interaction, client) {
   const guildProfile = await checkDBFindGuildID(interaction.guildId);
-  const myTwitchChannelName = guildProfile.twitchChannelName;
-  const myTwitchGuildChannelID = guildProfile.guildTwitchChannel;
-  const myTwitchRoleID = guildProfile.roleTwitchNotificationId;
-
+  /**************************************************************************/
+  const myTwitchChannelName = guildProfile.twitchChannelName; //Name of Streamer we want to follow
+  const myTwitchGuildChannelID = guildProfile.guildTwitchChannel; //ID of the channel in discord server
+  const myTwitchRoleID = guildProfile.roleTwitchNotificationId; //ID of role notification
+  /**************************************************************************/
+  //If all prop aren't setup yet do nothing !
+  if (!myTwitchChannelName || !myTwitchGuildChannelID || !myTwitchRoleID)
+    return;
+  /**************************************************************************/
+  //The function
   const uptime = await fetch.get(
     `https://decapi.me/twitch/uptime/${myTwitchChannelName}`
   );
@@ -69,9 +73,8 @@ async function checkStreamTwitch(interaction, client) {
         user: myTwitchChannelName,
         title: `${title.body}`,
       });
-      /*************************************/
-      /*     trying to send the message    */
-      /*************************************/
+      /**************************************************************************/
+      //Trying to send the message 1
       try {
         await client.channels.cache.get(myTwitchGuildChannelID).send({
           embeds: [embed],
@@ -84,10 +87,8 @@ async function checkStreamTwitch(interaction, client) {
       return await newData.save();
     }
     if (data.title === `${title.body}`) return;
-
-    /*************************************/
-    /*     trying to send the message    */
-    /*************************************/
+    /**************************************************************************/
+    //Trying to send the message 2
     try {
       await client.channels.cache.get(myTwitchGuildChannelID).send({
         embeds: [embed],
