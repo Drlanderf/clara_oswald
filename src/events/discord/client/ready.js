@@ -1,5 +1,6 @@
 const ascii = require("ascii-table");
 const { loadCommands } = require("../../../functions/handlers/handleCommands");
+const { loadComponents } = require("../../../functions/handlers/handleComponents");
 const { checkDBGuildId } = require("../../../functions/mongo/checkDBGuildId");
 const { pickPresence } = require("../../../functions/tools/pickPresence");
 module.exports = {
@@ -11,6 +12,7 @@ module.exports = {
     await loadCommands(client);
     await checkDBGuildId(client);
     await pickPresence(client);
+    await loadComponents(client);
     setInterval(() => pickPresence(client), 15 * 1000);
   },
 };
