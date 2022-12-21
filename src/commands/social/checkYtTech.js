@@ -8,6 +8,6 @@ module.exports = {
     await interaction.reply({
       content: `[Command] checkvideotech successfully apply`,
     });
-    setInterval(() => checkVideoTech(interaction, client), 60 * 1000);
+    setInterval(() => checkVideoTech(interaction, client), 120 * 1000);
   },
 };
