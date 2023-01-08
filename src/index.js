@@ -12,6 +12,7 @@ client.configs = new Collection();
 client.events = new Collection();
 client.commands = new Collection();
 client.buttons = new Collection();
+client.modals = new Collection();
 (async () => {
     try {
         loadEvents(client);

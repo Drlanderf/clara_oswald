@@ -1,35 +1,26 @@
-const { SlashCommandBuilder } = require("discord.js");
-const { sendLogMessage } = require(`../../functions/tools/sendLogMessage.js`);
+const {
+  SlashCommandBuilder,
+  ModalBuilder,
+  ActionRowBuilder,
+  TextInputBuilder,
+  TextInputStyle,
+} = require("discord.js");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("talkasbot")
-    .setDescription("Send a message as the bot")
-    .addStringOption((option) =>
-      option
-        .setName(`message`)
-        .setDescription(`The message you want to send as bot`)
-        .setRequired(true)
-    ),
+    .setDescription("Open a modal to talk as bot"),
   async execute(interaction, client) {
-    let message = interaction.options.getString(`message`);
-    if (!message) return;
-    interaction.channel.send(`${message}`);
-    try {
-      await sendLogMessage(
-        {
-          author: interaction.member.user,
-          guild: interaction.guild,
-          content: `${interaction.member.user} made bot send: ${message}`,
-        },
-        `Talkasbot command log`,
-        client
-      );
-    } catch (e) {
-      console.error(e);
-    }
-    interaction.reply({
-      content: `The message "${message}" was sent successfully!`,
-      ephemeral: true, //
-    });
+    const modal = new ModalBuilder()
+      .setCustomId(`talkasbot`)
+      .setTitle(`Talk as bot`);
+    const textInput = new TextInputBuilder()
+      .setCustomId(`talkasbotInput`)
+      .setLabel(`Talk as bot input`)
+      .setPlaceholder(`Message`)
+      .setRequired(true)
+      .setStyle(TextInputStyle.Paragraph);
+
+    modal.addComponents(new ActionRowBuilder().addComponents(textInput));
+    await interaction.showModal(modal);
   },
 };
