@@ -1,4 +1,8 @@
-const { ChatInputCommandInteraction, Client } = require("discord.js");
+const {
+  ChatInputCommandInteraction,
+  Client,
+  InteractionType,
+} = require("discord.js");
 module.exports = {
   name: "interactionCreate",
   /**
@@ -30,8 +34,18 @@ module.exports = {
       const button = buttons.get(customId);
       if (!button) return new Error(`There is no code for this button`);
       try {
-        await button.execute(interaction,client);
-      }catch (err){
+        await button.execute(interaction, client);
+      } catch (err) {
+        console.error(err);
+      }
+    } else if (interaction.type == InteractionType.ModalSubmit) {
+      const { modals } = client;
+      const { customId } = interaction;
+      const modal = modals.get(customId);
+      if (!modal) return new Error(`There is no code for this modal`);
+      try {
+        await modal.execute(interaction, client);
+      } catch (err) {
         console.error(err);
       }
     }

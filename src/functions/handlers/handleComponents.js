@@ -10,7 +10,7 @@ async function loadComponents(client) {
       `${__dirname}/../../components/${folder}`
     );
 
-    const { buttons } = client;
+    const { buttons,modals } = client;
 
     switch (folder) {
       case "buttons":
@@ -19,18 +19,27 @@ async function loadComponents(client) {
         )) {
           const button = require(`${__dirname}/../../components/${folder}/${file}`);
           buttons.set(button.data.name, button);
-          table.addRow(button.name, `🟩`);
+          table.addRow(button.data.name, `🟩`);
         }
         break;
-        case "roles":
-            for (const file of componentFiles.filter((file) =>
-                file.endsWith(".js")
-            )) {
-                const roles = require(`${__dirname}/../../components/${folder}/${file}`);
-                buttons.set(roles.data.name, roles);
-                table.addRow(roles.name, `🟩`);
-            }
-            break;
+      case "roles":
+        for (const file of componentFiles.filter((file) =>
+          file.endsWith(".js")
+        )) {
+          const roles = require(`${__dirname}/../../components/${folder}/${file}`);
+          buttons.set(roles.data.name, roles);
+          table.addRow(roles.data.name, `🟩`);
+        }
+        break;
+      case "modals":
+        for (const file of componentFiles.filter((file) =>
+          file.endsWith(".js")
+        )) {
+          const modal = require(`${__dirname}/../../components/${folder}/${file}`);
+          modals.set(modal.data.name, modal);
+          table.addRow(modal.data.name, `🟩`);
+        }
+        break;
       default:
         break;
     }
