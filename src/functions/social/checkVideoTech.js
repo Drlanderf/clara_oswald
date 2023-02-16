@@ -24,6 +24,16 @@ async function checkVideoTech(interaction, client) {
     .catch(console.error);
   if (guildProfile.lastVideo00 !== data.items[0].id) {
     console.log("new video tech");
+    console.log(
+      `guildProfile.lastVideo00 before modification : ${guildProfile.lastVideo00}`
+    );
+    await guildProfile
+      .updateOne({ lastVideo00: data.items[0].id })
+      .catch(console.error);
+    await guildProfile.save().catch(console.error);
+    console.log(
+      `guildProfile.lastVideo00 after modification : ${guildProfile.lastVideo00}`
+    );
     //new video or not sent
     const { title, link, id, author } = data.items[0];
     /**************************************************************************/
@@ -56,10 +66,6 @@ async function checkVideoTech(interaction, client) {
     } catch (error) {
       console.error(error);
     }
-    await guildProfile
-      .updateOne({ lastVideo00: data.items[0].id })
-      .catch(console.error);
-    await guildProfile.save().catch(console.error);
-  }
+  } else return;
 }
 module.exports = { checkVideoTech };

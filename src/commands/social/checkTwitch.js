@@ -10,6 +10,6 @@ module.exports = {
     await interaction.reply({
       content: `[Command] checkstreamtwitch successfully apply`,
     });
-    setInterval(() => checkStreamTwitch(interaction, client), 120 * 1000);
+    setInterval(() => checkStreamTwitch(interaction, client), 300 * 1000);
   },
 };
