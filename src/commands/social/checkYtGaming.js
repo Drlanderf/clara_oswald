@@ -8,6 +8,6 @@ module.exports = {
     await interaction.reply({
       content: `[Command] checkvideogaming successfully apply`,
     });
-    setInterval(() => checkVideoGaming(interaction, client), 120 * 1000);
+    setInterval(() => checkVideoGaming(interaction, client), 300 * 1000);
   },
 };

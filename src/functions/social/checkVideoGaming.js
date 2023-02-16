@@ -24,6 +24,16 @@ async function checkVideoGaming(interaction, client) {
     .catch(console.error);
   if (guildProfile.lastVideo01 !== data.items[0].id) {
     console.log("new video gaming");
+    console.log(
+      `guildProfile.lastVideo01 before modification : ${guildProfile.lastVideo01}`
+    );
+    await guildProfile
+      .updateOne({ lastVideo01: data.items[0].id })
+      .catch(console.error);
+    await guildProfile.save().catch(console.error);
+    console.log(
+      `guildProfile.lastVideo01 after modification : ${guildProfile.lastVideo01}`
+    );
     //new video or not sent
     const { title, link, id, author } = data.items[0];
     /**************************************************************************/
@@ -56,10 +66,6 @@ async function checkVideoGaming(interaction, client) {
     } catch (error) {
       console.error(error);
     }
-    await guildProfile
-      .updateOne({ lastVideo01: data.items[0].id })
-      .catch(console.error);
-    await guildProfile.save().catch(console.error);
-  }
+  } else return;
 }
 module.exports = { checkVideoGaming };
