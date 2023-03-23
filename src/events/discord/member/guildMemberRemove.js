@@ -23,7 +23,7 @@ module.exports = {
       guildProfile.customLeavingMessage02,
       guildProfile.customLeavingMessage03,
     ];
-    console.log("[Event] guildMemberRemove : successfully apply");
+    //console.log("[Event] guildMemberRemove : successfully apply");
     if (!MyLeavingChannelID) {
       console.error(`[${member.guild.id}] No Leaving Channel configured.`);
       return;
@@ -37,7 +37,15 @@ module.exports = {
          ------------------------------------------------------------ */
     //let channel = client.channels.cache.get(`CHANNEL_ID`); //=> brut version
     let channel = client.channels.cache.get(`${myGuildCountChannel}`); //=>DB version
-    channel.setName(`${member.guild.memberCount} membres Discord`)
+    if(member.guild.memberCount<1000){
+      channel.setName(`👥 ${member.guild.memberCount} membres`);
+    } else if (member.guild.memberCount>=1000) {
+      let memberCount = member.guild.memberCount/1000;
+      channel.setName(`👥 ${memberCount}k membres Discord`);
+    } else if (member.guild.memberCount>=1000000) {
+      let memberCount = member.guild.memberCount/1000000;
+      channel.setName(`👥 ${memberCount}M membres Discord`);
+    }
     /* ------------------------------------------------------------
           Try to send the welcome message
        ------------------------------------------------------------ */
