@@ -10,6 +10,7 @@ const guildSchema = new Schema({
     guildAutoLogChannel: { type: String, required: false },
     guildYoutubeChannel: { type: String, required: false },
     guildTwitchChannel: { type: String, required: false },
+    guildCountChannel: { type: String, required: false },
     //different roleId can be use
     roleId00: { type: String, required: false },
     roleId01: { type: String, required: false },
