@@ -7,9 +7,15 @@ module.exports = {
    * @param {Client} client
    */
   async execute(member, client) {
+    /* ------------------------------------------------------------
+		Sync to DB
+	   ------------------------------------------------------------ */
     let guildProfile = await Guild.findOne({
       guildId: member.guild.id,
     });
+    /* ------------------------------------------------------------
+		Variables
+	   ------------------------------------------------------------ */
     const MyLeavingChannelID = guildProfile.guildLeavingChannel;
     const LeavingMessages = [
       guildProfile.customLeavingMessage00,
@@ -23,8 +29,25 @@ module.exports = {
       return;
     }
     const WelcomeChannel = client.channels.cache.get(MyLeavingChannelID);
+    const myGuildCountChannel = guildProfile.guildCountChannel;
+    /* ------------------------------------------------------------
+              Update the counter
+              ID :	channel,
+              DATA use : myGuildCountChannel.
+         ------------------------------------------------------------ */
+    //let channel = client.channels.cache.get(`CHANNEL_ID`); //=> brut version
+    let channel = client.channels.cache.get(`${myGuildCountChannel}`); //=>DB version
+    channel.setName(`${member.guild.memberCount} membres Discord`)
+    /* ------------------------------------------------------------
+          Try to send the welcome message
+       ------------------------------------------------------------ */
     try {
-      console.log("message send");
+      /* ------------------------------------------------------------
+              Send the message to the welcome channel
+              ID :	welcomeChannel,
+              DATA use : LeavingMessages[], Message.
+         ------------------------------------------------------------ */
+      console.log("leaving message send ");
       const n = Math.floor(Math.random() * (LeavingMessages.length - 1));
       const Message = LeavingMessages[n];
       WelcomeChannel.send(`<@${member.id}> ${Message}`);
