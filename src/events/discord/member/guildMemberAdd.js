@@ -2,6 +2,9 @@ const Canvas = require("@napi-rs/canvas");
 const { promises } = require("fs");
 const { join } = require("path");
 const {
+  getCounterChannelName,
+} = require("../../../functions/tools/getCounterChannelName");
+const {
   AttachmentBuilder,
   GuildMember,
   Client,
@@ -31,6 +34,10 @@ module.exports = {
     const MyCustomWelcomeMessage = guildProfile.customWelcomeMessage;
     const welcomeChannel = client.channels.cache.get(`${MyWelcomeChannelID}`);
     const myGuildCountChannel = guildProfile.guildCountChannel;
+    //const countChannelName = client.channels.cache.get(`1088547089807581204`); //=> brut version
+    const countChannelName = client.channels.cache.get(
+      `${myGuildCountChannel}`
+    ); //=>DB version
     /* ------------------------------------------------------------
 		Canvas creation
 		ID :	canvas,ctx
@@ -99,18 +106,11 @@ module.exports = {
               ID :	channel,
               DATA use : myGuildCountChannel.
          ------------------------------------------------------------ */
-    //let channel = client.channels.cache.get(`CHANNEL_ID`); //=> brut version
-    let channel = client.channels.cache.get(`${myGuildCountChannel}`); //=>DB version
-    if(member.guild.memberCount<1000){
-      channel.setName(`👥 ${member.guild.memberCount} membres`);
-    } else if (member.guild.memberCount>=1000) {
-      let memberCount = member.guild.memberCount/1000;
-        channel.setName(`👥 ${memberCount}k membres Discord`);
-    } else if (member.guild.memberCount>=1000000) {
-        let memberCount = member.guild.memberCount/1000000;
-            channel.setName(`👥 ${memberCount}M membres Discord`);
+    if (myGuildCountChannel) {
+      const newCountName = getCounterChannelName(`${member.guild.memberCount}`);
+      countChannelName.setName(newCountName);
     }
-      /* ------------------------------------------------------------
+    /* ------------------------------------------------------------
 		    Try to send the welcome message
 	     ------------------------------------------------------------ */
     try {

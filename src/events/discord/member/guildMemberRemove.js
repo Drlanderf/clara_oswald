@@ -1,5 +1,8 @@
 const { GuildMember, Client } = require("discord.js");
 const Guild = require(`../../../schemas/guild`);
+const {
+  getCounterChannelName,
+} = require("../../../functions/tools/getCounterChannelName");
 module.exports = {
   name: "guildMemberRemove",
   /**
@@ -30,21 +33,18 @@ module.exports = {
     }
     const WelcomeChannel = client.channels.cache.get(MyLeavingChannelID);
     const myGuildCountChannel = guildProfile.guildCountChannel;
+    //const countChannelName = client.channels.cache.get(`1088547089807581204`); //=> brut version
+    const countChannelName = client.channels.cache.get(
+      `${myGuildCountChannel}`
+    ); //=>DB version
     /* ------------------------------------------------------------
               Update the counter
               ID :	channel,
               DATA use : myGuildCountChannel.
          ------------------------------------------------------------ */
-    //let channel = client.channels.cache.get(`CHANNEL_ID`); //=> brut version
-    let channel = client.channels.cache.get(`${myGuildCountChannel}`); //=>DB version
-    if(member.guild.memberCount<1000){
-      channel.setName(`👥 ${member.guild.memberCount} membres`);
-    } else if (member.guild.memberCount>=1000) {
-      let memberCount = member.guild.memberCount/1000;
-      channel.setName(`👥 ${memberCount}k membres Discord`);
-    } else if (member.guild.memberCount>=1000000) {
-      let memberCount = member.guild.memberCount/1000000;
-      channel.setName(`👥 ${memberCount}M membres Discord`);
+    if (myGuildCountChannel) {
+      const newCountName = getCounterChannelName(`${member.guild.memberCount}`);
+      countChannelName.setName(newCountName);
     }
     /* ------------------------------------------------------------
           Try to send the welcome message
