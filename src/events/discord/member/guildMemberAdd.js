@@ -98,8 +98,20 @@ module.exports = {
       .setImage("attachment://made_by_doc_landerf.png")
       .setFooter({
         iconURL: client.user.displayAvatarURL(),
-        text: `Doc_Landerf all rights reserved\n`,
+        text: `© Doc_Landerf all rights reserved\n`,
       })
+      .addFields([
+        {
+          name: `:arrow_right: Invité par :`,
+          value: `WORK IN PROGRESS`, //=> TODO: add the inviter name
+          inline: true,
+        },
+        {
+          name: `:arrow_right: Le serveur compte désormait :`,
+          value: getCounterChannelName(`${member.guild.memberCount}`),
+          inline: true,
+        },
+      ])
       .setTimestamp(Date.now());
     /* ------------------------------------------------------------
               Update the counter
