@@ -55,12 +55,48 @@ module.exports = {
               ID :	welcomeChannel,
               DATA use : LeavingMessages[], Message.
          ------------------------------------------------------------ */
-      console.log("leaving message send ");
       const n = Math.floor(Math.random() * (LeavingMessages.length - 1));
       const Message = LeavingMessages[n];
-      WelcomeChannel.send(`<@${member.id}> ${Message}`);
+      //WelcomeChannel.send(`<@${member.id}> ${Message}`);
+      if (member.partial) {
+        member = await member
+            .fetch()
+            .then((fullMember) => {
+              console.log(
+                  Date(Date.now()).toString() +
+                  " [Event] guildMemberRemove (PARTIAL): member fetched " +
+                  "(" +
+                  fullMember +
+                  " )"
+              );
+              const msg = WelcomeChannel.send(
+                  `<@${member.id}> ${Message}`
+              );
+              console.log(
+                  Date(Date.now()).toString() +
+                  " [Event] guildMemberRemove (PARTIAL): successfully finish "+member.user.tag
+              );
+            })
+            .catch((error) => {
+              console.log(
+                  Date(Date.now()).toString() +
+                  " [Event] guildMemberRemove (PARTIAL): Something went wrong when fetching the member: ",
+                  error
+              );
+            });
+      } else {
+        const msg = await WelcomeChannel.send(
+            `<@${member.id}> ${Message}`
+        );
+        console.log(
+            Date(Date.now()).toString() +
+            " [Event] guildMemberRemove : successfully finish "+member.user.tag
+        );
+      }
+
+
     } catch (error) {
-      console.log(error);
+      console.log(Date(Date.now()).toString() + " [Event] guildMemberRemove : yousk2 :",error);
     }
   },
 };

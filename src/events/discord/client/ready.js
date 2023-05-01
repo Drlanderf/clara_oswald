@@ -16,6 +16,14 @@ module.exports = {
     await checkDBGuildId(client);
     await pickPresence(client);
     await loadComponents(client);
+    /* ------------------------------------------------------------
+		Sync all member with the cache of the bot
+	   ------------------------------------------------------------ */
+    client.guilds.cache.forEach((guild) => {
+      guild.members.fetch()
+          .then(()=>console.log(Date(Date.now()).toString() +"[Event] Ready : Fetching members for guild "+guild.name))
+          .catch(console.error);
+    });
     setInterval(() => pickPresence(client), 15 * 1000);
     //setInterval(() => checkStreamTwitch(interaction, client), 120 * 1000);//to fix it
     //setInterval(() => checkVideoTech(interaction, client), 60 * 1000);//to fix it
