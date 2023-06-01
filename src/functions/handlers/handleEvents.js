@@ -43,6 +43,20 @@ async function loadEvents(client) {
           }
         }
         break;
+        case "distube":
+          for (const file of events.filter((file) => file.endsWith(".js"))) {
+            const event = require(`${__dirname}/../../events/${folder}/${file}`);
+            if (event.once)
+              connection.once(event.name, (...args) =>
+                  event.execute(...args, client)
+              );
+            else
+              connection.on(event.name, (...args) =>
+                  event.execute(...args, client)
+              );
+            table.addRow(event.name, `🟩`);
+          }
+        break;
       default:
         break;
     }
