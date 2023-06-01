@@ -1,11 +1,14 @@
 const ascii = require("ascii-table");
 const { loadCommands } = require("../../../functions/handlers/handleCommands");
-const { loadComponents } = require("../../../functions/handlers/handleComponents");
+const {
+  loadComponents,
+} = require("../../../functions/handlers/handleComponents");
 const { checkDBGuildId } = require("../../../functions/mongo/checkDBGuildId");
 const { pickPresence } = require("../../../functions/tools/pickPresence");
 /*const { checkVideoTech } = require("../../../functions/social/checkVideoTech");
 const { checkStreamTwitch } = require("../../../functions/social/checkStreamTwitch");
 const { checkVideoGaming } = require("../../../functions/social/checkVideoGaming");*/
+const { EmbedBuilder } = require("discord.js");
 module.exports = {
   name: "ready",
   async execute(client) {
@@ -20,13 +23,148 @@ module.exports = {
 		Sync all member with the cache of the bot
 	   ------------------------------------------------------------ */
     client.guilds.cache.forEach((guild) => {
-      guild.members.fetch()
-          .then(()=>console.log(Date(Date.now()).toString() +"[Event] Ready : Fetching members for guild "+guild.name))
-          .catch(console.error);
+      guild.members
+        .fetch()
+        .then(() =>
+          console.log(
+            Date(Date.now()).toString() +
+              "[Event] Ready : Fetching members for guild " +
+              guild.name
+          )
+        )
+        .catch(console.error);
     });
     setInterval(() => pickPresence(client), 15 * 1000);
     //setInterval(() => checkStreamTwitch(interaction, client), 120 * 1000);//to fix it
     //setInterval(() => checkVideoTech(interaction, client), 60 * 1000);//to fix it
     //setInterval(() => checkVideoGaming(interaction, client), 60 * 1000);//to fix it
+
+    /* ------------------------------------------------------------
+		All the distube events
+	   ------------------------------------------------------------ */
+    const status = (queue) =>
+      `Volume: \`${queue.volume}%\` \n Filter: \`${
+        queue.filters.names.join(", ") || "Off"
+      }\` \n Loop: \`${
+        queue.repeatMode
+          ? queue.repeatMode === 2
+            ? "All Queue"
+            : "This Song"
+          : "Off"
+      }\` \n Autoplay: \`${queue.autoplay ? "On" : "Off"}\``;
+    client.distube
+      .on("playSong", (queue, song) =>
+        queue.textChannel.send({
+          embeds: [
+            new EmbedBuilder()
+              .setColor("Green")
+              .setDescription(
+                `🎶 | Lecture de \`${song.name}\` - \`${song.formattedDuration}\``
+              )
+              .addFields([
+                {
+                  name: `Infos :`,
+                  value: `${status(queue)}`,
+                  inline: true,
+                },
+                {
+                  name: `Demandé par :`,
+                  value: `${song.user}`,
+                  inline: true,
+                },
+              ])
+              .setFooter({
+                text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+              }),
+          ],
+        })
+      )
+      .on("addSong", (queue, song) =>
+        queue.textChannel.send({
+          embeds: [
+            new EmbedBuilder()
+              .setColor("Green")
+              .setDescription(
+                `🎶 | Ajout de ${song.name} - \`${song.formattedDuration}\``
+              )
+              .addFields([
+                {
+                  name: `Demandé par :`,
+                  value: `${song.user}`,
+                  inline: true,
+                },
+              ])
+              .setFooter({
+                text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+              }),
+          ],
+        })
+      )
+      .on("addList", (queue, playlist) =>
+        queue.textChannel.send({
+          embeds: [
+            new EmbedBuilder()
+              .setColor("Green")
+              .setDescription(
+                `🎶 | Ajout de la playlist \`${playlist.name}\` (${playlist.songs.length} musiques) à la liste de lecture`
+              )
+              .addFields([
+                {
+                  name: `Infos`,
+                  value: `${status(queue)}`,
+                  inline: true,
+                },
+              ])
+              .setFooter({
+                text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+              }),
+          ],
+        })
+      )
+      .on("error", (channel, e) => {
+        if (channel)
+          channel.send(
+            `⛔ | An error encountered: ${e.toString().slice(0, 1974)}`
+          );
+        else console.error(e);
+      })
+      .on("empty", (channel) =>
+        channel.send({
+          embeds: [
+            new EmbedBuilder()
+              .setColor("Red")
+              .setDescription(
+                "⛔ | Je me sens seul.e dans le salon vocal, je quitte le salon vocal..."
+              )
+              .setFooter({
+                text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+              }),
+          ],
+        })
+      )
+      .on("searchNoResult", (message, query) =>
+        message.channel.send({
+          embeds: [
+            new EmbedBuilder()
+              .setColor("Red")
+              .setDescription(`⛔ | Aucun résultat trouvé pour : ${query}!`)
+              .setFooter({
+                text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+              }),
+          ],
+        })
+      )
+      .on("finish", (queue) =>
+        queue.textChannel.send({
+          embeds: [
+            new EmbedBuilder()
+              .setColor("Green")
+              .setDescription("🏁 | Liste de lecture terminée!")
+              .setFooter({
+                text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+              }),
+          ],
+        })
+      );
   },
 };
