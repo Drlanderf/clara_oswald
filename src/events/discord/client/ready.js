@@ -53,118 +53,146 @@ module.exports = {
           : "Off"
       }\` \n Autoplay: \`${queue.autoplay ? "On" : "Off"}\``;
     client.distube
-      .on("playSong", (queue, song) =>
-        queue.textChannel.send({
-          embeds: [
-            new EmbedBuilder()
-              .setColor("Green")
-              .setDescription(
-                `🎶 | Lecture de \`${song.name}\` - \`${song.formattedDuration}\``
-              )
-              .addFields([
-                {
-                  name: `Infos :`,
-                  value: `${status(queue)}`,
-                  inline: true,
-                },
-                {
-                  name: `Demandé par :`,
-                  value: `${song.user}`,
-                  inline: true,
-                },
-              ])
-              .setFooter({
-                text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
-              }),
-          ],
-        })
-      )
-      .on("addSong", (queue, song) =>
-        queue.textChannel.send({
-          embeds: [
-            new EmbedBuilder()
-              .setColor("Green")
-              .setDescription(
-                `🎶 | Ajout de ${song.name} - \`${song.formattedDuration}\``
-              )
-              .addFields([
-                {
-                  name: `Demandé par :`,
-                  value: `${song.user}`,
-                  inline: true,
-                },
-              ])
-              .setFooter({
-                text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
-              }),
-          ],
-        })
-      )
-      .on("addList", (queue, playlist) =>
-        queue.textChannel.send({
-          embeds: [
-            new EmbedBuilder()
-              .setColor("Green")
-              .setDescription(
-                `🎶 | Ajout de la playlist \`${playlist.name}\` (${playlist.songs.length} musiques) à la liste de lecture`
-              )
-              .addFields([
-                {
-                  name: `Infos`,
-                  value: `${status(queue)}`,
-                  inline: true,
-                },
-              ])
-              .setFooter({
-                text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
-              }),
-          ],
-        })
-      )
-      .on("error", (channel, e) => {
-        if (channel)
-          channel.send(
-            `⛔ | An error encountered: ${e.toString().slice(0, 1974)}`
-          );
-        else console.error(e);
+      .on("playSong", (queue, song) => {
+        try {
+          queue.textChannel.send({
+            embeds: [
+              new EmbedBuilder()
+                .setColor("Green")
+                .setDescription(
+                  `🎶 | Lecture de \`${song.name}\` - \`${song.formattedDuration}\``
+                )
+                .addFields([
+                  {
+                    name: `Infos :`,
+                    value: `${status(queue)}`,
+                    inline: true,
+                  },
+                  {
+                    name: `Demandé par :`,
+                    value: `${song.user}`,
+                    inline: true,
+                  },
+                ])
+                .setFooter({
+                  text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+                }),
+            ],
+          });
+        } catch (e) {
+          console.log(e);
+        }
       })
-      .on("empty", (channel) =>
-        channel.send({
-          embeds: [
-            new EmbedBuilder()
-              .setColor("Red")
-              .setDescription(
-                "⛔ | Je me sens seul.e dans le salon vocal, je quitte le salon vocal..."
-              )
-              .setFooter({
-                text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
-              }),
-          ],
-        })
-      )
-      .on("searchNoResult", (message, query) =>
-        message.channel.send({
-          embeds: [
-            new EmbedBuilder()
-              .setColor("Red")
-              .setDescription(`⛔ | Aucun résultat trouvé pour : ${query}!`)
-              .setFooter({
-                text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
-              }),
-          ],
-        })
-      )
-      .on("finish", (queue) =>
-        queue.textChannel.send({
-          embeds: [
-            new EmbedBuilder()
-              .setColor("Green")
-              .setDescription("🏁 | Liste de lecture terminée!")
-              .setFooter({
-                text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
-              }),
-          ],
-        })
-      );
+      .on("addSong", (queue, song) => {
+        try {
+          queue.textChannel.send({
+            embeds: [
+              new EmbedBuilder()
+                .setColor("Green")
+                .setDescription(
+                  `🎶 | Ajout de ${song.name} - \`${song.formattedDuration}\``
+                )
+                .addFields([
+                  {
+                    name: `Demandé par :`,
+                    value: `${song.user}`,
+                    inline: true,
+                  },
+                ])
+                .setFooter({
+                  text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+                }),
+            ],
+          });
+        } catch (e) {
+          console.log(e);
+        }
+      })
+      .on("addList", (queue, playlist) => {
+        try {
+          queue.textChannel.send({
+            embeds: [
+              new EmbedBuilder()
+                .setColor("Green")
+                .setDescription(
+                  `🎶 | Ajout de la playlist \`${playlist.name}\` (${playlist.songs.length} musiques) à la liste de lecture`
+                )
+                .addFields([
+                  {
+                    name: `Infos`,
+                    value: `${status(queue)}`,
+                    inline: true,
+                  },
+                ])
+                .setFooter({
+                  text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+                }),
+            ],
+          });
+        } catch (e) {
+          console.log(e);
+        }
+      })
+      .on("error", (channel, e) => {
+        try {
+          if (channel)
+            channel.send(
+              `⛔ | An error encountered: ${e.toString().slice(0, 1974)}`
+            );
+          else console.error(e);
+        } catch (e) {
+          console.error(e);
+        }
+      })
+      .on("empty", (queue) => {
+        try {
+          queue.textChannel.send({
+            embeds: [
+              new EmbedBuilder()
+                .setColor("Red")
+                .setDescription(
+                  "⛔ | Je me sens seul.e dans le salon vocal, je quitte le salon vocal..."
+                )
+                .setFooter({
+                  text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+                }),
+            ],
+          });
+        } catch (e) {
+          console.log(e);
+        }
+      })
+      .on("searchNoResult", (message, query) => {
+        try {
+          message.channel.send({
+            embeds: [
+              new EmbedBuilder()
+                .setColor("Red")
+                .setDescription(`⛔ | Aucun résultat trouvé pour : ${query}!`)
+                .setFooter({
+                  text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+                }),
+            ],
+          });
+        } catch (e) {
+          console.log(e);
+        }
+      })
+      .on("finish", (queue) => {
+        try {
+          queue.textChannel.send({
+            embeds: [
+              new EmbedBuilder()
+                .setColor("Green")
+                .setDescription("🏁 | Liste de lecture terminée!")
+                .setFooter({
+                  text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+                }),
+            ],
+          });
+        } catch (e) {
+          console.log(e);
+        }
+      });
   },
 };
