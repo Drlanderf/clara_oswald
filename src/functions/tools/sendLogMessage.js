@@ -5,9 +5,21 @@ async function sendLogMessage(message, title, client) {
     guildId: message.guild.id,
   });
   const LogChannelID = guildProfile.guildAutoLogChannel;
-  if (!LogChannelID) return;
+  if (!LogChannelID)  {
+    console.error(
+        Date(Date.now()).toString() +
+        ` No logChannel Channel configured.`
+    );
+    return;
+  }
   const logChannel = client.channels.cache.get(`${LogChannelID}`);
-  if (!logChannel) return;
+  if (!logChannel)  {
+    console.error(
+        Date(Date.now()).toString() +
+        ` No logChannel Channel configured.`
+    );
+    return;
+  }
   const embed = new EmbedBuilder()
     .setTitle(`${title}`)
     .setAuthor({

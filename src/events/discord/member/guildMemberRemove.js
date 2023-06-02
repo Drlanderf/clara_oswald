@@ -20,6 +20,13 @@ module.exports = {
 		Variables
 	   ------------------------------------------------------------ */
     const MyLeavingChannelID = guildProfile.guildLeavingChannel;
+    if (!MyLeavingChannelID) {
+      console.error(
+        Date(Date.now()).toString() +
+          ` [${member.guild.id}] No Leaving Channel configured.`
+      );
+      return;
+    }
     const LeavingMessages = [
       guildProfile.customLeavingMessage00,
       guildProfile.customLeavingMessage01,
@@ -27,11 +34,15 @@ module.exports = {
       guildProfile.customLeavingMessage03,
     ];
     //console.log("[Event] guildMemberRemove : successfully apply");
-    if (!MyLeavingChannelID) {
-      console.error(`[${member.guild.id}] No Leaving Channel configured.`);
+
+    const WelcomeChannel = client.channels.cache.get(MyLeavingChannelID);
+    if (!WelcomeChannel) {
+      console.error(
+        Date(Date.now()).toString() +
+          ` [${member.guild.id}] No Leaving Channel configured.`
+      );
       return;
     }
-    const WelcomeChannel = client.channels.cache.get(MyLeavingChannelID);
     const myGuildCountChannel = guildProfile.guildCountChannel;
     //const countChannelName = client.channels.cache.get(`1088547089807581204`); //=> brut version
     const countChannelName = client.channels.cache.get(
@@ -60,43 +71,42 @@ module.exports = {
       //WelcomeChannel.send(`<@${member.id}> ${Message}`);
       if (member.partial) {
         member = await member
-            .fetch()
-            .then((fullMember) => {
-              console.log(
-                  Date(Date.now()).toString() +
-                  " [Event] guildMemberRemove (PARTIAL): member fetched " +
-                  "(" +
-                  fullMember +
-                  " )"
-              );
-              const msg = WelcomeChannel.send(
-                  `<@${member.id}> ${Message}`
-              );
-              console.log(
-                  Date(Date.now()).toString() +
-                  " [Event] guildMemberRemove (PARTIAL): successfully finish "+member.user.tag
-              );
-            })
-            .catch((error) => {
-              console.log(
-                  Date(Date.now()).toString() +
-                  " [Event] guildMemberRemove (PARTIAL): Something went wrong when fetching the member: ",
-                  error
-              );
-            });
+          .fetch()
+          .then((fullMember) => {
+            console.log(
+              Date(Date.now()).toString() +
+                " [Event] guildMemberRemove (PARTIAL): member fetched " +
+                "(" +
+                fullMember +
+                " )"
+            );
+            const msg = WelcomeChannel.send(`<@${member.id}> ${Message}`);
+            console.log(
+              Date(Date.now()).toString() +
+                " [Event] guildMemberRemove (PARTIAL): successfully finish " +
+                member.user.tag
+            );
+          })
+          .catch((error) => {
+            console.log(
+              Date(Date.now()).toString() +
+                " [Event] guildMemberRemove (PARTIAL): Something went wrong when fetching the member: ",
+              error
+            );
+          });
       } else {
-        const msg = await WelcomeChannel.send(
-            `<@${member.id}> ${Message}`
-        );
+        const msg = await WelcomeChannel.send(`<@${member.id}> ${Message}`);
         console.log(
-            Date(Date.now()).toString() +
-            " [Event] guildMemberRemove : successfully finish "+member.user.tag
+          Date(Date.now()).toString() +
+            " [Event] guildMemberRemove : successfully finish " +
+            member.user.tag
         );
       }
-
-
     } catch (error) {
-      console.log(Date(Date.now()).toString() + " [Event] guildMemberRemove : yousk2 :",error);
+      console.log(
+        Date(Date.now()).toString() + " [Event] guildMemberRemove : yousk2 :",
+        error
+      );
     }
   },
 };

@@ -28,16 +28,31 @@ module.exports = {
 		Variables
 	   ------------------------------------------------------------ */
     const MyWelcomeChannelID = guildProfile.guildJoinChannel;
+    if (!MyWelcomeChannelID) {
+      console.error(
+        Date(Date.now()).toString() +
+          ` [${member.guild.id}] No Joinning Channel configured.`
+      );
+      return;
+    }
     const MyRoleID00 = guildProfile.roleId00;
     const MyRoleID01 = guildProfile.roleId01;
     const MyRoleID02 = guildProfile.roleId02;
     const MyCustomWelcomeMessage = guildProfile.customWelcomeMessage;
     const welcomeChannel = client.channels.cache.get(`${MyWelcomeChannelID}`);
+    if (!welcomeChannel) {
+      console.error(
+        Date(Date.now()).toString() +
+          ` [${member.guild.id}] No Joinning Channel configured.`
+      );
+      return;
+    }
     const myGuildCountChannel = guildProfile.guildCountChannel;
     //const countChannelName = client.channels.cache.get(`1088547089807581204`); //=> brut version
     const countChannelName = client.channels.cache.get(
       `${myGuildCountChannel}`
     ); //=>DB version
+
     /* ------------------------------------------------------------
 		Canvas creation
 		ID :	canvas,ctx
@@ -136,7 +151,6 @@ module.exports = {
         embeds: [embed],
         files: [file],
       });
-      console.log("arrival message send ");
       /* ------------------------------------------------------------
               Add the role to the new member
               ID :	member,
