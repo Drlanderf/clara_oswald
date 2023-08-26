@@ -4,8 +4,8 @@
   "description": "<h1 align=center>🤖 Discord Bot 🤖</h1>\r <h3 align=\"center\">",
   "main": "src/index.js",
   "scripts": {
-    "start": "node ./src/index.js",
-    "test": "node ./src/index.js test",
+    "start": "node  --trace-deprecation ./src/index.js",
+    "test": "node  --trace-deprecation ./src/index.js test",
     "release": "dotenv release-it --"
   },
   "repository": {

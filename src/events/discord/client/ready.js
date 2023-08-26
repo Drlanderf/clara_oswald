@@ -20,8 +20,8 @@ module.exports = {
     await pickPresence(client);
     await loadComponents(client);
     /* ------------------------------------------------------------
-		Sync all member with the cache of the bot
-	   ------------------------------------------------------------ */
+                Sync all member with the cache of the bot
+           ------------------------------------------------------------ */
     client.guilds.cache.forEach((guild) => {
       guild.members
           .fetch()
@@ -40,8 +40,8 @@ module.exports = {
     //setInterval(() => checkVideoGaming(interaction, client), 60 * 1000);//to fix it
 
     /* ------------------------------------------------------------
-		All the distube events
-	   ------------------------------------------------------------ */
+                All the distube events
+           ------------------------------------------------------------ */
     const status = (queue) =>
         `Volume: \`${queue.volume}%\` \n Filter: \`${
             queue.filters.names.join(", ") || "Off"
@@ -52,8 +52,7 @@ module.exports = {
                     : "This Song"
                 : "Off"
         }\` \n Autoplay: \`${queue.autoplay ? "On" : "Off"}\``;
-    client.distube
-        .on("playSong", (queue, song) => {
+    client.distube.on("playSong", (queue, song) => {
           try {
             queue.textChannel.send({
               embeds: [
@@ -79,8 +78,8 @@ module.exports = {
           } catch (e) {
             console.log(e);
           }
-        })
-        .on("addSong", (queue, song) => {
+        });
+    client.distube.on("addSong", (queue, song) => {
           try {
             queue.textChannel.send({
               embeds: [
@@ -101,8 +100,8 @@ module.exports = {
           } catch (e) {
             console.log(e);
           }
-        })
-        .on("addList", (queue, playlist) => {
+        });
+    client.distube.on("addList", (queue, playlist) => {
           try {
             queue.textChannel.send({
               embeds: [
@@ -123,8 +122,8 @@ module.exports = {
           } catch (e) {
             console.log(e);
           }
-        })
-        .on("error", (channel, e) => {
+        });
+    client.distube.on("error", (channel, e) => {
           try {
             if (channel)
               channel.send(
@@ -134,8 +133,8 @@ module.exports = {
           } catch (e) {
             console.error(e);
           }
-        })
-        .on("empty", (queue) => {
+        });
+    client.distube.on("empty", (queue) => {
           try {
             queue.textChannel.send({
               embeds: [
@@ -149,8 +148,8 @@ module.exports = {
           } catch (e) {
             console.log(e);
           }
-        })
-        .on("searchNoResult", (message, query) => {
+        });
+    client.distube.on("searchNoResult", (message, query) => {
           try {
             message.channel.send({
               embeds: [
@@ -162,8 +161,8 @@ module.exports = {
           } catch (e) {
             console.log(e);
           }
-        })
-        .on("finish", (queue) => {
+        });
+    client.distube.on("finish", (queue) => {
           try {
             queue.textChannel.send({
               embeds: [
