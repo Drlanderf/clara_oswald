@@ -73,10 +73,7 @@ module.exports = {
       embed
         .setDescription(
           "Vous devez être dans un salon vocal pour utiliser cette commande."
-        )
-        .setFooter({
-          text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
-        });
+        );
       return interaction.reply({
         embeds: [embed],
         ephemeral: true,
@@ -95,10 +92,7 @@ module.exports = {
             value: `<#${guild.members.me.voice.channelId}>`,
             inline: true,
           },
-        ])
-        .setFooter({
-          text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
-        });
+        ]);
       return interaction.reply({
         embeds: [embed],
         ephemeral: true,
@@ -130,10 +124,7 @@ module.exports = {
             embed
               .setDescription(
                 "Aucune musique n'est en cours sur la piste de lecture."
-              )
-              .setFooter({
-                text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
-              });
+              );
             return await interaction.reply({
               embeds: [embed],
               ephemeral: true,
@@ -144,10 +135,7 @@ module.exports = {
               await queue.skip();
               embed
                 .setColor("Blue")
-                .setDescription("⏭️ La musique a été passée.")
-                .setFooter({
-                  text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
-                });
+                .setDescription("⏭️ La musique a été passée.");
               return await interaction.reply({
                 embeds: [embed],
                 ephemeral: true,
@@ -156,10 +144,7 @@ module.exports = {
               await queue.stop();
               embed
                 .setColor("Red")
-                .setTitle("⏹️ La piste de lecture a été arrêtée.")
-                .setFooter({
-                  text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
-                });
+                .setTitle("⏹️ La piste de lecture a été arrêtée.");
               return await interaction.reply({
                 embeds: [embed],
                 ephemeral: true,
@@ -168,10 +153,7 @@ module.exports = {
               await queue.pause();
               embed
                 .setColor("Orange")
-                .setTitle("⏸️ La musique a été mise en pause.")
-                .setFooter({
-                  text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
-                });
+                .setTitle("⏸️ La musique a été mise en pause.");
               return await interaction.reply({
                 embeds: [embed],
                 ephemeral: true,
@@ -180,10 +162,7 @@ module.exports = {
               await queue.resume();
               embed
                 .setColor("Green")
-                .setTitle("⏯️ La musique a été relancée.")
-                .setFooter({
-                  text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
-                });
+                .setTitle("⏯️ La musique a été relancée.");
               return await interaction.reply({
                 embeds: [embed],
                 ephemeral: true,
@@ -201,10 +180,7 @@ module.exports = {
                         song.formattedDuration
                       }\``
                   )}`
-                )
-                .setFooter({
-                  text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
-                });
+                );
               return await interaction.reply({
                 embeds: [embed],
               });
@@ -214,10 +190,7 @@ module.exports = {
       console.log(err);
       embed
         .setColor("Red")
-        .setTitle("⛔ | Quelque chose d'étrange s'est produit...")
-        .setFooter({
-          text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
-        });
+        .setTitle("⛔ | Quelque chose d'étrange s'est produit...");
       return interaction.reply({
         embeds: [embed],
         ephemeral: true,

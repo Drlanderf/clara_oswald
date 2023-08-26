@@ -28,6 +28,9 @@ module.exports = {
 		Variables
 	   ------------------------------------------------------------ */
     const MyWelcomeChannelID = guildProfile.guildJoinChannel;
+
+
+    const inviter = await client.users.fetch(invite.inviter.id);
     if (!MyWelcomeChannelID) {
       console.error(
         Date(Date.now()).toString() +
@@ -118,7 +121,7 @@ module.exports = {
       .addFields([
         {
           name: `:arrow_right: Invité par :`,
-          value: `WORK IN PROGRESS`, //=> TODO: add the inviter name
+          value: inviter ? inviter.tag : "Inconnu", //=> TODO: add the inviter name
           inline: true,
         },
         {
