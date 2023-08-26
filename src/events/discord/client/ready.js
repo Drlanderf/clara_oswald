@@ -73,10 +73,7 @@ module.exports = {
                         value: `${song.user}`,
                         inline: true,
                       },
-                    ])
-                    .setFooter({
-                      text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
-                    }),
+                    ]),
               ],
             });
           } catch (e) {
@@ -98,10 +95,7 @@ module.exports = {
                         value: `${song.user}`,
                         inline: true,
                       },
-                    ])
-                    .setFooter({
-                      text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
-                    }),
+                    ]),
               ],
             });
           } catch (e) {
@@ -123,10 +117,7 @@ module.exports = {
                         value: `${status(queue)}`,
                         inline: true,
                       },
-                    ])
-                    .setFooter({
-                      text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
-                    }),
+                    ]),
               ],
             });
           } catch (e) {
@@ -152,10 +143,7 @@ module.exports = {
                     .setColor("Red")
                     .setDescription(
                         "⛔ | Je me sens seul.e dans le salon vocal, je quitte le salon vocal..."
-                    )
-                    .setFooter({
-                      text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
-                    }),
+                    ),
               ],
             });
           } catch (e) {
@@ -168,10 +156,7 @@ module.exports = {
               embeds: [
                 new EmbedBuilder()
                     .setColor("Red")
-                    .setDescription(`⛔ | Aucun résultat trouvé pour : ${query}!`)
-                    .setFooter({
-                      text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
-                    }),
+                    .setDescription(`⛔ | Aucun résultat trouvé pour : ${query}!`),
               ],
             });
           } catch (e) {
@@ -184,10 +169,7 @@ module.exports = {
               embeds: [
                 new EmbedBuilder()
                     .setColor("Green")
-                    .setDescription("🏁 | Liste de lecture terminée!")
-                    .setFooter({
-                      text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
-                    }),
+                    .setDescription("🏁 | Liste de lecture terminée!"),
               ],
             });
           } catch (e) {
