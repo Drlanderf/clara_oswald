@@ -41,13 +41,13 @@
     "formidable": "^3.5.1",
     "gradient-string": "^2.0.2",
     "libsodium-wrappers": "^0.7.11",
-    "mongoose": "^6.7.1",
+    "mongoose": "^6.12.0",
     "node-superfetch": "^0.3.3",
-    "puppeteer": "^20.5.0",
-    "rss-parser": "^3.12.0",
+    "puppeteer": "^20.9.0",
+    "rss-parser": "^3.13.0",
     "superagent": "^8.1.2",
     "yt-search": "^2.10.4",
-    "ytdl-core": "^4.11.4"
+    "ytdl-core": "^4.11.5"
   },
   "devDependencies": {
     "@release-it/bumper": "^5.1.0",
