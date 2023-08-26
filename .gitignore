@@ -1,5 +1,4 @@
 # Project exclude paths
-/node_modules/
 .idea
 .release-it.json
 .prettierrc
