@@ -1,58 +1,37 @@
 {
   "name": "clara_oswald",
-  "version": "4.0.1-6",
-  "description": "<h1 align=center>🤖 Discord Bot 🤖</h1>\r <h3 align=\"center\">",
-  "main": "src/index.js",
+  "version": "1.0.0",
+  "description": "Basic discord bot",
+  "main": "./src/index.js",
   "scripts": {
-    "start": "node  --trace-deprecation ./src/index.js",
-    "test": "node  --trace-deprecation ./src/index.js test",
-    "release": "dotenv release-it --"
+    "test": "node ./src/index.js test"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Drlanderf/clara_oswald.git"
   },
-  "keywords": [],
-  "author": "landerf",
-  "license": "CC-BY-SA-4.0",
+  "author": "doc landerf",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Drlanderf/clara_oswald/issues"
   },
   "homepage": "https://github.com/Drlanderf/clara_oswald#readme",
   "dependencies": {
-    "@discord-player/extractor": "^4.2.2",
     "@discordjs/opus": "^0.9.0",
-    "@distube/spotify": "^1.5.1",
-    "@distube/ytdl-core": "^4.11.17",
-    "@napi-rs/canvas": "^0.1.30",
+    "@discordjs/voice": "^0.16.0",
+    "@napi-rs/canvas": "^0.1.44",
+    "@sapphire/shapeshift": "^3.9.2",
     "ascii-table": "^0.0.9",
-    "avconv": "^3.1.0",
-    "axios": "^1.4.0",
-    "canvas": "^2.10.2",
-    "chalk": "^4.1.2",
-    "chatgpt": "^5.2.5",
-    "discord-player": "^6.3.0",
-    "discord.js": "^14.11.0",
-    "distube": "^4.0.4",
-    "dotenv": "^16.0.3",
-    "ffmpeg": "^0.0.4",
-    "ffmpeg-static": "^5.1.0",
-    "figlet": "^1.6.0",
-    "formidable": "^3.5.1",
-    "gradient-string": "^2.0.2",
+    "discord.js": "^14.13.0",
+    "distube": "^4.0.6",
+    "dotenv": "^16.3.1",
+    "ffmpeg-static": "^5.2.0",
     "libsodium-wrappers": "^0.7.11",
-    "mongoose": "^6.12.0",
+    "lodash": "^4.17.21",
+    "mongoose": "^7.4.5",
     "node-superfetch": "^0.3.3",
-    "puppeteer": "^20.9.0",
     "rss-parser": "^3.13.0",
-    "superagent": "^8.1.2",
     "yt-search": "^2.10.4",
     "ytdl-core": "^4.11.5"
-  },
-  "devDependencies": {
-    "@release-it/bumper": "^5.1.0",
-    "@release-it/keep-a-changelog": "^4.0.0",
-    "dotenv-cli": "^6.0.0",
-    "prettier": "^2.7.1"
   }
 }

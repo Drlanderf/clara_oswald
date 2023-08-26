@@ -7,7 +7,7 @@ const activities = [
   //
   {
     type: 3,
-    text: "github.com/Drlanderf/clara_oswald",
+    text: "the tardis with admiration",
     status: "online",
   },
   {
@@ -17,7 +17,7 @@ const activities = [
   },
   {
     type: 0,
-    text: "chercher de nouvelles idées",
+    text: "save the doctor",
     status: "dnd",
   },
 ];
