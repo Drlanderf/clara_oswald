@@ -1,13 +1,13 @@
-FROM node:20
+FROM node:18-slim
 
 WORKDIR /app/
 
 COPY package*.json ./
 
+RUN npm install
+
 RUN apt-get update && apt-get install -y fontconfig
 
 COPY . .
 
-RUN npm i
-
-CMD rm -r node_modules ; npm i ; node src/index.js
+CMD ["node", "src/index.js"]

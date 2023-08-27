@@ -1,37 +1,49 @@
 {
   "name": "clara_oswald",
-  "version": "1.0.0",
-  "description": "Basic discord bot",
-  "main": "./src/index.js",
+  "version": "4.0.1-6",
+  "description": "<h1 align=center>🤖 Discord Bot 🤖</h1>\r <h3 align=\"center\">",
+  "main": "src/index.js",
   "scripts": {
-    "test": "node ./src/index.js test"
+    "start": "node ./src/index.js",
+    "test": "node ./src/index.js test",
+    "release": "dotenv release-it --"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Drlanderf/clara_oswald.git"
   },
-  "author": "doc landerf",
-  "license": "ISC",
+  "keywords": [],
+  "author": "landerf",
+  "license": "CC-BY-SA-4.0",
   "bugs": {
     "url": "https://github.com/Drlanderf/clara_oswald/issues"
   },
   "homepage": "https://github.com/Drlanderf/clara_oswald#readme",
   "dependencies": {
+    "@discord-player/extractor": "^4.2.2",
     "@discordjs/opus": "^0.9.0",
-    "@discordjs/voice": "^0.16.0",
-    "@napi-rs/canvas": "^0.1.44",
-    "@sapphire/shapeshift": "^3.9.2",
+    "@napi-rs/canvas": "^0.1.30",
     "ascii-table": "^0.0.9",
-    "discord.js": "^14.13.0",
+    "avconv": "^3.1.0",
+    "canvas": "^2.10.2",
+    "chalk": "^4.1.2",
+    "discord-player": "^6.3.0",
+    "discord.js": "^14.11.0",
     "distube": "^4.0.4",
-    "dotenv": "^16.3.1",
+    "dotenv": "^16.0.3",
+    "ffmpeg": "^0.0.4",
     "ffmpeg-static": "^5.1.0",
     "libsodium-wrappers": "^0.7.11",
-    "lodash": "^4.17.21",
-    "mongoose": "^7.4.5",
+    "mongoose": "^6.7.1",
     "node-superfetch": "^0.3.3",
-    "rss-parser": "^3.13.0",
+    "rss-parser": "^3.12.0",
     "yt-search": "^2.10.4",
     "ytdl-core": "^4.11.4"
+  },
+  "devDependencies": {
+    "@release-it/bumper": "^4.0.0",
+    "@release-it/keep-a-changelog": "^3.1.0",
+    "dotenv-cli": "^6.0.0",
+    "prettier": "^2.7.1"
   }
 }

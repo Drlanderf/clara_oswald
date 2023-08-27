@@ -1,6 +1,7 @@
+const chalk = require("chalk");
 module.exports = {
   name: "connected",
   execute() {
-    console.log("[Database Status]: Connected.");
+    console.log(chalk.bgGreen("[Database Status]: Connected."));
   },
 };

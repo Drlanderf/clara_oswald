@@ -5,6 +5,7 @@ const { connect } = require("mongoose");
 const { loadEvents } = require("./functions/handlers/handleEvents");
 const { DisTube } = require('distube')
 
+
 const client = new Client({
   intents: [process.argv[3] ? 3276799 : 531,`GuildVoiceStates`]
 }); // => That will include ALL the intents - though
