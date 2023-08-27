@@ -75,7 +75,7 @@ module.exports = {
           "Vous devez être dans un salon vocal pour utiliser cette commande."
         )
         .setFooter({
-          text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+          text: `Powered by Distube`,
         });
       return interaction.reply({
         embeds: [embed],
@@ -97,7 +97,7 @@ module.exports = {
           },
         ])
         .setFooter({
-          text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+          text: `Powered by Distube`,
         });
       return interaction.reply({
         embeds: [embed],
@@ -132,7 +132,7 @@ module.exports = {
                 "Aucune musique n'est en cours sur la piste de lecture."
               )
               .setFooter({
-                text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+                text: `Powered by Distube`,
               });
             return await interaction.reply({
               embeds: [embed],
@@ -146,7 +146,7 @@ module.exports = {
                 .setColor("Blue")
                 .setDescription("⏭️ La musique a été passée.")
                 .setFooter({
-                  text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+                  text: `Powered by Distube`,
                 });
               return await interaction.reply({
                 embeds: [embed],
@@ -158,7 +158,7 @@ module.exports = {
                 .setColor("Red")
                 .setTitle("⏹️ La piste de lecture a été arrêtée.")
                 .setFooter({
-                  text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+                  text: `Powered by Distube`,
                 });
               return await interaction.reply({
                 embeds: [embed],
@@ -170,7 +170,7 @@ module.exports = {
                 .setColor("Orange")
                 .setTitle("⏸️ La musique a été mise en pause.")
                 .setFooter({
-                  text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+                  text: `Powered by Distube`,
                 });
               return await interaction.reply({
                 embeds: [embed],
@@ -182,7 +182,7 @@ module.exports = {
                 .setColor("Green")
                 .setTitle("⏯️ La musique a été relancée.")
                 .setFooter({
-                  text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+                  text: `Powered by Distube`,
                 });
               return await interaction.reply({
                 embeds: [embed],
@@ -203,7 +203,7 @@ module.exports = {
                   )}`
                 )
                 .setFooter({
-                  text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+                  text: `Powered by Distube`,
                 });
               return await interaction.reply({
                 embeds: [embed],
@@ -216,7 +216,7 @@ module.exports = {
         .setColor("Red")
         .setTitle("⛔ | Quelque chose d'étrange s'est produit...")
         .setFooter({
-          text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+          text: `Powered by Distube`,
         });
       return interaction.reply({
         embeds: [embed],

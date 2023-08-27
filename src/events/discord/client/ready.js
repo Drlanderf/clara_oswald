@@ -75,7 +75,7 @@ module.exports = {
                   },
                 ])
                 .setFooter({
-                  text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+                  text: `Powered by Distube`,
                 }),
             ],
           });
@@ -100,7 +100,7 @@ module.exports = {
                   },
                 ])
                 .setFooter({
-                  text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+                  text: `Powered by Distube`,
                 }),
             ],
           });
@@ -125,7 +125,7 @@ module.exports = {
                   },
                 ])
                 .setFooter({
-                  text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+                  text: `Powered by Distube`,
                 }),
             ],
           });
@@ -154,7 +154,7 @@ module.exports = {
                   "⛔ | Je me sens seul.e dans le salon vocal, je quitte le salon vocal..."
                 )
                 .setFooter({
-                  text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+                  text: `Powered by Distube`,
                 }),
             ],
           });
@@ -170,7 +170,7 @@ module.exports = {
                 .setColor("Red")
                 .setDescription(`⛔ | Aucun résultat trouvé pour : ${query}!`)
                 .setFooter({
-                  text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+                  text: `Powered by Distube`,
                 }),
             ],
           });
@@ -186,7 +186,7 @@ module.exports = {
                 .setColor("Green")
                 .setDescription("🏁 | Liste de lecture terminée!")
                 .setFooter({
-                  text: `Powered by Distube \nUpdated by Doc_Landerf \n© Doc_Landerf all rights reserved`,
+                  text: `Powered by Distube`,
                 }),
             ],
           });
