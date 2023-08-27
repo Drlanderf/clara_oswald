@@ -4,6 +4,7 @@ const { Client, Collection } = require("discord.js");
 const { connect } = require("mongoose");
 const { loadEvents } = require("./functions/handlers/handleEvents");
 const { DisTube } = require('distube')
+const {SpotifyPlugin} = require("@distube/spotify");
 
 
 const client = new Client({
@@ -21,6 +22,7 @@ client.distube = new DisTube(client, {
   emitNewSongOnly: true,
   leaveOnFinish: true,
   emitAddSongWhenCreatingQueue: false,
+  plugins: [new SpotifyPlugin()],
 });
 
 

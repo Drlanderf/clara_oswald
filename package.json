@@ -22,6 +22,7 @@
   "dependencies": {
     "@discord-player/extractor": "^4.2.2",
     "@discordjs/opus": "^0.9.0",
+    "@distube/spotify": "^1.5.1",
     "@napi-rs/canvas": "^0.1.30",
     "ascii-table": "^0.0.9",
     "avconv": "^3.1.0",
