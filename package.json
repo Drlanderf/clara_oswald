@@ -5,8 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node ./src/index.js",
-    "test": "node ./src/index.js test",
-    "release": "dotenv release-it --"
+    "test": "node ./src/index.js test"
   },
   "repository": {
     "type": "git",
@@ -20,31 +19,27 @@
   },
   "homepage": "https://github.com/Drlanderf/clara_oswald#readme",
   "dependencies": {
-    "@discord-player/extractor": "^4.2.2",
+    "@discord-player/extractor": "^4.4.1",
     "@discordjs/opus": "^0.9.0",
-    "@distube/spotify": "^1.5.1",
-    "@napi-rs/canvas": "^0.1.30",
+    "@napi-rs/canvas": "^0.1.44",
     "ascii-table": "^0.0.9",
     "avconv": "^3.1.0",
-    "canvas": "^2.10.2",
     "chalk": "^4.1.2",
-    "discord-player": "^6.3.0",
-    "discord.js": "^14.11.0",
-    "distube": "^4.0.4",
-    "dotenv": "^16.0.3",
+    "discord-player": "^6.6.2",
+    "discord.js": "^14.13.0",
+    "distube": "^4.0.6",
+    "dotenv": "^16.3.1",
     "ffmpeg": "^0.0.4",
-    "ffmpeg-static": "^5.1.0",
+    "ffmpeg-static": "^5.2.0",
     "libsodium-wrappers": "^0.7.11",
-    "mongoose": "^6.7.1",
+    "mongoose": "^6.12.0",
     "node-superfetch": "^0.3.3",
-    "rss-parser": "^3.12.0",
+    "rss-parser": "^3.13.0",
     "yt-search": "^2.10.4",
-    "ytdl-core": "^4.11.4"
+    "ytdl-core": "^4.11.5"
   },
   "devDependencies": {
-    "@release-it/bumper": "^4.0.0",
-    "@release-it/keep-a-changelog": "^3.1.0",
     "dotenv-cli": "^6.0.0",
-    "prettier": "^2.7.1"
+    "prettier": "^2.8.8"
   }
 }

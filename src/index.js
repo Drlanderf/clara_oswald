@@ -1,11 +1,9 @@
 require("dotenv").config({ path: `${__dirname}/../.env` });
 const { BOT_TOKEN, DATABASE_TOKEN } = process.env;
 const { Client, Collection } = require("discord.js");
-const { connect } = require("mongoose");
+const { connect,mongoose } = require("mongoose");
 const { loadEvents } = require("./functions/handlers/handleEvents");
 const { DisTube } = require('distube')
-const {SpotifyPlugin} = require("@distube/spotify");
-
 
 const client = new Client({
   intents: [process.argv[3] ? 3276799 : 531,`GuildVoiceStates`]
@@ -22,16 +20,20 @@ client.distube = new DisTube(client, {
   emitNewSongOnly: true,
   leaveOnFinish: true,
   emitAddSongWhenCreatingQueue: false,
-  plugins: [new SpotifyPlugin()],
 });
 
 
 
 (async () => {
   try {
-    loadEvents(client);
+    mongoose.set('strictQuery', false);
+    loadEvents(client).catch((eventsError)=>{
+      console.error(eventsError);
+    });
     connect(DATABASE_TOKEN);
-    client.login(BOT_TOKEN);
+    client.login(BOT_TOKEN).catch((tokenError)=>{
+      console.error(tokenError);
+    });
   } catch (e) {
     console.error(e);
   }
