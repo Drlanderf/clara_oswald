@@ -73,7 +73,7 @@
 <tr>
 <td><img src="https://img.youtube.com/vi/3coo6NVhHLY/default.jpg"></img></td>
 <td>
-<a href="https://www.youtube.com/watch?v=3coo6NVhHLY">Faire son bot discord, préparation de l&#39;environnement de travail #00 || Discord.JS v14</a> (11 months ago) <br/>
+<a href="https://www.youtube.com/watch?v=3coo6NVhHLY">Faire son bot discord, préparation de l&#39;environnement de travail #00 || Discord.JS v14</a> (1 year ago) <br/>
 <img src="https://img.shields.io/youtube/views/3coo6NVhHLY?style=flat-square"> </img>
 </td>
 </tr>
