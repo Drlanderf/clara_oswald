@@ -3,6 +3,7 @@ const {
   Client,
   InteractionType,
 } = require("discord.js");
+const { sendInteractionLog } = require("../../../functions/tools/sendInteractionLog");
 module.exports = {
   name: "interactionCreate",
   /**
@@ -18,6 +19,7 @@ module.exports = {
       if (!command) return;
       try {
         await command.execute(interaction, client);
+        await sendInteractionLog(commandName, 'Command was invoked!', client)
       } catch (error) {
         console.error(error);
         let pick = 0;
@@ -35,6 +37,7 @@ module.exports = {
       if (!button) return new Error(`There is no code for this button`);
       try {
         await button.execute(interaction, client);
+        await sendInteractionLog(customId, 'Button was clicked!', client)
       } catch (err) {
         console.error(err);
       }
@@ -45,6 +48,7 @@ module.exports = {
       if (!modal) return new Error(`There is no code for this modal`);
       try {
         await modal.execute(interaction, client);
+        await sendInteractionLog(customId, 'Modal was submitted!', client)
       } catch (err) {
         console.error(err);
       }
