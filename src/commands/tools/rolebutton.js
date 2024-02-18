@@ -41,16 +41,30 @@ module.exports = {
       .setCustomId(`clan`)
       .setEmoji("♦")
       .setStyle(`Secondary`);
+
+    const buttonSAB = new ButtonBuilder()
+        .setCustomId(`sab`)
+          .setEmoji("☠️")
+          .setStyle(`Secondary`);
+
+    const buttonCrossout = new ButtonBuilder()
+          .setCustomId(`crossout`)
+          .setEmoji("🚗")
+          .setStyle(`Secondary`);
     /**************************************************************************/
     //Setting up the rows
     const row1 = new ActionRowBuilder()
       .addComponents(buttonYt)
       .addComponents(buttonTwitch)
-      .addComponents(buttonArtiste);
+      ;
     const row2 = new ActionRowBuilder()
       .addComponents(buttonGames)
       .addComponents(buttonTech)
-      .addComponents(buttonClan);
+        .addComponents(buttonArtiste);
+      const row3 = new ActionRowBuilder()
+          .addComponents(buttonClan)
+          .addComponents(buttonSAB)
+          .addComponents(buttonCrossout);
     /**************************************************************************/
     //Setting up the custom embed !
     let embed = new EmbedBuilder()
@@ -82,16 +96,26 @@ module.exports = {
           inline: true,
         },
         {
-          name: `♦ Clan Warframe`,
-          value: `Tu fais parti du clan Warframe?\nAlors tag toi avec ce rôle !\nPermet de suivre les news du clan!`,
+          name: `♦ Warframe`,
+          value: `Tu joues à Warframe?\nPermet l'accès aux salons Warframe\n*Nécéssite le tag games.*`,
           inline: true,
         },
+          {
+              name: `☠️ Skull and bones`,
+              value: `Tu joues à Skull and Bones?\nPermet l'accès aux salons SAB\n*Nécéssite le tag games.*`,
+              inline: true,
+          },
+          {
+              name: `🚗 Crossout`,
+              value: `Tu joues à Crossout?\nPermet l'accès aux salons Crossout\n*Nécéssite le tag games.*`,
+              inline: true,
+          },
       ])
       .setColor("DarkButNotBlack");
     /**************************************************************************/
     //Sending the message
     interaction.channel.send({
-      components: [row1, row2],
+      components: [row1, row2, row3],
       embeds: [embed],
     });
     interaction.reply({
