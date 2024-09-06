@@ -23,7 +23,7 @@ const { SpotifyPlugin } = require('@distube/spotify');
 const { SoundCloudPlugin } = require('@distube/soundcloud');
 const { YouTubePlugin } = require('@distube/youtube');
 client.distube = new DisTube(client, {
-  plugins: [new SoundCloudPlugin(), new SpotifyPlugin({emitEventsAfterFetching: true}),new YouTubePlugin()]
+  plugins: [new SoundCloudPlugin(),new SpotifyPlugin(),new YouTubePlugin()]
 });
 
 
