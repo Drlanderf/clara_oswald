@@ -40,7 +40,6 @@
     "rss-parser": "^3.13.0"
   },
   "devDependencies": {
-    "dotenv-cli": "^6.0.0",
-    "prettier": "^2.8.8"
+    "dotenv-cli": "^6.0.0"
   }
 }
