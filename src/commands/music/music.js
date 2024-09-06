@@ -70,70 +70,31 @@ module.exports = {
     if (!voiceChannel) {
       embed.setColor("Red");
       embed.setTitle("⛔ Erreur");
-      embed
-        .setDescription(
-          "Vous devez être dans un salon vocal pour utiliser cette commande."
-        )
-        .setFooter({
-          text: `Powered by Distube`,
-        });
-      return interaction.reply({
-        embeds: [embed],
-        ephemeral: true,
-      });
+      embed.setDescription("Vous devez être dans un salon vocal pour utiliser cette commande.");
+      return interaction.reply({embeds: [embed], ephemeral: true,});
     }
     if (!member.voice.channelId === guild.members.me.voice.channelId) {
       embed.setColor("Yellow");
       embed.setTitle("⚠️ Attention");
-      embed.setDescription(
-        "Vous devez être dans le même salon vocal que moi pour utiliser cette commande."
-      );
-      embed
-        .addFields([
-          {
-            name: `Salon vocal actuel :`,
-            value: `<#${guild.members.me.voice.channelId}>`,
-            inline: true,
-          },
-        ])
-        .setFooter({
-          text: `Powered by Distube`,
-        });
-      return interaction.reply({
-        embeds: [embed],
-        ephemeral: true,
-      });
+      embed.setDescription("Vous devez être dans le même salon vocal que moi pour utiliser cette commande.");
+      embed.addFields([{name: `Salon vocal actuel :`, value: `<#${guild.members.me.voice.channelId}>`, inline: true,},]);
+      return interaction.reply({embeds: [embed], ephemeral: true,});
     }
 
     try {
       switch (subcommand) {
         case "play":
-          client.distube.play(voiceChannel, query, {
-            textChannel: channel,
-            member: member,
-          });
-          return await interaction.reply({
-            content: "⏱️ Recherche en cours...",
-            ephemeral: true,
-          });
+          client.distube.play(voiceChannel, query, {textChannel: channel, member: member,});
+          return await interaction.reply({content: "⏱️ Recherche en cours...", ephemeral: true,});
         case "volume":
           client.distube.setVolume(voiceChannel, volume);
-          return await interaction.reply({
-            content: `🔊 Le volume a été réglé à ${volume}%`,
-            ephemeral: true,
-          });
+          return await interaction.reply({content: `🔊 Le volume a été réglé à ${volume}%`, ephemeral: true,});
         case "settings":
           const queue = await client.distube.getQueue(voiceChannel);
           if (!queue) {
             embed.setColor("Red");
             embed.setTitle("⛔ Erreur");
-            embed
-              .setDescription(
-                "Aucune musique n'est en cours sur la piste de lecture."
-              )
-              .setFooter({
-                text: `Powered by Distube`,
-              });
+            embed.setDescription("Aucune musique n'est en cours sur la piste de lecture.");
             return await interaction.reply({
               embeds: [embed],
               ephemeral: true,
@@ -142,69 +103,28 @@ module.exports = {
           switch (option) {
             case "skip":
               await queue.skip();
-              embed
-                .setColor("Blue")
-                .setDescription("⏭️ La musique a été passée.")
-                .setFooter({
-                  text: `Powered by Distube`,
-                });
-              return await interaction.reply({
-                embeds: [embed],
-                ephemeral: true,
-              });
+              embed.setColor("Blue")
+                   .setDescription("⏭️ La musique a été passée.");
+              return await interaction.reply({embeds: [embed], ephemeral: true,});
             case "stop":
               await queue.stop();
-              embed
-                .setColor("Red")
-                .setTitle("⏹️ La piste de lecture a été arrêtée.")
-                .setFooter({
-                  text: `Powered by Distube`,
-                });
-              return await interaction.reply({
-                embeds: [embed],
-                ephemeral: true,
-              });
+              embed.setColor("Red")
+                   .setTitle("⏹️ La piste de lecture a été arrêtée.");
+              return await interaction.reply({embeds: [embed], ephemeral: true,});
             case "pause":
               await queue.pause();
-              embed
-                .setColor("Orange")
-                .setTitle("⏸️ La musique a été mise en pause.")
-                .setFooter({
-                  text: `Powered by Distube`,
-                });
-              return await interaction.reply({
-                embeds: [embed],
-                ephemeral: true,
-              });
+              embed.setColor("Orange")
+                   .setTitle("⏸️ La musique a été mise en pause.");
+              return await interaction.reply({embeds: [embed], ephemeral: true,});
             case "resume":
               await queue.resume();
-              embed
-                .setColor("Green")
-                .setTitle("⏯️ La musique a été relancée.")
-                .setFooter({
-                  text: `Powered by Distube`,
-                });
-              return await interaction.reply({
-                embeds: [embed],
-                ephemeral: true,
-              });
+              embed.setColor("Green")
+                   .setTitle("⏯️ La musique a été relancée.");
+              return await interaction.reply({embeds: [embed], ephemeral: true,});
             case "queue":
-              embed
-                .setColor("Purple")
-                .setTitle(
-                  "📜 Voici la liste des musiques en cours de lecture :"
-                )
-                .setDescription(
-                  `${queue.songs.map(
-                    (song, id) =>
-                      `\n**${id + 1}.** ${song.name} -\`${
-                        song.formattedDuration
-                      }\``
-                  )}`
-                )
-                .setFooter({
-                  text: `Powered by Distube`,
-                });
+              embed.setColor("Purple")
+                   .setTitle("📜 Voici la liste des musiques en cours de lecture :")
+                   .setDescription(`${queue.songs.map((song, id) => `\n**${id + 1}.** ${song.name} -\`${song.formattedDuration}\``)}`);
               return await interaction.reply({
                 embeds: [embed],
               });
@@ -212,16 +132,9 @@ module.exports = {
       }
     } catch (err) {
       console.log(err);
-      embed
-        .setColor("Red")
-        .setTitle("⛔ | Quelque chose d'étrange s'est produit...")
-        .setFooter({
-          text: `Powered by Distube`,
-        });
-      return interaction.reply({
-        embeds: [embed],
-        ephemeral: true,
-      });
+      embed.setColor("Red")
+           .setTitle("⛔ | Quelque chose d'étrange s'est produit...");
+      return interaction.reply({embeds: [embed], ephemeral: true,});
     }
   },
 };
