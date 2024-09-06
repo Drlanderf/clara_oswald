@@ -19,11 +19,11 @@ client.modals = new Collection();
 
 // Music system :
 const { DisTube } = require('distube');
-const { SpotifyPlugin } = require('@distube/spotify');
-const { SoundCloudPlugin } = require('@distube/soundcloud');
+/*const { SpotifyPlugin } = require('@distube/spotify');
+const { SoundCloudPlugin } = require('@distube/soundcloud');*/
 const { YouTubePlugin } = require('@distube/youtube');
 client.distube = new DisTube(client, {
-  plugins: [new SoundCloudPlugin(),new SpotifyPlugin(),new YouTubePlugin()]
+  plugins: [/*new SoundCloudPlugin(),new SpotifyPlugin(),*/new YouTubePlugin()]
 });
 
 

@@ -19,25 +19,21 @@
   },
   "homepage": "https://github.com/Drlanderf/clara_oswald#readme",
   "dependencies": {
-    "@discord-player/extractor": "^4.5.1",
-    "@discordjs/opus": "^0.9.0",
-    "@distube/soundcloud": "^0.1.2",
-    "@distube/spotify": "^0.1.0",
+    "@discordjs/voice": "^0.17.0",
+    "@discordjs/opus": "^0.8.0",
     "@distube/youtube": "^1.0.4",
-    "@distube/ytdl-core": "^4.14.4",
-    "@distube/ytsr": "^2.0.4",
-    "@napi-rs/canvas": "^0.1.44",
+    "@napi-rs/canvas": "^0.1.55",
     "ascii-table": "^0.0.9",
     "avconv": "^3.1.0",
     "chalk": "^4.1.2",
-    "discord-player": "^6.6.2",
     "discord.js": "^14.13.0",
-    "distube": "^2.8.18",
+    "distube": "^5.0.2",
     "dotenv": "^16.3.1",
     "libsodium-wrappers": "^0.7.11",
     "mongoose": "^6.12.0",
     "node-superfetch": "^0.3.3",
-    "rss-parser": "^3.13.0"
+    "rss-parser": "^3.13.0",
+    "sodium-native": "^4.1.1"
   },
   "devDependencies": {
     "dotenv-cli": "^6.0.0"
