@@ -53,10 +53,10 @@
   - [X] Youtube new Video notification
   - [X] Twitch Live notification
   - [X] Dockerfile create .env from .env.example
-  - [X] Bot auto log message create *(exept from bot)*
-  - [ ] Bot auto log message modify *(exept from bot)*
-  - [ ] Bot auto log message delete *(exept from bot)*
-  - [ ] Bot auto log interaction/command used *(exept from bot)*
+  - [ ] Bot auto log message create *(exept from bot)*
+  - [X] Bot auto log message modify *(exept from bot)*
+  - [X] Bot auto log message delete *(exept from bot)*
+  - [X] Bot auto log interaction/command used *(exept from bot)*
   - [ ] Twitter notification
   - [ ] Tracking invite creator number member coming by
   - [ ] Tracking number of member on discord *(put in a channel name)*
