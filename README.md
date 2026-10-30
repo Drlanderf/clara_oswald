@@ -1,3 +1,11 @@
+## ⚠️ **Repository Status**
+
+ This project is no longer maintained and will not receive any further updates or development.
+
+ Development has been discontinued in favor of a new project: [**DiscordBot-Botpy**](https://github.com/Drlanderf/DiscordBot-Botpy), which serves as its successor.
+
+ Please refer to the new repository for ongoing development and future updates.
+
 <h1 align=center>🤖 Discord Bot 🤖</h1>
 <h3 align="center">
 
